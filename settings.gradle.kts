@@ -13,7 +13,7 @@ dependencyResolutionManagement {
 rootProject.name = "Flowtune"
 include(":app")
 include(":flowtube")
-include(":providers:kugou")
-include(":providers:lrclib")
-include(":providers:material-color-utilities")
-include(":providers:kizzy")
+include(":kugou")
+include(":lrclib")
+include(":material-color-utilities")
+include(":kizzy")
