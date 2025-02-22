@@ -106,7 +106,7 @@ dependencies {
 
     implementation(libs.material3)
     implementation(libs.palette)
-    implementation(projects(":providers:materialColorUtilities"))
+    implementation(projects.materialColorUtilities)
 
     implementation(libs.accompanist.swiperefresh)
 
@@ -129,9 +129,9 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(projects.flowtube)
-    implementation(projects(":providers:kugou"))
-    implementation(projects(":providers:lrclib"))
-    implementation(projects.(":providers:kizzy"))
+    implementation(projects.kugou)
+    implementation(projects.lrclib)
+    implementation(projects.kizzy)
 
     implementation(libs.ktor.client.core)
 
