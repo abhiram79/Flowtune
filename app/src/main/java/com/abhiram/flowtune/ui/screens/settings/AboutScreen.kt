@@ -143,7 +143,7 @@ fun AboutScreen(
         Row(
     modifier = Modifier
         .padding(top = 16.dp)
-        .clickable { uriHandler.openUri("https://github.com/abhiram79/Flowtune/releases") },
+        .clickable { uriHandler.openUri("https://abhiram79.github.io/Flowtune/versions/1.2.html") },
     verticalAlignment = Alignment.CenterVertically
 ) {
     Icon(
