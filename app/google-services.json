@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "292253475853",
+    "project_id": "flowtune-838ab",
+    "storage_bucket": "flowtune-838ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292253475853:android:f71ab0e47f9a2b7f45a144",
+        "android_client_info": {
+          "package_name": "com.abhiram.flowtune"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASX-HMO8FZGCe7yDqIGyIZDM05N58Ti60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292253475853:android:0db896f8bda6fc5045a144",
+        "android_client_info": {
+          "package_name": "com.abhiram.flowtune.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASX-HMO8FZGCe7yDqIGyIZDM05N58Ti60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
