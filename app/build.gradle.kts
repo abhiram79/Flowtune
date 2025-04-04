@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.compose.compiler)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -86,6 +87,7 @@ dependencies {
     implementation(libs.guava)
     implementation(libs.coroutines.guava)
     implementation(libs.concurrent.futures)
+    implementation("com.google.firebase:firebase-messaging-ktx:23.3.1") 
 
     implementation(libs.activity)
     implementation(libs.navigation)
