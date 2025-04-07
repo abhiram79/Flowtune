@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flowtune - No Updates Available</title>
+    <title>Flowtune - Update Available</title>
 
     <!-- Google Fonts & Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
             --surface: #1E1E1E;
             --on-surface: #FFFFFF;
             --outline: #5A5A5A;
+            --button-hover: #00E060;
         }
 
         body {
@@ -62,7 +63,7 @@
 
         p {
             font-size: 16px;
-            margin: 8px 0 0;
+            margin: 8px 0 16px;
             color: var(--on-surface);
         }
 
@@ -73,6 +74,27 @@
             width: 80%;
             opacity: 0;
             animation: fadeIn 0.8s ease-in-out 0.4s forwards;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--on-surface);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 200, 83, 0.3);
+            animation: glow 1.5s infinite alternate ease-in-out;
+        }
+
+        .download-btn:hover {
+            background-color: var(--button-hover);
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 200, 83, 0.5);
         }
 
         /* Animations */
@@ -104,16 +126,26 @@
                 transform: scale(1.1);
             }
         }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 4px 10px rgba(0, 200, 83, 0.3);
+            }
+            to {
+                box-shadow: 0 6px 14px rgba(0, 200, 83, 0.6);
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <span class="material-symbols-outlined icon">update</span>
+        <span class="material-symbols-outlined icon">system_update</span>
         <h1>Flowtune</h1>
         <div class="divider"></div>
-        <p>No updates available.</p>
-        <p>You are on the latest version.</p>
+        <p>Update available!</p>
+        <p>Click below to download the latest version.</p>
+        <a href="https://your-download-link.com" class="download-btn">Download Update</a>
     </div>
 
 </body>
