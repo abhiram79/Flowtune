@@ -12,7 +12,7 @@ object Updater {
 
     suspend fun getLatestVersionName(): Result<String> =
         runCatching {
-            val response = client.get("https://api.github.com/repos/abhiram79/Flowtune/releases/latest").bodyAsText()
+            val response = client.get("").bodyAsText()
             val json = JSONObject(response)
             val versionName = json.getString("tag_name")
             lastCheckTime = System.currentTimeMillis()
