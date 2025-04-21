@@ -28,6 +28,8 @@
 
 ## Disclaimer
 
+This project is created as a hobby and for learning purposes only. Since it's a personal project, updates may not be consistent and will depend on my available time.
+
 This project and its contents are not affiliated with, funded, authorized, endorsed by, or in any
 way associated with YouTube, Google LLC or any of its affiliates and subsidiaries.
 
@@ -40,3 +42,4 @@ are owned by the respective owners.
 I want to give credit to [vfsfitvnm/ViMusic](https://github.com/vfsfitvnm/ViMusic) for being an
 example of Jetpack Compose music player. It helped me a lot on my way to learn Compose and
 Android development.
+Also Special Thanks to [z-haung](https://github.com/z-huang) for [InnerTune](https://github.com/z-huang/InnerTune) as i used this as a base of my project
