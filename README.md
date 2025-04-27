@@ -26,6 +26,17 @@
 ***unless*** you have a proxy or VPN to connect to a YTM supported region.
 <br>
 
+## Build From Source
+
+- Open in Android Studio or Build From CLI
+```bash
+git clone https://github.com/abhiram79/Flowtune.git
+cd Flowtune
+./gradlew assembleDebug
+```
+- Change The Google-service.json from in /app/google-xxxxx.json To your own For push notifications
+- Sign using your Keystore For Release builds
+
 ## Disclaimer
 
 This project is created as a hobby and for learning purposes only. Since it's a personal project, updates may not be consistent and will depend on my available time.
