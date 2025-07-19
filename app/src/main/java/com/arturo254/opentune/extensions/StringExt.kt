@@ -1,4 +1,4 @@
-package com.arturo254.opentune.extensions
+package com.abhiram.flowtune.extensions
 
 import androidx.sqlite.db.SimpleSQLiteQuery
 import java.net.InetSocketAddress

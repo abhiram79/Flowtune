@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.settings
+package com.abhiram.flowtune.ui.screens.settings
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
@@ -61,18 +61,18 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.imageLoader
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.MaxImageCacheSizeKey
-import com.arturo254.opentune.constants.MaxSongCacheSizeKey
-import com.arturo254.opentune.extensions.tryOrNull
-import com.arturo254.opentune.ui.component.AnimatedIconButton
-import com.arturo254.opentune.ui.component.EnhancedListPreference
-import com.arturo254.opentune.ui.component.EnhancedPreferenceEntry
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.ui.utils.formatFileSize
-import com.arturo254.opentune.utils.rememberPreference
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.MaxImageCacheSizeKey
+import com.abhiram.flowtune.constants.MaxSongCacheSizeKey
+import com.abhiram.flowtune.extensions.tryOrNull
+import com.abhiram.flowtune.ui.component.AnimatedIconButton
+import com.abhiram.flowtune.ui.component.EnhancedListPreference
+import com.abhiram.flowtune.ui.component.EnhancedPreferenceEntry
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.ui.utils.formatFileSize
+import com.abhiram.flowtune.utils.rememberPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive

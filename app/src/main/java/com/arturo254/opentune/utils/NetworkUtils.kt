@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils
+package com.abhiram.flowtune.utils
 
 import android.content.Context
 import android.net.ConnectivityManager

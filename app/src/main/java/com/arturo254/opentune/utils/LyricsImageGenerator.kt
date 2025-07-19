@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils
+package com.abhiram.flowtune.utils
 
 import android.content.ContentValues
 import android.content.Context
@@ -26,7 +26,7 @@ import androidx.core.graphics.withClip
 import androidx.core.graphics.withTranslation
 import coil.ImageLoader
 import coil.request.ImageRequest
-import com.arturo254.opentune.R
+import com.abhiram.flowtune.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File

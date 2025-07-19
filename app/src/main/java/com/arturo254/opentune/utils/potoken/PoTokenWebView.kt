@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils.potoken
+package com.abhiram.flowtune.utils.potoken
 
 import android.content.Context
 import android.util.Log
@@ -9,7 +9,7 @@ import android.webkit.WebView
 import androidx.annotation.MainThread
 import androidx.collection.ArrayMap
 import com.arturo254.innertube.YouTube
-import com.arturo254.opentune.BuildConfig
+import com.abhiram.flowtune.BuildConfig
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope

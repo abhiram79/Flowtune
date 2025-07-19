@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.settings
+package com.abhiram.flowtune.ui.screens.settings
 
 import android.annotation.SuppressLint
 import android.app.DownloadManager
@@ -77,16 +77,16 @@ import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.arturo254.innertube.utils.parseCookieString
-import com.arturo254.opentune.BuildConfig
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.AccountNameKey
-import com.arturo254.opentune.constants.InnerTubeCookieKey
-import com.arturo254.opentune.ui.component.ChangelogButton
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.PreferenceEntry
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.utils.rememberPreference
+import com.abhiram.flowtune.BuildConfig
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.AccountNameKey
+import com.abhiram.flowtune.constants.InnerTubeCookieKey
+import com.abhiram.flowtune.ui.component.ChangelogButton
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.PreferenceEntry
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.utils.rememberPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

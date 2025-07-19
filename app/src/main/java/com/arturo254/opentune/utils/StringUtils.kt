@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils
+package com.abhiram.flowtune.utils
 
 import java.math.BigInteger
 import java.security.MessageDigest

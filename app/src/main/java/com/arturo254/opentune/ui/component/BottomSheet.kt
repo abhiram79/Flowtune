@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.Animatable
@@ -45,7 +45,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
-import com.arturo254.opentune.constants.NavigationBarAnimationSpec
+import com.abhiram.flowtune.constants.NavigationBarAnimationSpec
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

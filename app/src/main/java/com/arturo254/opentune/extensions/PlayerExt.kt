@@ -1,4 +1,4 @@
-package com.arturo254.opentune.extensions
+package com.abhiram.flowtune.extensions
 
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
@@ -7,7 +7,7 @@ import androidx.media3.common.Player.REPEAT_MODE_ALL
 import androidx.media3.common.Player.REPEAT_MODE_OFF
 import androidx.media3.common.Player.REPEAT_MODE_ONE
 import androidx.media3.common.Timeline
-import com.arturo254.opentune.models.MediaMetadata
+import com.abhiram.flowtune.models.MediaMetadata
 import java.util.ArrayDeque
 
 fun Player.togglePlayPause() {

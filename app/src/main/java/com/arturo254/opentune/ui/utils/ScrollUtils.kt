@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.utils
+package com.abhiram.flowtune.ui.utils
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.lazy.LazyListState

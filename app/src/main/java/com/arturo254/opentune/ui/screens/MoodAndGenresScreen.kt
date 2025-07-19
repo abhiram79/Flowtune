@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens
+package com.abhiram.flowtune.ui.screens
 
 import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import androidx.compose.foundation.background
@@ -31,14 +31,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.R
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.NavigationTitle
-import com.arturo254.opentune.ui.component.shimmer.ListItemPlaceHolder
-import com.arturo254.opentune.ui.component.shimmer.ShimmerHost
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.viewmodels.MoodAndGenresViewModel
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.NavigationTitle
+import com.abhiram.flowtune.ui.component.shimmer.ListItemPlaceHolder
+import com.abhiram.flowtune.ui.component.shimmer.ShimmerHost
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.viewmodels.MoodAndGenresViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

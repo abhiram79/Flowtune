@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils
+package com.abhiram.flowtune.utils
 
 import android.net.ConnectivityManager
 import androidx.media3.common.PlaybackException
@@ -13,7 +13,7 @@ import com.arturo254.innertube.models.YouTubeClient.Companion.WEB
 import com.arturo254.innertube.models.YouTubeClient.Companion.WEB_CREATOR
 import com.arturo254.innertube.models.YouTubeClient.Companion.WEB_REMIX
 import com.arturo254.innertube.models.response.PlayerResponse
-import com.arturo254.opentune.constants.AudioQuality
+import com.abhiram.flowtune.constants.AudioQuality
 import okhttp3.OkHttpClient
 import timber.log.Timber
 

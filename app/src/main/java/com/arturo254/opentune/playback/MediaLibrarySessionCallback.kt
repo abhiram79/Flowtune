@@ -1,4 +1,4 @@
-package com.arturo254.opentune.playback
+package com.abhiram.flowtune.playback
 
 import android.content.ContentResolver
 import android.content.Context
@@ -16,14 +16,14 @@ import androidx.media3.session.MediaSession
 import androidx.media3.session.SessionCommand
 import androidx.media3.session.SessionError
 import androidx.media3.session.SessionResult
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.MediaSessionConstants
-import com.arturo254.opentune.constants.SongSortType
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.db.entities.PlaylistEntity
-import com.arturo254.opentune.db.entities.Song
-import com.arturo254.opentune.extensions.toMediaItem
-import com.arturo254.opentune.extensions.toggleRepeatMode
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.MediaSessionConstants
+import com.abhiram.flowtune.constants.SongSortType
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.db.entities.PlaylistEntity
+import com.abhiram.flowtune.db.entities.Song
+import com.abhiram.flowtune.extensions.toMediaItem
+import com.abhiram.flowtune.extensions.toggleRepeatMode
 import com.google.common.collect.ImmutableList
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture

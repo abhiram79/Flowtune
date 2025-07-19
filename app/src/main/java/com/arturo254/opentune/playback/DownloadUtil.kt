@@ -1,4 +1,4 @@
-package com.arturo254.opentune.playback
+package com.abhiram.flowtune.playback
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -13,14 +13,14 @@ import androidx.media3.exoplayer.offline.Download
 import androidx.media3.exoplayer.offline.DownloadManager
 import androidx.media3.exoplayer.offline.DownloadNotificationHelper
 import com.arturo254.innertube.YouTube
-import com.arturo254.opentune.constants.AudioQuality
-import com.arturo254.opentune.constants.AudioQualityKey
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.db.entities.FormatEntity
-import com.arturo254.opentune.di.DownloadCache
-import com.arturo254.opentune.di.PlayerCache
-import com.arturo254.opentune.utils.YTPlayerUtils
-import com.arturo254.opentune.utils.enumPreference
+import com.abhiram.flowtune.constants.AudioQuality
+import com.abhiram.flowtune.constants.AudioQualityKey
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.db.entities.FormatEntity
+import com.abhiram.flowtune.di.DownloadCache
+import com.abhiram.flowtune.di.PlayerCache
+import com.abhiram.flowtune.utils.YTPlayerUtils
+import com.abhiram.flowtune.utils.enumPreference
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens
+package com.abhiram.flowtune.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
@@ -44,27 +44,27 @@ import com.arturo254.innertube.models.ArtistItem
 import com.arturo254.innertube.models.PlaylistItem
 import com.arturo254.innertube.models.SongItem
 import com.arturo254.innertube.models.WatchEndpoint
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.ListItemHeight
-import com.arturo254.opentune.extensions.togglePlayPause
-import com.arturo254.opentune.models.toMediaMetadata
-import com.arturo254.opentune.playback.queues.YouTubeQueue
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.LocalMenuState
-import com.arturo254.opentune.ui.component.NavigationTitle
-import com.arturo254.opentune.ui.component.YouTubeGridItem
-import com.arturo254.opentune.ui.component.YouTubeListItem
-import com.arturo254.opentune.ui.component.shimmer.ListItemPlaceHolder
-import com.arturo254.opentune.ui.component.shimmer.ShimmerHost
-import com.arturo254.opentune.ui.menu.YouTubeAlbumMenu
-import com.arturo254.opentune.ui.menu.YouTubeArtistMenu
-import com.arturo254.opentune.ui.menu.YouTubePlaylistMenu
-import com.arturo254.opentune.ui.menu.YouTubeSongMenu
-import com.arturo254.opentune.ui.utils.SnapLayoutInfoProvider
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.viewmodels.YouTubeBrowseViewModel
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.ListItemHeight
+import com.abhiram.flowtune.extensions.togglePlayPause
+import com.abhiram.flowtune.models.toMediaMetadata
+import com.abhiram.flowtune.playback.queues.YouTubeQueue
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.LocalMenuState
+import com.abhiram.flowtune.ui.component.NavigationTitle
+import com.abhiram.flowtune.ui.component.YouTubeGridItem
+import com.abhiram.flowtune.ui.component.YouTubeListItem
+import com.abhiram.flowtune.ui.component.shimmer.ListItemPlaceHolder
+import com.abhiram.flowtune.ui.component.shimmer.ShimmerHost
+import com.abhiram.flowtune.ui.menu.YouTubeAlbumMenu
+import com.abhiram.flowtune.ui.menu.YouTubeArtistMenu
+import com.abhiram.flowtune.ui.menu.YouTubePlaylistMenu
+import com.abhiram.flowtune.ui.menu.YouTubeSongMenu
+import com.abhiram.flowtune.ui.utils.SnapLayoutInfoProvider
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.viewmodels.YouTubeBrowseViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable

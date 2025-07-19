@@ -1,4 +1,4 @@
-package com.arturo254.opentune.extensions
+package com.abhiram.flowtune.extensions
 
 fun <T> List<T>.reversed(reversed: Boolean) = if (reversed) asReversed() else this
 

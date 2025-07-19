@@ -1,8 +1,8 @@
-package com.arturo254.opentune.ui.utils
+package com.abhiram.flowtune.ui.utils
 
 import androidx.compose.ui.util.fastAny
 import androidx.navigation.NavController
-import com.arturo254.opentune.ui.screens.Screens
+import com.abhiram.flowtune.ui.screens.Screens
 
 val NavController.canNavigateUp: Boolean
     get() = currentBackStackEntry?.destination?.parent?.route != null

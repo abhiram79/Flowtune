@@ -1,4 +1,4 @@
-package com.arturo254.opentune.lyrics
+package com.abhiram.flowtune.lyrics
 
 data class LyricsEntry(
     val time: Long,

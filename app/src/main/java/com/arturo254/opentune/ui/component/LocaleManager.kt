@@ -1,5 +1,5 @@
 @file:Suppress("DEPRECATION")
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import android.app.Activity
 import android.content.Context
@@ -23,7 +23,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.core.os.ConfigurationCompat
 import androidx.core.os.LocaleListCompat
-import com.arturo254.opentune.R
+import com.abhiram.flowtune.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import java.util.Locale

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.player
+package com.abhiram.flowtune.ui.player
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
@@ -43,12 +43,12 @@ import androidx.compose.ui.unit.sp
 import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player
 import coil.compose.AsyncImage
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.MiniPlayerHeight
-import com.arturo254.opentune.constants.ThumbnailCornerRadius
-import com.arturo254.opentune.extensions.togglePlayPause
-import com.arturo254.opentune.models.MediaMetadata
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.MiniPlayerHeight
+import com.abhiram.flowtune.constants.ThumbnailCornerRadius
+import com.abhiram.flowtune.extensions.togglePlayPause
+import com.abhiram.flowtune.models.MediaMetadata
 
 @Composable
 fun MiniPlayer(

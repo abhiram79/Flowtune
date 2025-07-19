@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text

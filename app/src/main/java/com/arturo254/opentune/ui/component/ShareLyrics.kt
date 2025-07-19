@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Spring
@@ -69,8 +69,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import com.arturo254.opentune.R
-import com.arturo254.opentune.models.MediaMetadata
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.models.MediaMetadata
 import kotlinx.coroutines.launch
 
 // Mantener ColorPreset con nombres originales

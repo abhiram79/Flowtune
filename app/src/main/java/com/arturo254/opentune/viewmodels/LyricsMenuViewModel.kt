@@ -1,12 +1,12 @@
-package com.arturo254.opentune.viewmodels
+package com.abhiram.flowtune.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.db.entities.LyricsEntity
-import com.arturo254.opentune.lyrics.LyricsHelper
-import com.arturo254.opentune.lyrics.LyricsResult
-import com.arturo254.opentune.models.MediaMetadata
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.db.entities.LyricsEntity
+import com.abhiram.flowtune.lyrics.LyricsHelper
+import com.abhiram.flowtune.lyrics.LyricsResult
+import com.abhiram.flowtune.models.MediaMetadata
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

@@ -1,14 +1,14 @@
-package com.arturo254.opentune.lyrics
+package com.abhiram.flowtune.lyrics
 
 import android.content.Context
 import android.util.LruCache
-import com.arturo254.opentune.constants.PreferredLyricsProvider
-import com.arturo254.opentune.constants.PreferredLyricsProviderKey
-import com.arturo254.opentune.db.entities.LyricsEntity.Companion.LYRICS_NOT_FOUND
-import com.arturo254.opentune.extensions.toEnum
-import com.arturo254.opentune.models.MediaMetadata
-import com.arturo254.opentune.utils.dataStore
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.constants.PreferredLyricsProvider
+import com.abhiram.flowtune.constants.PreferredLyricsProviderKey
+import com.abhiram.flowtune.db.entities.LyricsEntity.Companion.LYRICS_NOT_FOUND
+import com.abhiram.flowtune.extensions.toEnum
+import com.abhiram.flowtune.models.MediaMetadata
+import com.abhiram.flowtune.utils.dataStore
+import com.abhiram.flowtune.utils.reportException
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map

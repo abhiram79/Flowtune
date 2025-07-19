@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
@@ -59,7 +59,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.arturo254.opentune.R
+import com.abhiram.flowtune.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -1,7 +1,7 @@
-package com.arturo254.opentune.lyrics
+package com.abhiram.flowtune.lyrics
 
 import android.text.format.DateUtils
-import com.arturo254.opentune.ui.component.ANIMATE_SCROLL_DURATION
+import com.abhiram.flowtune.ui.component.ANIMATE_SCROLL_DURATION
 
 @Suppress("RegExpRedundantEscape")
 object LyricsUtils {

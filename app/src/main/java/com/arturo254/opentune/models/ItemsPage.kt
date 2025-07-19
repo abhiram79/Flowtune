@@ -1,4 +1,4 @@
-package com.arturo254.opentune.models
+package com.abhiram.flowtune.models
 
 import com.arturo254.innertube.models.YTItem
 

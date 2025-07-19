@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.menu
+package com.abhiram.flowtune.ui.menu
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -55,23 +55,23 @@ import androidx.media3.exoplayer.offline.DownloadService
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.arturo254.innertube.YouTube
-import com.arturo254.opentune.LocalDatabase
-import com.arturo254.opentune.LocalDownloadUtil
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.ListItemHeight
-import com.arturo254.opentune.constants.ListThumbnailSize
-import com.arturo254.opentune.db.entities.Album
-import com.arturo254.opentune.db.entities.Song
-import com.arturo254.opentune.extensions.toMediaItem
-import com.arturo254.opentune.playback.ExoDownloadService
-import com.arturo254.opentune.ui.component.AlbumListItem
-import com.arturo254.opentune.ui.component.DownloadGridMenu
-import com.arturo254.opentune.ui.component.GridMenu
-import com.arturo254.opentune.ui.component.GridMenuItem
-import com.arturo254.opentune.ui.component.ListDialog
-import com.arturo254.opentune.ui.component.ListItem
-import com.arturo254.opentune.ui.component.SongListItem
+import com.abhiram.flowtune.LocalDatabase
+import com.abhiram.flowtune.LocalDownloadUtil
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.ListItemHeight
+import com.abhiram.flowtune.constants.ListThumbnailSize
+import com.abhiram.flowtune.db.entities.Album
+import com.abhiram.flowtune.db.entities.Song
+import com.abhiram.flowtune.extensions.toMediaItem
+import com.abhiram.flowtune.playback.ExoDownloadService
+import com.abhiram.flowtune.ui.component.AlbumListItem
+import com.abhiram.flowtune.ui.component.DownloadGridMenu
+import com.abhiram.flowtune.ui.component.GridMenu
+import com.abhiram.flowtune.ui.component.GridMenuItem
+import com.abhiram.flowtune.ui.component.ListDialog
+import com.abhiram.flowtune.ui.component.ListItem
+import com.abhiram.flowtune.ui.component.SongListItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

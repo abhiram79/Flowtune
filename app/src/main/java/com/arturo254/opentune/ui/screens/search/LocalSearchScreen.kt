@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.search
+package com.abhiram.flowtune.ui.screens.search
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -33,27 +33,27 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.CONTENT_TYPE_LIST
-import com.arturo254.opentune.constants.ListItemHeight
-import com.arturo254.opentune.db.entities.Album
-import com.arturo254.opentune.db.entities.Artist
-import com.arturo254.opentune.db.entities.Playlist
-import com.arturo254.opentune.db.entities.Song
-import com.arturo254.opentune.extensions.toMediaItem
-import com.arturo254.opentune.extensions.togglePlayPause
-import com.arturo254.opentune.playback.queues.ListQueue
-import com.arturo254.opentune.ui.component.AlbumListItem
-import com.arturo254.opentune.ui.component.ArtistListItem
-import com.arturo254.opentune.ui.component.ChipsRow
-import com.arturo254.opentune.ui.component.EmptyPlaceholder
-import com.arturo254.opentune.ui.component.LocalMenuState
-import com.arturo254.opentune.ui.component.PlaylistListItem
-import com.arturo254.opentune.ui.component.SongListItem
-import com.arturo254.opentune.ui.menu.SongMenu
-import com.arturo254.opentune.viewmodels.LocalFilter
-import com.arturo254.opentune.viewmodels.LocalSearchViewModel
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.CONTENT_TYPE_LIST
+import com.abhiram.flowtune.constants.ListItemHeight
+import com.abhiram.flowtune.db.entities.Album
+import com.abhiram.flowtune.db.entities.Artist
+import com.abhiram.flowtune.db.entities.Playlist
+import com.abhiram.flowtune.db.entities.Song
+import com.abhiram.flowtune.extensions.toMediaItem
+import com.abhiram.flowtune.extensions.togglePlayPause
+import com.abhiram.flowtune.playback.queues.ListQueue
+import com.abhiram.flowtune.ui.component.AlbumListItem
+import com.abhiram.flowtune.ui.component.ArtistListItem
+import com.abhiram.flowtune.ui.component.ChipsRow
+import com.abhiram.flowtune.ui.component.EmptyPlaceholder
+import com.abhiram.flowtune.ui.component.LocalMenuState
+import com.abhiram.flowtune.ui.component.PlaylistListItem
+import com.abhiram.flowtune.ui.component.SongListItem
+import com.abhiram.flowtune.ui.menu.SongMenu
+import com.abhiram.flowtune.viewmodels.LocalFilter
+import com.abhiram.flowtune.viewmodels.LocalSearchViewModel
 import kotlinx.coroutines.flow.drop
 
 @OptIn(ExperimentalFoundationApi::class)

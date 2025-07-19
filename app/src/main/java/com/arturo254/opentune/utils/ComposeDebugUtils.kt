@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils
+package com.abhiram.flowtune.utils
 
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable

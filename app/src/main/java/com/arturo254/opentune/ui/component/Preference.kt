@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -35,7 +35,7 @@ import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
-import com.arturo254.opentune.R
+import com.abhiram.flowtune.R
 import kotlin.math.roundToInt
 
 @Composable

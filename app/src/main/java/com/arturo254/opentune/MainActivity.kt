@@ -1,4 +1,4 @@
-package com.arturo254.opentune
+package com.abhiram.flowtune
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -142,61 +142,61 @@ import coil.request.ImageRequest
 import com.arturo254.innertube.YouTube
 import com.arturo254.innertube.models.SongItem
 import com.arturo254.innertube.models.WatchEndpoint
-import com.arturo254.opentune.constants.AppBarHeight
-import com.arturo254.opentune.constants.DarkModeKey
-import com.arturo254.opentune.constants.DefaultOpenTabKey
-import com.arturo254.opentune.constants.DisableScreenshotKey
-import com.arturo254.opentune.constants.DynamicThemeKey
-import com.arturo254.opentune.constants.MiniPlayerHeight
-import com.arturo254.opentune.constants.NavigationBarAnimationSpec
-import com.arturo254.opentune.constants.NavigationBarHeight
-import com.arturo254.opentune.constants.PauseSearchHistoryKey
-import com.arturo254.opentune.constants.PlayerBackgroundStyle
-import com.arturo254.opentune.constants.PlayerBackgroundStyleKey
-import com.arturo254.opentune.constants.PureBlackKey
-import com.arturo254.opentune.constants.SearchSource
-import com.arturo254.opentune.constants.SearchSourceKey
-import com.arturo254.opentune.constants.SlimNavBarKey
-import com.arturo254.opentune.constants.StopMusicOnTaskClearKey
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.db.entities.SearchHistory
-import com.arturo254.opentune.extensions.toEnum
-import com.arturo254.opentune.models.toMediaMetadata
-import com.arturo254.opentune.playback.DownloadUtil
-import com.arturo254.opentune.playback.MusicService
-import com.arturo254.opentune.playback.MusicService.MusicBinder
-import com.arturo254.opentune.playback.PlayerConnection
-import com.arturo254.opentune.playback.queues.YouTubeQueue
-import com.arturo254.opentune.ui.component.BottomSheetMenu
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.LocalMenuState
-import com.arturo254.opentune.ui.component.LocaleManager
-import com.arturo254.opentune.ui.component.TopSearch
-import com.arturo254.opentune.ui.component.rememberBottomSheetState
-import com.arturo254.opentune.ui.component.shimmer.ShimmerTheme
-import com.arturo254.opentune.ui.menu.YouTubeSongMenu
-import com.arturo254.opentune.ui.player.BottomSheetPlayer
-import com.arturo254.opentune.ui.screens.Screens
-import com.arturo254.opentune.ui.screens.navigationBuilder
-import com.arturo254.opentune.ui.screens.search.LocalSearchScreen
-import com.arturo254.opentune.ui.screens.search.OnlineSearchScreen
-import com.arturo254.opentune.ui.screens.settings.AvatarPreferenceManager
-import com.arturo254.opentune.ui.screens.settings.DarkMode
-import com.arturo254.opentune.ui.screens.settings.NavigationTab
-import com.arturo254.opentune.ui.theme.ColorSaver
-import com.arturo254.opentune.ui.theme.DefaultThemeColor
-import com.arturo254.opentune.ui.theme.OpenTuneTheme
-import com.arturo254.opentune.ui.theme.extractThemeColor
-import com.arturo254.opentune.ui.utils.appBarScrollBehavior
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.ui.utils.resetHeightOffset
-import com.arturo254.opentune.utils.SyncUtils
-import com.arturo254.opentune.utils.Updater
-import com.arturo254.opentune.utils.dataStore
-import com.arturo254.opentune.utils.get
-import com.arturo254.opentune.utils.rememberEnumPreference
-import com.arturo254.opentune.utils.rememberPreference
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.constants.AppBarHeight
+import com.abhiram.flowtune.constants.DarkModeKey
+import com.abhiram.flowtune.constants.DefaultOpenTabKey
+import com.abhiram.flowtune.constants.DisableScreenshotKey
+import com.abhiram.flowtune.constants.DynamicThemeKey
+import com.abhiram.flowtune.constants.MiniPlayerHeight
+import com.abhiram.flowtune.constants.NavigationBarAnimationSpec
+import com.abhiram.flowtune.constants.NavigationBarHeight
+import com.abhiram.flowtune.constants.PauseSearchHistoryKey
+import com.abhiram.flowtune.constants.PlayerBackgroundStyle
+import com.abhiram.flowtune.constants.PlayerBackgroundStyleKey
+import com.abhiram.flowtune.constants.PureBlackKey
+import com.abhiram.flowtune.constants.SearchSource
+import com.abhiram.flowtune.constants.SearchSourceKey
+import com.abhiram.flowtune.constants.SlimNavBarKey
+import com.abhiram.flowtune.constants.StopMusicOnTaskClearKey
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.db.entities.SearchHistory
+import com.abhiram.flowtune.extensions.toEnum
+import com.abhiram.flowtune.models.toMediaMetadata
+import com.abhiram.flowtune.playback.DownloadUtil
+import com.abhiram.flowtune.playback.MusicService
+import com.abhiram.flowtune.playback.MusicService.MusicBinder
+import com.abhiram.flowtune.playback.PlayerConnection
+import com.abhiram.flowtune.playback.queues.YouTubeQueue
+import com.abhiram.flowtune.ui.component.BottomSheetMenu
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.LocalMenuState
+import com.abhiram.flowtune.ui.component.LocaleManager
+import com.abhiram.flowtune.ui.component.TopSearch
+import com.abhiram.flowtune.ui.component.rememberBottomSheetState
+import com.abhiram.flowtune.ui.component.shimmer.ShimmerTheme
+import com.abhiram.flowtune.ui.menu.YouTubeSongMenu
+import com.abhiram.flowtune.ui.player.BottomSheetPlayer
+import com.abhiram.flowtune.ui.screens.Screens
+import com.abhiram.flowtune.ui.screens.navigationBuilder
+import com.abhiram.flowtune.ui.screens.search.LocalSearchScreen
+import com.abhiram.flowtune.ui.screens.search.OnlineSearchScreen
+import com.abhiram.flowtune.ui.screens.settings.AvatarPreferenceManager
+import com.abhiram.flowtune.ui.screens.settings.DarkMode
+import com.abhiram.flowtune.ui.screens.settings.NavigationTab
+import com.abhiram.flowtune.ui.theme.ColorSaver
+import com.abhiram.flowtune.ui.theme.DefaultThemeColor
+import com.abhiram.flowtune.ui.theme.OpenTuneTheme
+import com.abhiram.flowtune.ui.theme.extractThemeColor
+import com.abhiram.flowtune.ui.utils.appBarScrollBehavior
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.ui.utils.resetHeightOffset
+import com.abhiram.flowtune.utils.SyncUtils
+import com.abhiram.flowtune.utils.Updater
+import com.abhiram.flowtune.utils.dataStore
+import com.abhiram.flowtune.utils.get
+import com.abhiram.flowtune.utils.rememberEnumPreference
+import com.abhiram.flowtune.utils.rememberPreference
+import com.abhiram.flowtune.utils.reportException
 import com.valentinilk.shimmer.LocalShimmerTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -1293,9 +1293,9 @@ class MainActivity : ComponentActivity() {
     }
 
     companion object {
-        const val ACTION_SEARCH = "com.arturo254.opentune.action.SEARCH"
-        const val ACTION_EXPLORE = "com.arturo254.opentune.action.EXPLORE"
-        const val ACTION_LIBRARY = "com.arturo254.opentune.action.LIBRARY"
+        const val ACTION_SEARCH = "com.abhiram.flowtune.action.SEARCH"
+        const val ACTION_EXPLORE = "com.abhiram.flowtune.action.EXPLORE"
+        const val ACTION_LIBRARY = "com.abhiram.flowtune.action.LIBRARY"
     }
 }
 

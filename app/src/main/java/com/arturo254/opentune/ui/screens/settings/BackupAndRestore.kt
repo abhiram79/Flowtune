@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.settings
+package com.abhiram.flowtune.ui.screens.settings
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -57,11 +57,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.R
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.viewmodels.BackupRestoreViewModel
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.viewmodels.BackupRestoreViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

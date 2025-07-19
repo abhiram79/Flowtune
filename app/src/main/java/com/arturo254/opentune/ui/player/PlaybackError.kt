@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.player
+package com.abhiram.flowtune.ui.player
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -14,7 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.media3.common.PlaybackException
-import com.arturo254.opentune.R
+import com.abhiram.flowtune.R
 
 @Composable
 fun PlaybackError(

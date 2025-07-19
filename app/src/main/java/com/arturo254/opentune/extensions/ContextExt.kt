@@ -1,13 +1,13 @@
-package com.arturo254.opentune.extensions
+package com.abhiram.flowtune.extensions
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import com.arturo254.innertube.utils.parseCookieString
-import com.arturo254.opentune.constants.InnerTubeCookieKey
-import com.arturo254.opentune.constants.YtmSyncKey
-import com.arturo254.opentune.utils.dataStore
-import com.arturo254.opentune.utils.get
+import com.abhiram.flowtune.constants.InnerTubeCookieKey
+import com.abhiram.flowtune.constants.YtmSyncKey
+import com.abhiram.flowtune.utils.dataStore
+import com.abhiram.flowtune.utils.get
 import kotlinx.coroutines.runBlocking
 
 fun Context.isSyncEnabled(): Boolean {

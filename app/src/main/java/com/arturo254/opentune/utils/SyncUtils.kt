@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils
+package com.abhiram.flowtune.utils
 
 import com.arturo254.innertube.YouTube
 import com.arturo254.innertube.models.AlbumItem
@@ -7,12 +7,12 @@ import com.arturo254.innertube.models.PlaylistItem
 import com.arturo254.innertube.models.SongItem
 import com.arturo254.innertube.utils.completed
 import com.arturo254.innertube.utils.completedLibraryPage
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.db.entities.ArtistEntity
-import com.arturo254.opentune.db.entities.PlaylistEntity
-import com.arturo254.opentune.db.entities.PlaylistSongMap
-import com.arturo254.opentune.db.entities.SongEntity
-import com.arturo254.opentune.models.toMediaMetadata
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.db.entities.ArtistEntity
+import com.abhiram.flowtune.db.entities.PlaylistEntity
+import com.abhiram.flowtune.db.entities.PlaylistSongMap
+import com.abhiram.flowtune.db.entities.SongEntity
+import com.abhiram.flowtune.models.toMediaMetadata
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import java.time.LocalDateTime

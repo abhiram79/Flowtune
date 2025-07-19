@@ -1,4 +1,4 @@
-package com.arturo254.opentune.constants
+package com.abhiram.flowtune.constants
 
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.floatPreferencesKey

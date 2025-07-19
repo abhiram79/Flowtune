@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.menu
+package com.abhiram.flowtune.ui.menu
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -23,17 +23,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.arturo254.innertube.YouTube
 import com.arturo254.innertube.utils.parseCookieString
-import com.arturo254.opentune.LocalDatabase
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.InnerTubeCookieKey
-import com.arturo254.opentune.constants.ListThumbnailSize
-import com.arturo254.opentune.db.entities.Playlist
-import com.arturo254.opentune.ui.component.CreatePlaylistDialog
-import com.arturo254.opentune.ui.component.DefaultDialog
-import com.arturo254.opentune.ui.component.ListDialog
-import com.arturo254.opentune.ui.component.ListItem
-import com.arturo254.opentune.ui.component.PlaylistListItem
-import com.arturo254.opentune.utils.rememberPreference
+import com.abhiram.flowtune.LocalDatabase
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.InnerTubeCookieKey
+import com.abhiram.flowtune.constants.ListThumbnailSize
+import com.abhiram.flowtune.db.entities.Playlist
+import com.abhiram.flowtune.ui.component.CreatePlaylistDialog
+import com.abhiram.flowtune.ui.component.DefaultDialog
+import com.abhiram.flowtune.ui.component.ListDialog
+import com.abhiram.flowtune.ui.component.ListItem
+import com.abhiram.flowtune.ui.component.PlaylistListItem
+import com.abhiram.flowtune.utils.rememberPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.constants
+package com.abhiram.flowtune.constants
 
 
 import androidx.compose.animation.core.Spring

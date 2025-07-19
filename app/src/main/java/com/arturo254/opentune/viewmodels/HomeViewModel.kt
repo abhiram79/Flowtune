@@ -1,4 +1,4 @@
-package com.arturo254.opentune.viewmodels
+package com.abhiram.flowtune.viewmodels
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -10,14 +10,14 @@ import com.arturo254.innertube.models.YTItem
 import com.arturo254.innertube.pages.ExplorePage
 import com.arturo254.innertube.pages.HomePage
 import com.arturo254.innertube.utils.completedLibraryPage
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.db.entities.Album
-import com.arturo254.opentune.db.entities.Artist
-import com.arturo254.opentune.db.entities.LocalItem
-import com.arturo254.opentune.db.entities.Playlist
-import com.arturo254.opentune.db.entities.Song
-import com.arturo254.opentune.models.SimilarRecommendation
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.db.entities.Album
+import com.abhiram.flowtune.db.entities.Artist
+import com.abhiram.flowtune.db.entities.LocalItem
+import com.abhiram.flowtune.db.entities.Playlist
+import com.abhiram.flowtune.db.entities.Song
+import com.abhiram.flowtune.models.SimilarRecommendation
+import com.abhiram.flowtune.utils.reportException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers

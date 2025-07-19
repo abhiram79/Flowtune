@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.menu
+package com.abhiram.flowtune.ui.menu
 
 import android.content.Intent
 import androidx.compose.foundation.background
@@ -35,14 +35,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.arturo254.innertube.models.ArtistItem
-import com.arturo254.opentune.LocalDatabase
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.db.entities.ArtistEntity
-import com.arturo254.opentune.playback.queues.YouTubeQueue
-import com.arturo254.opentune.ui.component.GridMenu
-import com.arturo254.opentune.ui.component.GridMenuItem
-import com.arturo254.opentune.ui.component.YouTubeListItem
+import com.abhiram.flowtune.LocalDatabase
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.db.entities.ArtistEntity
+import com.abhiram.flowtune.playback.queues.YouTubeQueue
+import com.abhiram.flowtune.ui.component.GridMenu
+import com.abhiram.flowtune.ui.component.GridMenuItem
+import com.abhiram.flowtune.ui.component.YouTubeListItem
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ListItem

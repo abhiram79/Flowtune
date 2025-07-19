@@ -1,10 +1,10 @@
-package com.arturo254.opentune.models
+package com.abhiram.flowtune.models
 
 import androidx.compose.runtime.Immutable
 import com.arturo254.innertube.models.SongItem
-import com.arturo254.opentune.db.entities.Song
-import com.arturo254.opentune.db.entities.SongEntity
-import com.arturo254.opentune.ui.utils.resize
+import com.abhiram.flowtune.db.entities.Song
+import com.abhiram.flowtune.db.entities.SongEntity
+import com.abhiram.flowtune.ui.utils.resize
 import java.io.Serializable
 
 @Immutable

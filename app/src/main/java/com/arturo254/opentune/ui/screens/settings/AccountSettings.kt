@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.settings
+package com.abhiram.flowtune.ui.screens.settings
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -27,25 +27,25 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.navigation.NavController
 import com.arturo254.innertube.YouTube
 import com.arturo254.innertube.utils.parseCookieString
-import com.arturo254.opentune.App.Companion.forgetAccount
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.AccountChannelHandleKey
-import com.arturo254.opentune.constants.AccountEmailKey
-import com.arturo254.opentune.constants.AccountNameKey
-import com.arturo254.opentune.constants.DataSyncIdKey
-import com.arturo254.opentune.constants.InnerTubeCookieKey
-import com.arturo254.opentune.constants.UseLoginForBrowse
-import com.arturo254.opentune.constants.VisitorDataKey
-import com.arturo254.opentune.constants.YtmSyncKey
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.InfoLabel
-import com.arturo254.opentune.ui.component.PreferenceEntry
-import com.arturo254.opentune.ui.component.PreferenceGroupTitle
-import com.arturo254.opentune.ui.component.SwitchPreference
-import com.arturo254.opentune.ui.component.TextFieldDialog
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.utils.rememberPreference
+import com.abhiram.flowtune.App.Companion.forgetAccount
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.AccountChannelHandleKey
+import com.abhiram.flowtune.constants.AccountEmailKey
+import com.abhiram.flowtune.constants.AccountNameKey
+import com.abhiram.flowtune.constants.DataSyncIdKey
+import com.abhiram.flowtune.constants.InnerTubeCookieKey
+import com.abhiram.flowtune.constants.UseLoginForBrowse
+import com.abhiram.flowtune.constants.VisitorDataKey
+import com.abhiram.flowtune.constants.YtmSyncKey
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.InfoLabel
+import com.abhiram.flowtune.ui.component.PreferenceEntry
+import com.abhiram.flowtune.ui.component.PreferenceGroupTitle
+import com.abhiram.flowtune.ui.component.SwitchPreference
+import com.abhiram.flowtune.ui.component.TextFieldDialog
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.utils.rememberPreference
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

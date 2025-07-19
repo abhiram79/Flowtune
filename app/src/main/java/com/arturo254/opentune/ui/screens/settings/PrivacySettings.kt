@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.settings
+package com.abhiram.flowtune.ui.screens.settings
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,15 +37,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.arturo254.opentune.LocalDatabase
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.DisableScreenshotKey
-import com.arturo254.opentune.constants.PauseListenHistoryKey
-import com.arturo254.opentune.constants.PauseSearchHistoryKey
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.utils.rememberPreference
+import com.abhiram.flowtune.LocalDatabase
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.DisableScreenshotKey
+import com.abhiram.flowtune.constants.PauseListenHistoryKey
+import com.abhiram.flowtune.constants.PauseSearchHistoryKey
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.utils.rememberPreference
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

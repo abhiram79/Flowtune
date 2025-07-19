@@ -1,6 +1,6 @@
-package com.arturo254.opentune.constants
+package com.abhiram.flowtune.constants
 
-import com.arturo254.opentune.ui.screens.OptionStats
+import com.abhiram.flowtune.ui.screens.OptionStats
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 

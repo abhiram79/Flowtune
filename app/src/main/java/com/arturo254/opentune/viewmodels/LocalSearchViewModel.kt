@@ -1,13 +1,13 @@
-package com.arturo254.opentune.viewmodels
+package com.abhiram.flowtune.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.db.entities.Album
-import com.arturo254.opentune.db.entities.Artist
-import com.arturo254.opentune.db.entities.LocalItem
-import com.arturo254.opentune.db.entities.Playlist
-import com.arturo254.opentune.db.entities.Song
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.db.entities.Album
+import com.abhiram.flowtune.db.entities.Artist
+import com.abhiram.flowtune.db.entities.LocalItem
+import com.abhiram.flowtune.db.entities.Playlist
+import com.abhiram.flowtune.db.entities.Song
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow

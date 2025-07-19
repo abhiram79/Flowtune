@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens
+package com.abhiram.flowtune.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
@@ -23,18 +23,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.GridThumbnailHeight
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.LocalMenuState
-import com.arturo254.opentune.ui.component.YouTubeGridItem
-import com.arturo254.opentune.ui.component.shimmer.GridItemPlaceHolder
-import com.arturo254.opentune.ui.component.shimmer.ShimmerHost
-import com.arturo254.opentune.ui.menu.YouTubeAlbumMenu
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.viewmodels.NewReleaseViewModel
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.GridThumbnailHeight
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.LocalMenuState
+import com.abhiram.flowtune.ui.component.YouTubeGridItem
+import com.abhiram.flowtune.ui.component.shimmer.GridItemPlaceHolder
+import com.abhiram.flowtune.ui.component.shimmer.ShimmerHost
+import com.abhiram.flowtune.ui.menu.YouTubeAlbumMenu
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.viewmodels.NewReleaseViewModel
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable

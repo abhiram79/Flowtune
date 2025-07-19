@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.library
+package com.abhiram.flowtune.ui.screens.library
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -9,11 +9,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.ChipSortTypeKey
-import com.arturo254.opentune.constants.LibraryFilter
-import com.arturo254.opentune.ui.component.ChipsRow
-import com.arturo254.opentune.utils.rememberEnumPreference
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.ChipSortTypeKey
+import com.abhiram.flowtune.constants.LibraryFilter
+import com.abhiram.flowtune.ui.component.ChipsRow
+import com.abhiram.flowtune.utils.rememberEnumPreference
 
 @Composable
 fun LibraryScreen(navController: NavController) {

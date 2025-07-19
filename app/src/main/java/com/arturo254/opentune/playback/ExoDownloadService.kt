@@ -1,4 +1,4 @@
-package com.arturo254.opentune.playback
+package com.abhiram.flowtune.playback
 
 import android.app.Notification
 import android.app.PendingIntent
@@ -13,7 +13,7 @@ import androidx.media3.exoplayer.offline.DownloadNotificationHelper
 import androidx.media3.exoplayer.offline.DownloadService
 import androidx.media3.exoplayer.scheduler.PlatformScheduler
 import androidx.media3.exoplayer.scheduler.Scheduler
-import com.arturo254.opentune.R
+import com.abhiram.flowtune.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

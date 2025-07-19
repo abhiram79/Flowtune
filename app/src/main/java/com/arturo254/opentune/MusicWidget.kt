@@ -1,4 +1,4 @@
-package com.arturo254.opentune
+package com.abhiram.flowtune
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent
@@ -14,7 +14,7 @@ import coil.ImageLoader
 import android.os.Handler
 import android.os.Looper
 import coil.request.ImageRequest
-import com.arturo254.opentune.playback.PlayerConnection
+import com.abhiram.flowtune.playback.PlayerConnection
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

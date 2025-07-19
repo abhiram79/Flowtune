@@ -1,12 +1,12 @@
-package com.arturo254.opentune.extensions
+package com.abhiram.flowtune.extensions
 
 import androidx.core.net.toUri
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata.MEDIA_TYPE_MUSIC
 import com.arturo254.innertube.models.SongItem
-import com.arturo254.opentune.db.entities.Song
-import com.arturo254.opentune.models.MediaMetadata
-import com.arturo254.opentune.models.toMediaMetadata
+import com.abhiram.flowtune.db.entities.Song
+import com.abhiram.flowtune.models.MediaMetadata
+import com.abhiram.flowtune.models.toMediaMetadata
 
 val MediaItem.metadata: MediaMetadata?
     get() = localConfiguration?.tag as? MediaMetadata

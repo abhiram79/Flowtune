@@ -1,7 +1,7 @@
-package com.arturo254.opentune.playback.queues
+package com.abhiram.flowtune.playback.queues
 
 import androidx.media3.common.MediaItem
-import com.arturo254.opentune.models.MediaMetadata
+import com.abhiram.flowtune.models.MediaMetadata
 
 class ListQueue(
     val title: String? = null,

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens
+package com.abhiram.flowtune.ui.screens
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -17,29 +17,29 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.arturo254.opentune.BuildConfig
-import com.arturo254.opentune.ui.screens.artist.ArtistItemsScreen
-import com.arturo254.opentune.ui.screens.artist.ArtistScreen
-import com.arturo254.opentune.ui.screens.artist.ArtistSongsScreen
-import com.arturo254.opentune.ui.screens.library.LibraryScreen
-import com.arturo254.opentune.ui.screens.playlist.AutoPlaylistScreen
-import com.arturo254.opentune.ui.screens.playlist.CachePlaylistScreen
-import com.arturo254.opentune.ui.screens.playlist.LocalPlaylistScreen
-import com.arturo254.opentune.ui.screens.playlist.OnlinePlaylistScreen
-import com.arturo254.opentune.ui.screens.playlist.TopPlaylistScreen
-import com.arturo254.opentune.ui.screens.search.OnlineSearchResult
-import com.arturo254.opentune.ui.screens.settings.AboutScreen
-import com.arturo254.opentune.ui.screens.settings.AccountSettings
-import com.arturo254.opentune.ui.screens.settings.AppearanceSettings
-import com.arturo254.opentune.ui.screens.settings.BackupAndRestore
-import com.arturo254.opentune.ui.screens.settings.ContentSettings
-import com.arturo254.opentune.ui.screens.settings.DiscordLoginScreen
-import com.arturo254.opentune.ui.screens.settings.DiscordSettings
-import com.arturo254.opentune.ui.screens.settings.PlayerSettings
-import com.arturo254.opentune.ui.screens.settings.PrivacySettings
-import com.arturo254.opentune.ui.screens.settings.ProblemSolverScreen
-import com.arturo254.opentune.ui.screens.settings.SettingsScreen
-import com.arturo254.opentune.ui.screens.settings.StorageSettings
+import com.abhiram.flowtune.BuildConfig
+import com.abhiram.flowtune.ui.screens.artist.ArtistItemsScreen
+import com.abhiram.flowtune.ui.screens.artist.ArtistScreen
+import com.abhiram.flowtune.ui.screens.artist.ArtistSongsScreen
+import com.abhiram.flowtune.ui.screens.library.LibraryScreen
+import com.abhiram.flowtune.ui.screens.playlist.AutoPlaylistScreen
+import com.abhiram.flowtune.ui.screens.playlist.CachePlaylistScreen
+import com.abhiram.flowtune.ui.screens.playlist.LocalPlaylistScreen
+import com.abhiram.flowtune.ui.screens.playlist.OnlinePlaylistScreen
+import com.abhiram.flowtune.ui.screens.playlist.TopPlaylistScreen
+import com.abhiram.flowtune.ui.screens.search.OnlineSearchResult
+import com.abhiram.flowtune.ui.screens.settings.AboutScreen
+import com.abhiram.flowtune.ui.screens.settings.AccountSettings
+import com.abhiram.flowtune.ui.screens.settings.AppearanceSettings
+import com.abhiram.flowtune.ui.screens.settings.BackupAndRestore
+import com.abhiram.flowtune.ui.screens.settings.ContentSettings
+import com.abhiram.flowtune.ui.screens.settings.DiscordLoginScreen
+import com.abhiram.flowtune.ui.screens.settings.DiscordSettings
+import com.abhiram.flowtune.ui.screens.settings.PlayerSettings
+import com.abhiram.flowtune.ui.screens.settings.PrivacySettings
+import com.abhiram.flowtune.ui.screens.settings.ProblemSolverScreen
+import com.abhiram.flowtune.ui.screens.settings.SettingsScreen
+import com.abhiram.flowtune.ui.screens.settings.StorageSettings
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @SuppressLint("UnrememberedMutableState")

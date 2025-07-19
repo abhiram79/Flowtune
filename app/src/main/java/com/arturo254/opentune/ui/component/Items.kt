@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalFoundationApi::class)
 
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -77,26 +77,26 @@ import com.arturo254.innertube.models.ArtistItem
 import com.arturo254.innertube.models.PlaylistItem
 import com.arturo254.innertube.models.SongItem
 import com.arturo254.innertube.models.YTItem
-import com.arturo254.opentune.LocalDatabase
-import com.arturo254.opentune.LocalDownloadUtil
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.GridThumbnailHeight
-import com.arturo254.opentune.constants.ListItemHeight
-import com.arturo254.opentune.constants.ListThumbnailSize
-import com.arturo254.opentune.constants.SmallGridThumbnailHeight
-import com.arturo254.opentune.constants.ThumbnailCornerRadius
-import com.arturo254.opentune.db.entities.Album
-import com.arturo254.opentune.db.entities.Artist
-import com.arturo254.opentune.db.entities.Playlist
-import com.arturo254.opentune.db.entities.Song
-import com.arturo254.opentune.models.MediaMetadata
-import com.arturo254.opentune.playback.queues.LocalAlbumRadio
-import com.arturo254.opentune.ui.theme.extractThemeColor
-import com.arturo254.opentune.utils.getPlaylistImageUri
-import com.arturo254.opentune.utils.joinByBullet
-import com.arturo254.opentune.utils.makeTimeString
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.LocalDatabase
+import com.abhiram.flowtune.LocalDownloadUtil
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.GridThumbnailHeight
+import com.abhiram.flowtune.constants.ListItemHeight
+import com.abhiram.flowtune.constants.ListThumbnailSize
+import com.abhiram.flowtune.constants.SmallGridThumbnailHeight
+import com.abhiram.flowtune.constants.ThumbnailCornerRadius
+import com.abhiram.flowtune.db.entities.Album
+import com.abhiram.flowtune.db.entities.Artist
+import com.abhiram.flowtune.db.entities.Playlist
+import com.abhiram.flowtune.db.entities.Song
+import com.abhiram.flowtune.models.MediaMetadata
+import com.abhiram.flowtune.playback.queues.LocalAlbumRadio
+import com.abhiram.flowtune.ui.theme.extractThemeColor
+import com.abhiram.flowtune.utils.getPlaylistImageUri
+import com.abhiram.flowtune.utils.joinByBullet
+import com.abhiram.flowtune.utils.makeTimeString
+import com.abhiram.flowtune.utils.reportException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first

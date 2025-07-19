@@ -1,4 +1,4 @@
-package com.arturo254.opentune.models
+package com.abhiram.flowtune.models
 
 import java.io.Serializable
 

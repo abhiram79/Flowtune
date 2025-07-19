@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.player
+package com.abhiram.flowtune.ui.player
 
 import android.content.Context
 import androidx.compose.animation.AnimatedVisibility
@@ -34,13 +34,13 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.core.content.edit
 import coil.compose.AsyncImage
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.constants.PlayerHorizontalPadding
-import com.arturo254.opentune.constants.ShowLyricsKey
-import com.arturo254.opentune.constants.SwipeThumbnailKey
-import com.arturo254.opentune.ui.component.Lyrics
-import com.arturo254.opentune.ui.screens.settings.AppConfig
-import com.arturo254.opentune.utils.rememberPreference
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.constants.PlayerHorizontalPadding
+import com.abhiram.flowtune.constants.ShowLyricsKey
+import com.abhiram.flowtune.constants.SwipeThumbnailKey
+import com.abhiram.flowtune.ui.component.Lyrics
+import com.abhiram.flowtune.ui.screens.settings.AppConfig
+import com.abhiram.flowtune.utils.rememberPreference
 import kotlin.math.roundToInt
 
 @Composable

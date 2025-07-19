@@ -1,4 +1,4 @@
-package com.arturo254.opentune.di
+package com.abhiram.flowtune.di
 
 import android.content.Context
 import androidx.media3.database.DatabaseProvider
@@ -6,11 +6,11 @@ import androidx.media3.database.StandaloneDatabaseProvider
 import androidx.media3.datasource.cache.LeastRecentlyUsedCacheEvictor
 import androidx.media3.datasource.cache.NoOpCacheEvictor
 import androidx.media3.datasource.cache.SimpleCache
-import com.arturo254.opentune.constants.MaxSongCacheSizeKey
-import com.arturo254.opentune.db.InternalDatabase
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.utils.dataStore
-import com.arturo254.opentune.utils.get
+import com.abhiram.flowtune.constants.MaxSongCacheSizeKey
+import com.abhiram.flowtune.db.InternalDatabase
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.utils.dataStore
+import com.abhiram.flowtune.utils.get
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.viewmodels
+package com.abhiram.flowtune.viewmodels
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -7,8 +7,8 @@ import com.arturo254.innertube.YouTube
 import com.arturo254.innertube.models.PlaylistItem
 import com.arturo254.innertube.models.SongItem
 import com.arturo254.innertube.utils.completed
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.utils.reportException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

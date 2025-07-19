@@ -1,12 +1,12 @@
-package com.arturo254.opentune.viewmodels
+package com.abhiram.flowtune.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arturo254.innertube.YouTube
-import com.arturo254.opentune.constants.statToPeriod
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.ui.screens.OptionStats
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.constants.statToPeriod
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.ui.screens.OptionStats
+import com.abhiram.flowtune.utils.reportException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow

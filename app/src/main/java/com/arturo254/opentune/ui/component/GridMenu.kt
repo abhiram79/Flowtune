@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -32,8 +32,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.media3.exoplayer.offline.Download
-import com.arturo254.opentune.R
-import com.arturo254.opentune.utils.makeTimeString
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.utils.makeTimeString
 
 val GridMenuItemHeight = 108.dp
 

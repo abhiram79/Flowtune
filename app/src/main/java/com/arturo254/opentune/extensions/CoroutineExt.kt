@@ -1,4 +1,4 @@
-package com.arturo254.opentune.extensions
+package com.abhiram.flowtune.extensions
 
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope

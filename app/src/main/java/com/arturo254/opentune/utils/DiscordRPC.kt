@@ -1,8 +1,8 @@
-package com.arturo254.opentune.utils
+package com.abhiram.flowtune.utils
 
 import android.content.Context
-import com.arturo254.opentune.R
-import com.arturo254.opentune.db.entities.Song
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.db.entities.Song
 import com.my.kizzy.rpc.KizzyRPC
 import com.my.kizzy.rpc.RpcImage
 

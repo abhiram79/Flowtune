@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.theme
+package com.abhiram.flowtune.ui.theme
 
 import android.graphics.Bitmap
 import android.os.Build

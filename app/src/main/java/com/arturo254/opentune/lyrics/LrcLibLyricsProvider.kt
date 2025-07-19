@@ -1,10 +1,10 @@
-package com.arturo254.opentune.lyrics
+package com.abhiram.flowtune.lyrics
 
 import android.content.Context
 import com.arturo254.lrclib.LrcLib
-import com.arturo254.opentune.constants.EnableLrcLibKey
-import com.arturo254.opentune.utils.dataStore
-import com.arturo254.opentune.utils.get
+import com.abhiram.flowtune.constants.EnableLrcLibKey
+import com.abhiram.flowtune.utils.dataStore
+import com.abhiram.flowtune.utils.get
 
 object LrcLibLyricsProvider : LyricsProvider {
     override val name = "LrcLib"

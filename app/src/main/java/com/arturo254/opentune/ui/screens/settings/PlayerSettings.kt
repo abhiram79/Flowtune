@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.settings
+package com.abhiram.flowtune.ui.screens.settings
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,24 +17,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.AudioNormalizationKey
-import com.arturo254.opentune.constants.AudioQuality
-import com.arturo254.opentune.constants.AudioQualityKey
-import com.arturo254.opentune.constants.AutoLoadMoreKey
-import com.arturo254.opentune.constants.AutoSkipNextOnErrorKey
-import com.arturo254.opentune.constants.PersistentQueueKey
-import com.arturo254.opentune.constants.SimilarContent
-import com.arturo254.opentune.constants.SkipSilenceKey
-import com.arturo254.opentune.constants.StopMusicOnTaskClearKey
-import com.arturo254.opentune.ui.component.EnumListPreference
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.PreferenceGroupTitle
-import com.arturo254.opentune.ui.component.SwitchPreference
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.utils.rememberEnumPreference
-import com.arturo254.opentune.utils.rememberPreference
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.AudioNormalizationKey
+import com.abhiram.flowtune.constants.AudioQuality
+import com.abhiram.flowtune.constants.AudioQualityKey
+import com.abhiram.flowtune.constants.AutoLoadMoreKey
+import com.abhiram.flowtune.constants.AutoSkipNextOnErrorKey
+import com.abhiram.flowtune.constants.PersistentQueueKey
+import com.abhiram.flowtune.constants.SimilarContent
+import com.abhiram.flowtune.constants.SkipSilenceKey
+import com.abhiram.flowtune.constants.StopMusicOnTaskClearKey
+import com.abhiram.flowtune.ui.component.EnumListPreference
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.PreferenceGroupTitle
+import com.abhiram.flowtune.ui.component.SwitchPreference
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.utils.rememberEnumPreference
+import com.abhiram.flowtune.utils.rememberPreference
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component.shimmer
+package com.abhiram.flowtune.ui.component.shimmer
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -15,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
-import com.arturo254.opentune.constants.ListItemHeight
-import com.arturo254.opentune.constants.ListThumbnailSize
-import com.arturo254.opentune.constants.ThumbnailCornerRadius
+import com.abhiram.flowtune.constants.ListItemHeight
+import com.abhiram.flowtune.constants.ListThumbnailSize
+import com.abhiram.flowtune.constants.ThumbnailCornerRadius
 
 @Composable
 fun ListItemPlaceHolder(

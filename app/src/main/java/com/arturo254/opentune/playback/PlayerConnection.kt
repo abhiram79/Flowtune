@@ -1,4 +1,4 @@
-package com.arturo254.opentune.playback
+package com.abhiram.flowtune.playback
 
 import android.content.Context
 import android.content.Intent
@@ -15,16 +15,16 @@ import androidx.media3.common.Player.REPEAT_MODE_OFF
 import androidx.media3.common.Player.STATE_ENDED
 import androidx.media3.common.Player.STATE_READY
 import androidx.media3.common.Timeline
-import com.arturo254.opentune.MusicWidget.Companion.ACTION_STATE_CHANGED
-import com.arturo254.opentune.MusicWidget.Companion.ACTION_UPDATE_PROGRESS
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.extensions.currentMetadata
-import com.arturo254.opentune.extensions.getCurrentQueueIndex
-import com.arturo254.opentune.extensions.getQueueWindows
-import com.arturo254.opentune.extensions.metadata
-import com.arturo254.opentune.playback.MusicService.MusicBinder
-import com.arturo254.opentune.playback.queues.Queue
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.MusicWidget.Companion.ACTION_STATE_CHANGED
+import com.abhiram.flowtune.MusicWidget.Companion.ACTION_UPDATE_PROGRESS
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.extensions.currentMetadata
+import com.abhiram.flowtune.extensions.getCurrentQueueIndex
+import com.abhiram.flowtune.extensions.getQueueWindows
+import com.abhiram.flowtune.extensions.metadata
+import com.abhiram.flowtune.playback.MusicService.MusicBinder
+import com.abhiram.flowtune.playback.queues.Queue
+import com.abhiram.flowtune.utils.reportException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -85,7 +85,7 @@ class PlayerConnection(
 
     // Metadatos y información de la canción actual
     private val _mediaMetadata = MutableStateFlow(player.currentMetadata)
-    val mediaMetadata: StateFlow<com.arturo254.opentune.models.MediaMetadata?> = _mediaMetadata.asStateFlow()
+    val mediaMetadata: StateFlow<com.abhiram.flowtune.models.MediaMetadata?> = _mediaMetadata.asStateFlow()
 
     val currentSong = mediaMetadata.flatMapLatest { metadata ->
         database.song(metadata?.id)

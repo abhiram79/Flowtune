@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -13,14 +13,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import com.arturo254.innertube.models.PlaylistItem
 import com.arturo254.innertube.models.WatchEndpoint
-import com.arturo254.opentune.R
-import com.arturo254.opentune.db.entities.Album
-import com.arturo254.opentune.db.entities.Artist
-import com.arturo254.opentune.db.entities.Playlist
-import com.arturo254.opentune.ui.menu.AlbumMenu
-import com.arturo254.opentune.ui.menu.ArtistMenu
-import com.arturo254.opentune.ui.menu.PlaylistMenu
-import com.arturo254.opentune.ui.menu.YouTubePlaylistMenu
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.db.entities.Album
+import com.abhiram.flowtune.db.entities.Artist
+import com.abhiram.flowtune.db.entities.Playlist
+import com.abhiram.flowtune.ui.menu.AlbumMenu
+import com.abhiram.flowtune.ui.menu.ArtistMenu
+import com.abhiram.flowtune.ui.menu.PlaylistMenu
+import com.abhiram.flowtune.ui.menu.YouTubePlaylistMenu
 import kotlinx.coroutines.CoroutineScope
 
 @Composable

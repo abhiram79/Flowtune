@@ -1,8 +1,8 @@
-package com.arturo254.opentune.utils.potoken
+package com.abhiram.flowtune.utils.potoken
 
 import android.util.Log
 import android.webkit.CookieManager
-import com.arturo254.opentune.App
+import com.abhiram.flowtune.App
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex

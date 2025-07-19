@@ -1,11 +1,11 @@
-package com.arturo254.opentune.playback.queues
+package com.abhiram.flowtune.playback.queues
 
 import androidx.media3.common.MediaItem
 import com.arturo254.innertube.YouTube
 import com.arturo254.innertube.models.WatchEndpoint
-import com.arturo254.opentune.db.entities.AlbumWithSongs
-import com.arturo254.opentune.extensions.toMediaItem
-import com.arturo254.opentune.models.MediaMetadata
+import com.abhiram.flowtune.db.entities.AlbumWithSongs
+import com.abhiram.flowtune.extensions.toMediaItem
+import com.abhiram.flowtune.models.MediaMetadata
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 

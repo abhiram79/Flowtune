@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils
+package com.abhiram.flowtune.utils
 
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.settings
+package com.abhiram.flowtune.ui.screens.settings
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -21,25 +21,25 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.navigation.NavController
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.NotificationPermissionPreference
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.CountryCodeToName
-import com.arturo254.opentune.constants.LanguageCodeToName
-import com.arturo254.opentune.constants.PreferredLyricsProvider
-import com.arturo254.opentune.constants.QuickPicks
-import com.arturo254.opentune.constants.SYSTEM_DEFAULT
-import com.arturo254.opentune.ui.component.EditTextPreference
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.LanguagePreference
-import com.arturo254.opentune.ui.component.ListPreference
-import com.arturo254.opentune.ui.component.LocaleManager
-import com.arturo254.opentune.ui.component.PreferenceGroupTitle
-import com.arturo254.opentune.ui.component.SliderPreference
-import com.arturo254.opentune.ui.component.SwitchPreference
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.utils.rememberEnumPreference
-import com.arturo254.opentune.utils.rememberPreference
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.NotificationPermissionPreference
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.CountryCodeToName
+import com.abhiram.flowtune.constants.LanguageCodeToName
+import com.abhiram.flowtune.constants.PreferredLyricsProvider
+import com.abhiram.flowtune.constants.QuickPicks
+import com.abhiram.flowtune.constants.SYSTEM_DEFAULT
+import com.abhiram.flowtune.ui.component.EditTextPreference
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.LanguagePreference
+import com.abhiram.flowtune.ui.component.ListPreference
+import com.abhiram.flowtune.ui.component.LocaleManager
+import com.abhiram.flowtune.ui.component.PreferenceGroupTitle
+import com.abhiram.flowtune.ui.component.SliderPreference
+import com.abhiram.flowtune.ui.component.SwitchPreference
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.utils.rememberEnumPreference
+import com.abhiram.flowtune.utils.rememberPreference
 import java.net.Proxy
 
 object PreferenceKeys {

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.screens.playlist
+package com.abhiram.flowtune.ui.screens.playlist
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
@@ -57,24 +57,24 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.arturo254.opentune.LocalPlayerAwareWindowInsets
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.AlbumThumbnailSize
-import com.arturo254.opentune.constants.ThumbnailCornerRadius
-import com.arturo254.opentune.db.entities.Song
-import com.arturo254.opentune.extensions.toMediaItem
-import com.arturo254.opentune.extensions.togglePlayPause
-import com.arturo254.opentune.playback.queues.ListQueue
-import com.arturo254.opentune.ui.component.EmptyPlaceholder
-import com.arturo254.opentune.ui.component.IconButton
-import com.arturo254.opentune.ui.component.LocalMenuState
-import com.arturo254.opentune.ui.component.SongListItem
-import com.arturo254.opentune.ui.menu.SelectionSongMenu
-import com.arturo254.opentune.ui.menu.SongMenu
-import com.arturo254.opentune.ui.utils.ItemWrapper
-import com.arturo254.opentune.ui.utils.backToMain
-import com.arturo254.opentune.viewmodels.HistoryViewModel
+import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.AlbumThumbnailSize
+import com.abhiram.flowtune.constants.ThumbnailCornerRadius
+import com.abhiram.flowtune.db.entities.Song
+import com.abhiram.flowtune.extensions.toMediaItem
+import com.abhiram.flowtune.extensions.togglePlayPause
+import com.abhiram.flowtune.playback.queues.ListQueue
+import com.abhiram.flowtune.ui.component.EmptyPlaceholder
+import com.abhiram.flowtune.ui.component.IconButton
+import com.abhiram.flowtune.ui.component.LocalMenuState
+import com.abhiram.flowtune.ui.component.SongListItem
+import com.abhiram.flowtune.ui.menu.SelectionSongMenu
+import com.abhiram.flowtune.ui.menu.SongMenu
+import com.abhiram.flowtune.ui.utils.ItemWrapper
+import com.abhiram.flowtune.ui.utils.backToMain
+import com.abhiram.flowtune.viewmodels.HistoryViewModel
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable

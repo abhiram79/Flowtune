@@ -1,4 +1,4 @@
-package com.arturo254.opentune.utils.potoken
+package com.abhiram.flowtune.utils.potoken
 
 class PoTokenResult(
     val playerRequestPoToken: String,

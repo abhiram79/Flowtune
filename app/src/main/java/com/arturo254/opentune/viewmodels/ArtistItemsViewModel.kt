@@ -1,4 +1,4 @@
-package com.arturo254.opentune.viewmodels
+package com.abhiram.flowtune.viewmodels
 
 import android.content.Context
 import androidx.lifecycle.SavedStateHandle
@@ -7,11 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.arturo254.innertube.YouTube
 import com.arturo254.innertube.models.BrowseEndpoint
 import com.arturo254.innertube.models.filterExplicit
-import com.arturo254.opentune.constants.HideExplicitKey
-import com.arturo254.opentune.models.ItemsPage
-import com.arturo254.opentune.utils.dataStore
-import com.arturo254.opentune.utils.get
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.constants.HideExplicitKey
+import com.abhiram.flowtune.models.ItemsPage
+import com.abhiram.flowtune.utils.dataStore
+import com.abhiram.flowtune.utils.get
+import com.abhiram.flowtune.utils.reportException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow

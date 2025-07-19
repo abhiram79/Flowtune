@@ -1,4 +1,4 @@
-package com.arturo254.opentune.lyrics
+package com.abhiram.flowtune.lyrics
 
 import android.content.Context
 import com.arturo254.innertube.YouTube

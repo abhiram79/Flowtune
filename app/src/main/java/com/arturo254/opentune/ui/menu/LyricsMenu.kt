@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.menu
+package com.abhiram.flowtune.ui.menu
 
 import android.app.SearchManager
 import android.content.Intent
@@ -45,16 +45,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.arturo254.opentune.LocalDatabase
-import com.arturo254.opentune.R
-import com.arturo254.opentune.db.entities.LyricsEntity
-import com.arturo254.opentune.models.MediaMetadata
-import com.arturo254.opentune.ui.component.DefaultDialog
-import com.arturo254.opentune.ui.component.GridMenu
-import com.arturo254.opentune.ui.component.GridMenuItem
-import com.arturo254.opentune.ui.component.ListDialog
-import com.arturo254.opentune.ui.component.TextFieldDialog
-import com.arturo254.opentune.viewmodels.LyricsMenuViewModel
+import com.abhiram.flowtune.LocalDatabase
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.db.entities.LyricsEntity
+import com.abhiram.flowtune.models.MediaMetadata
+import com.abhiram.flowtune.ui.component.DefaultDialog
+import com.abhiram.flowtune.ui.component.GridMenu
+import com.abhiram.flowtune.ui.component.GridMenuItem
+import com.abhiram.flowtune.ui.component.ListDialog
+import com.abhiram.flowtune.ui.component.TextFieldDialog
+import com.abhiram.flowtune.viewmodels.LyricsMenuViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

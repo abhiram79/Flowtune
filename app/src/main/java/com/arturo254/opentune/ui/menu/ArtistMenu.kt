@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.menu
+package com.abhiram.flowtune.ui.menu
 
 import android.content.Intent
 import androidx.compose.foundation.layout.PaddingValues
@@ -15,16 +15,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.arturo254.opentune.LocalDatabase
-import com.arturo254.opentune.LocalPlayerConnection
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.ArtistSongSortType
-import com.arturo254.opentune.db.entities.Artist
-import com.arturo254.opentune.extensions.toMediaItem
-import com.arturo254.opentune.playback.queues.ListQueue
-import com.arturo254.opentune.ui.component.ArtistListItem
-import com.arturo254.opentune.ui.component.GridMenu
-import com.arturo254.opentune.ui.component.GridMenuItem
+import com.abhiram.flowtune.LocalDatabase
+import com.abhiram.flowtune.LocalPlayerConnection
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.ArtistSongSortType
+import com.abhiram.flowtune.db.entities.Artist
+import com.abhiram.flowtune.extensions.toMediaItem
+import com.abhiram.flowtune.playback.queues.ListQueue
+import com.abhiram.flowtune.ui.component.ArtistListItem
+import com.abhiram.flowtune.ui.component.GridMenu
+import com.abhiram.flowtune.ui.component.GridMenuItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first

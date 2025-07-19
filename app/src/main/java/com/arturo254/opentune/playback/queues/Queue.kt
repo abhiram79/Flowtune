@@ -1,8 +1,8 @@
-package com.arturo254.opentune.playback.queues
+package com.abhiram.flowtune.playback.queues
 
 import androidx.media3.common.MediaItem
-import com.arturo254.opentune.extensions.metadata
-import com.arturo254.opentune.models.MediaMetadata
+import com.abhiram.flowtune.extensions.metadata
+import com.abhiram.flowtune.models.MediaMetadata
 
 interface Queue {
     val preloadItem: MediaMetadata?

@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.utils
+package com.abhiram.flowtune.ui.utils
 
 import androidx.compose.runtime.mutableStateOf
 

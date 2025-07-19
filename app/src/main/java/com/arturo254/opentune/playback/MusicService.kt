@@ -1,4 +1,4 @@
-package com.arturo254.opentune.playback
+package com.abhiram.flowtune.playback
 
 import android.app.PendingIntent
 import android.content.ComponentName
@@ -54,57 +54,57 @@ import com.arturo254.innertube.YouTube
 import com.arturo254.innertube.models.SongItem
 import com.arturo254.innertube.models.WatchEndpoint
 import com.arturo254.jossredconnect.JossRedClient
-import com.arturo254.opentune.MainActivity
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.AudioNormalizationKey
-import com.arturo254.opentune.constants.AudioQualityKey
-import com.arturo254.opentune.constants.AutoLoadMoreKey
-import com.arturo254.opentune.constants.AutoSkipNextOnErrorKey
-import com.arturo254.opentune.constants.DiscordTokenKey
-import com.arturo254.opentune.constants.EnableDiscordRPCKey
-import com.arturo254.opentune.constants.HideExplicitKey
-import com.arturo254.opentune.constants.HistoryDuration
-import com.arturo254.opentune.constants.MediaSessionConstants.CommandToggleLike
-import com.arturo254.opentune.constants.MediaSessionConstants.CommandToggleRepeatMode
-import com.arturo254.opentune.constants.MediaSessionConstants.CommandToggleShuffle
-import com.arturo254.opentune.constants.PauseListenHistoryKey
-import com.arturo254.opentune.constants.PersistentQueueKey
-import com.arturo254.opentune.constants.PlayerVolumeKey
-import com.arturo254.opentune.constants.RepeatModeKey
-import com.arturo254.opentune.constants.ShowLyricsKey
-import com.arturo254.opentune.constants.SimilarContent
-import com.arturo254.opentune.constants.SkipSilenceKey
-import com.arturo254.opentune.db.MusicDatabase
-import com.arturo254.opentune.db.entities.Event
-import com.arturo254.opentune.db.entities.FormatEntity
-import com.arturo254.opentune.db.entities.LyricsEntity
-import com.arturo254.opentune.db.entities.RelatedSongMap
-import com.arturo254.opentune.di.DownloadCache
-import com.arturo254.opentune.di.PlayerCache
-import com.arturo254.opentune.extensions.SilentHandler
-import com.arturo254.opentune.extensions.collect
-import com.arturo254.opentune.extensions.collectLatest
-import com.arturo254.opentune.extensions.currentMetadata
-import com.arturo254.opentune.extensions.findNextMediaItemById
-import com.arturo254.opentune.extensions.mediaItems
-import com.arturo254.opentune.extensions.metadata
-import com.arturo254.opentune.extensions.toMediaItem
-import com.arturo254.opentune.lyrics.LyricsHelper
-import com.arturo254.opentune.models.PersistQueue
-import com.arturo254.opentune.models.toMediaMetadata
-import com.arturo254.opentune.playback.queues.EmptyQueue
-import com.arturo254.opentune.playback.queues.ListQueue
-import com.arturo254.opentune.playback.queues.Queue
-import com.arturo254.opentune.playback.queues.YouTubeQueue
-import com.arturo254.opentune.playback.queues.filterExplicit
-import com.arturo254.opentune.utils.CoilBitmapLoader
-import com.arturo254.opentune.utils.DiscordRPC
-import com.arturo254.opentune.utils.YTPlayerUtils
-import com.arturo254.opentune.utils.dataStore
-import com.arturo254.opentune.utils.enumPreference
-import com.arturo254.opentune.utils.get
-import com.arturo254.opentune.utils.isInternetAvailable
-import com.arturo254.opentune.utils.reportException
+import com.abhiram.flowtune.MainActivity
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.AudioNormalizationKey
+import com.abhiram.flowtune.constants.AudioQualityKey
+import com.abhiram.flowtune.constants.AutoLoadMoreKey
+import com.abhiram.flowtune.constants.AutoSkipNextOnErrorKey
+import com.abhiram.flowtune.constants.DiscordTokenKey
+import com.abhiram.flowtune.constants.EnableDiscordRPCKey
+import com.abhiram.flowtune.constants.HideExplicitKey
+import com.abhiram.flowtune.constants.HistoryDuration
+import com.abhiram.flowtune.constants.MediaSessionConstants.CommandToggleLike
+import com.abhiram.flowtune.constants.MediaSessionConstants.CommandToggleRepeatMode
+import com.abhiram.flowtune.constants.MediaSessionConstants.CommandToggleShuffle
+import com.abhiram.flowtune.constants.PauseListenHistoryKey
+import com.abhiram.flowtune.constants.PersistentQueueKey
+import com.abhiram.flowtune.constants.PlayerVolumeKey
+import com.abhiram.flowtune.constants.RepeatModeKey
+import com.abhiram.flowtune.constants.ShowLyricsKey
+import com.abhiram.flowtune.constants.SimilarContent
+import com.abhiram.flowtune.constants.SkipSilenceKey
+import com.abhiram.flowtune.db.MusicDatabase
+import com.abhiram.flowtune.db.entities.Event
+import com.abhiram.flowtune.db.entities.FormatEntity
+import com.abhiram.flowtune.db.entities.LyricsEntity
+import com.abhiram.flowtune.db.entities.RelatedSongMap
+import com.abhiram.flowtune.di.DownloadCache
+import com.abhiram.flowtune.di.PlayerCache
+import com.abhiram.flowtune.extensions.SilentHandler
+import com.abhiram.flowtune.extensions.collect
+import com.abhiram.flowtune.extensions.collectLatest
+import com.abhiram.flowtune.extensions.currentMetadata
+import com.abhiram.flowtune.extensions.findNextMediaItemById
+import com.abhiram.flowtune.extensions.mediaItems
+import com.abhiram.flowtune.extensions.metadata
+import com.abhiram.flowtune.extensions.toMediaItem
+import com.abhiram.flowtune.lyrics.LyricsHelper
+import com.abhiram.flowtune.models.PersistQueue
+import com.abhiram.flowtune.models.toMediaMetadata
+import com.abhiram.flowtune.playback.queues.EmptyQueue
+import com.abhiram.flowtune.playback.queues.ListQueue
+import com.abhiram.flowtune.playback.queues.Queue
+import com.abhiram.flowtune.playback.queues.YouTubeQueue
+import com.abhiram.flowtune.playback.queues.filterExplicit
+import com.abhiram.flowtune.utils.CoilBitmapLoader
+import com.abhiram.flowtune.utils.DiscordRPC
+import com.abhiram.flowtune.utils.YTPlayerUtils
+import com.abhiram.flowtune.utils.dataStore
+import com.abhiram.flowtune.utils.enumPreference
+import com.abhiram.flowtune.utils.get
+import com.abhiram.flowtune.utils.isInternetAvailable
+import com.abhiram.flowtune.utils.reportException
 import com.google.common.util.concurrent.MoreExecutors
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -168,13 +168,13 @@ class MusicService :
     private val audioQuality by enumPreference(
         this,
         AudioQualityKey,
-        com.arturo254.opentune.constants.AudioQuality.AUTO
+        com.abhiram.flowtune.constants.AudioQuality.AUTO
     )
 
     private var currentQueue: Queue = EmptyQueue
     var queueTitle: String? = null
 
-    val currentMediaMetadata = MutableStateFlow<com.arturo254.opentune.models.MediaMetadata?>(null)
+    val currentMediaMetadata = MutableStateFlow<com.abhiram.flowtune.models.MediaMetadata?>(null)
     private val currentSong =
         currentMediaMetadata
             .flatMapLatest { mediaMetadata ->

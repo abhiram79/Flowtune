@@ -1,4 +1,4 @@
-package com.arturo254.opentune.ui.component
+package com.abhiram.flowtune.ui.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -24,8 +24,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.arturo254.opentune.R
-import com.arturo254.opentune.constants.PlaylistSongSortType
+import com.abhiram.flowtune.R
+import com.abhiram.flowtune.constants.PlaylistSongSortType
 
 @Composable
 inline fun <reified T : Enum<T>> SortHeader(

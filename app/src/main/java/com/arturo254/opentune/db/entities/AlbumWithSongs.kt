@@ -1,4 +1,4 @@
-package com.arturo254.opentune.db.entities
+package com.abhiram.flowtune.db.entities
 
 import androidx.compose.runtime.Immutable
 import androidx.room.Embedded
