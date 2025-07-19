@@ -129,7 +129,7 @@ dependencies {
     implementation(projects.kugou)
     implementation(projects.lrclib)
     implementation(projects.kizzy)
-    implementation(project(":jossredconnect"))
+//  implementation(project(":jossredconnect"))
 
     implementation(libs.ktor.client.core)
 
