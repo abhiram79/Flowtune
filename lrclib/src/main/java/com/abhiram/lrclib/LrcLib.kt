@@ -1,7 +1,7 @@
-package com.arturo254.lrclib
+package com.abhiram.lrclib
 
-import com.arturo254.lrclib.models.Track
-import com.arturo254.lrclib.models.bestMatchingFor
+import com.abhiram.lrclib.models.Track
+import com.abhiram.lrclib.models.bestMatchingFor
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
