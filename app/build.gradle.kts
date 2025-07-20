@@ -11,11 +11,11 @@ plugins {
 }
 
 android {
-    namespace = "com.arturo254.opentune"
+    namespace = "com.abhiram.flowtune"
     //noinspection GradleDependency
     compileSdk = 35
     defaultConfig {
-        applicationId = "com.Arturo254.opentune"
+        applicationId = "com.abhiram.flowtune"
         minSdk = 24
         targetSdk = 35
         versionCode = 115
