@@ -18,11 +18,16 @@ plugins {
 rootProject.name = "OpenTune"
 include(":app")
 include(":innertube")
-include(":kugou")
-include(":lrclib")
-include(":kizzy")
 include(":material-color-utilities")
-include(":jossredconnect")
+
+include(":kugou"); project(":kugou").projectDir = file("providers/kugou")
+
+include(":lrclib"); project(":lrclib").projectDir = file("providers/lrclib")
+
+include(":kizzy"); project(":kizzy").projectDir = file("providers/kizzy")
+
+include(":jossredconnect"); project(":jossredconnect").projectDir = file("providers/jossredconnect")
+
 
 // Use a local copy of NewPipe Extractor by uncommenting the lines below.
 // We assume, that Metrolist and NewPipe Extractor have the same parent directory.
