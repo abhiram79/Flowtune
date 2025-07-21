@@ -1,10 +1,10 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm")
+    kotlin("jvm") // Version inherited from root
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {
