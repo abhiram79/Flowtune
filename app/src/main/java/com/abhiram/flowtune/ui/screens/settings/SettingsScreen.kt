@@ -579,157 +579,7 @@ fun SettingsScreen(
                 .fillMaxWidth()
                 .padding(vertical = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            if (isLoggedIn) {
-                var imageLoadError by remember { mutableStateOf(false) }
-                var isImageLoading by remember { mutableStateOf(false) }
-
-                // Avatar circular para usuario
-                Box(
-                    modifier = Modifier
-                        .size(112.dp)
-                        .clip(CircleShape)
-                        .background(
-                            brush = Brush.radialGradient(
-                                colors = listOf(
-                                    MaterialTheme.colorScheme.primary.copy(alpha = 0.1f),
-                                    MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
-                                )
-                            )
-                        )
-                        .border(
-                            width = 2.dp,
-                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
-                            shape = CircleShape
-                        ),
-                    contentAlignment = Alignment.Center
-                ) {
-                    when {
-                        // Mostrar avatar personalizado si existe y no hay error
-                        customAvatarUri != null && !imageLoadError -> {
-                            AsyncImage(
-                                model = ImageRequest.Builder(LocalContext.current)
-                                    .data(customAvatarUri!!.toUri())
-                                    .crossfade(true)
-                                    .listener(
-                                        onStart = { isImageLoading = true },
-                                        onSuccess = { _, _ ->
-                                            isImageLoading = false
-                                            imageLoadError = false
-                                        },
-                                        onError = { _, _ ->
-                                            isImageLoading = false
-                                            imageLoadError = true
-                                        }
-                                    )
-                                    .build(),
-                                contentDescription = "Avatar de $accountName",
-                                modifier = Modifier
-                                    .size(104.dp)
-                                    .clip(CircleShape),
-                                contentScale = ContentScale.Crop
-                            )
-
-                            // Overlay de carga
-                            if (isImageLoading) {
-                                Box(
-                                    modifier = Modifier
-                                        .size(104.dp)
-                                        .clip(CircleShape)
-                                        .background(
-                                            MaterialTheme.colorScheme.surface.copy(alpha = 0.7f)
-                                        ),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    CircularProgressIndicator(
-                                        modifier = Modifier.size(24.dp),
-                                        strokeWidth = 2.dp,
-                                        color = MaterialTheme.colorScheme.primary
-                                    )
-                                }
-                            }
-                        }
-
-                        // Mostrar iniciales como fallback
-                        else -> {
-                            val initials = remember(accountName) {
-                                val cleanName = accountName.replace("@", "").trim()
-                                when {
-                                    cleanName.isEmpty() -> "?"
-                                    cleanName.contains(" ") -> {
-                                        val parts = cleanName.split(" ")
-                                        "${parts.first().firstOrNull()?.uppercase() ?: ""}${parts.last().firstOrNull()?.uppercase() ?: ""}"
-                                    }
-                                    else -> cleanName.take(2).uppercase()
-                                }
-                            }
-
-                            Box(
-                                modifier = Modifier
-                                    .size(104.dp)
-                                    .clip(CircleShape)
-                                    .background(
-                                        brush = Brush.radialGradient(
-                                            colors = listOf(
-                                                MaterialTheme.colorScheme.primary.copy(alpha = 0.8f),
-                                                MaterialTheme.colorScheme.primary
-                                            )
-                                        )
-                                    ),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(
-                                    text = initials,
-                                    color = MaterialTheme.colorScheme.onPrimary,
-                                    style = MaterialTheme.typography.headlineMedium,
-                                    fontWeight = FontWeight.Bold
-                                )
-                            }
-                        }
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = accountName.replace("@", "").takeIf { it.isNotBlank() } ?: "Usuario",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
-            } else {
-                // Logo para usuario no autenticado
-                Box(
-                    modifier = Modifier
-                        .size(56.dp)
-                        .clip(CircleShape)
-                        .background(
-                            brush = Brush.radialGradient(
-                                colors = listOf(
-                                    MaterialTheme.colorScheme.primary.copy(alpha = 0.1f),
-                                    MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
-                                )
-                            )
-                        )
-                        .padding(8.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.opentune_monochrome),
-                        contentDescription = "Logo de OpenTune",
-                        modifier = Modifier.fillMaxSize(),
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                }
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "OpenTune",
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.SemiBold
-                )
-            }
-        }
+        ) {}
 
         // Extensión para convertir String a Uri de forma segura
         fun String.toUri(): Uri? {
@@ -785,17 +635,9 @@ fun SettingsScreen(
 //            icon = { Icon(painterResource(R.drawable.apps), null) },
 //            onClick = { navController.navigate("settings/problem_solver") }
 //        )
-        PreferenceEntry(
-            title = { Text(stringResource(R.string.Donate)) },
-            icon = { Icon(painterResource(R.drawable.donate), null) },
-            onClick = { uriHandler.openUri("https://buymeacoffee.com/arturocervantes") }
-        )
+        
 
-        PreferenceEntry(
-            title = { Text(stringResource(R.string.Telegramchanel)) },
-            icon = { Icon(painterResource(R.drawable.telegram), null) },
-            onClick = { uriHandler.openUri("https://t.me/OpenTune_chat") }
-        )
+    
 
         TranslatePreference(uriHandler = uriHandler)
 
