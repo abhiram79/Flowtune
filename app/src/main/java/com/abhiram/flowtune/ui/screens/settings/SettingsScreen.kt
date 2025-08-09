@@ -140,7 +140,7 @@ fun VersionCard(uriHandler: UriHandler) {
 
             ),
         shape = RoundedCornerShape(38.dp),
-        onClick = { uriHandler.openUri("https://github.com/Arturo254/OpenTune/releases/latest") }
+        onClick = { uriHandler.openUri("https://github.com/abhiram79/Flowtune/releases/latest") }
     ) {
         Column(
             modifier = Modifier
@@ -410,7 +410,7 @@ suspend fun downloadApk(
     try {
         // URL del APK (ajusta esta URL según donde estén alojados tus archivos APK)
         val apkUrl =
-            "https://github.com/Arturo254/OpenTune/releases/download/$version/app-release.apk"
+            "https://github.com/abhiram79/Flowtune/releases/download/$version/flowtune.apk"
 
         // Crear archivo de destino
         val downloadDir = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
@@ -423,7 +423,7 @@ suspend fun downloadApk(
 
         // Configurar el DownloadManager
         val request = DownloadManager.Request(apkUrl.toUri())
-            .setTitle("Descargando OpenTune v$version")
+            .setTitle("Descargando Flowtune v$version")
             .setDescription("Descargando actualización...")
             .setDestinationUri(Uri.fromFile(apkFile))
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
@@ -511,7 +511,7 @@ fun installApk(context: Context, apkUri: Uri) {
 // Estas funciones ya las tenías
 suspend fun checkForUpdates(): String? = withContext(Dispatchers.IO) {
     try {
-        val url = URL("https://api.github.com/repos/Arturo254/OpenTune/releases/latest")
+        val url = URL("https://api.github.com/repos/abhiram79/Flowtune/releases/latest")
         val connection = url.openConnection()
         connection.connect()
         val json = connection.getInputStream().bufferedReader().use { it.readText() }
