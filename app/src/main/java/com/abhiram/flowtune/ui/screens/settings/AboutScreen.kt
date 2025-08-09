@@ -220,7 +220,7 @@ fun AboutScreen(
             verticalAlignment = Alignment.Top,
         ) {
             Text(
-                text = "OpenTune",
+                text = "Flowtune",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
@@ -273,7 +273,7 @@ fun AboutScreen(
         Spacer(Modifier.height(10.dp))
 
         Text(
-            text = " Dev By Arturo Cervantes 亗",
+            text = "",
             style = MaterialTheme.typography.titleMedium.copy(
                 fontFamily = FontFamily.Monospace
             ),
@@ -282,87 +282,9 @@ fun AboutScreen(
         )
 
         Spacer(Modifier.height(8.dp))
-
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            shape = RoundedCornerShape(28.dp), // Bordes muy redondeados estilo MD3
-            elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant, // Color de fondo MD3
-            )
-        ) {
-            Row(
-                modifier = Modifier
-                    .padding(8.dp)
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(
-                    onClick = { uriHandler.openUri("https://github.com/Arturo254/OpenTune") }
-                ) {
-                    Icon(
-                        modifier = Modifier.size(20.dp),
-                        painter = painterResource(R.drawable.github),
-                        contentDescription = null
-                    )
-                }
-                IconButton(
-                    onClick = { uriHandler.openUri("https://www.paypal.me/OpenTune") }
-                ) {
-                    Icon(
-                        modifier = Modifier.size(20.dp),
-                        contentDescription = null,
-                        painter = painterResource(R.drawable.paypal)
-                    )
-                }
-
-                IconButton(
-                    onClick = { uriHandler.openUri("https://g.dev/Arturo254") }
-                ) {
-                    Icon(
-                        modifier = Modifier.size(20.dp),
-                        contentDescription = null,
-                        painter = painterResource(R.drawable.google)
-                    )
-                }
-
-
-                IconButton(
-                    onClick = { uriHandler.openUri("https://opentune.netlify.app/") }
-                ) {
-                    Icon(
-                        modifier = Modifier.size(22.dp),
-                        contentDescription = null,
-                        painter = painterResource(R.drawable.resource_public)
-                    )
-                }
-            }
-        }
+        
         Spacer(Modifier.height(20.dp))
-        Row(
-            verticalAlignment = Alignment.Top,
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.group),
-                    contentDescription = null
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = stringResource(R.string.contributors),
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-
-
-        }
+         
 
         UserCards(uriHandler)
         Spacer(modifier = Modifier.width(12.dp))
@@ -402,38 +324,12 @@ fun AboutScreen(
 fun UserCards(uriHandler: UriHandler) {
     Column {
         UserCard(
-            imageUrl = "https://avatars.githubusercontent.com/u/87346871?v=4",
-            name = "亗 Arturo254",
-            role = "Lead Developer ",
-            onClick = { uriHandler.openUri("https://github.com/Arturo254") }
+            imageUrl = "https://avatars.githubusercontent.com/u/189146525?v=4",
+            name = "abhiram79",
+            role = "Developer",
+            onClick = { uriHandler.openUri("https://github.com/abhiram79") }
         )
-
-        UserCard(
-            imageUrl = "https://avatars.githubusercontent.com/u/138934847?v=4",
-            name = "\uD81A\uDD10 Fabito02",
-            role = "Traductor (PR_BR)  Icon designer",
-            onClick = { uriHandler.openUri("https://github.com/Fabito02/") }
-        )
-
-        UserCard(
-            imageUrl = "https://avatars.githubusercontent.com/u/205341163?v=4",
-            name = "ϟ Xamax-code",
-            role = "Code Refactor",
-            onClick = { uriHandler.openUri("https://github.com/xamax-code") }
-        )
-        UserCard(
-            imageUrl = "https://avatars.githubusercontent.com/u/106829560?v=4",
-            name = "ϟ Derpachi",
-            role = "Traductor (ru_RU)",
-            onClick = { uriHandler.openUri("https://github.com/Derpachi") }
-        )
-
-        UserCard(
-            imageUrl = "https://avatars.githubusercontent.com/u/147309938?v=4",
-            name = "「★」 RightSideUpCak3",
-            role = "Language selector",
-            onClick = { uriHandler.openUri("https://github.com/RightSideUpCak3") }
-        )
+        
     }
 }
 
