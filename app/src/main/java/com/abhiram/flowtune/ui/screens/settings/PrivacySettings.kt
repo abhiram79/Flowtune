@@ -134,18 +134,7 @@ fun PrivacySettings(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            PrivacySection(
-                title = stringResource(R.string.misc),
-                content = {
-                    SwitchPreferenceCard(
-                        title = stringResource(R.string.disable_screenshot),
-                        description = stringResource(R.string.disable_screenshot_desc),
-                        icon = R.drawable.screenshot,
-                        checked = disableScreenshot,
-                        onCheckedChange = onDisableScreenshotChange
-                    )
-                }
-            )
+    
 
             Spacer(modifier = Modifier.height(16.dp))
         }

@@ -195,59 +195,6 @@ fun StorageSettings(
                 .windowInsetsPadding(LocalPlayerAwareWindowInsets.current.only(WindowInsetsSides.Horizontal + WindowInsetsSides.Bottom))
                 .verticalScroll(rememberScrollState()),
         ) {
-            // Storage overview card
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-                shape = RoundedCornerShape(16.dp)
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.padding(bottom = 8.dp)
-                    ) {
-                        Icon(
-                            painter = painterResource(R.drawable.storage),
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                        Text(
-                            text = stringResource(R.string.storage_overview),
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                            modifier = Modifier.padding(start = 8.dp)
-                        )
-                    }
-
-                    StorageItem(
-                        title = stringResource(R.string.downloaded_songs),
-                        icon = R.drawable.download,
-                        size = downloadCacheSize,
-                        progress = downloadCachePercentage,
-                        maxSize = null
-                    )
-
-                    StorageItem(
-                        title = stringResource(R.string.song_cache),
-                        icon = R.drawable.music_note,
-                        size = playerCacheSize,
-                        progress = playerCacheProgress * 100,
-                        maxSize = if (maxSongCacheSize != -1) maxSongCacheSize * 1024 * 1024L else null
-                    )
-
-                    StorageItem(
-                        title = stringResource(R.string.image_cache),
-                        icon = R.drawable.image,
-                        size = imageCacheSize,
-                        progress = imageCacheProgress * 100,
-                        maxSize = imageDiskCache.maxSize
-                    )
-                }
-            }
 
             // Downloaded Songs Section
             StorageSection(
