@@ -148,40 +148,40 @@ fun OnlineSearchScreen(
                 modifier = Modifier.animateItem(fadeInSpec = null, fadeOutSpec = null),
             )
         }
-        if (viewState.suggestions.isNotEmpty()) {
-            item {
-                Text(
-                    text = (stringResource(R.string.Sujestions)),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-                )
-            }
-        }
+   //     if (viewState.suggestions.isNotEmpty()) {
+  //          item {
+      //          Text(
+   //                 text = (stringResource(R.string.Sujestions)),
+       //             style = MaterialTheme.typography.titleMedium,
+   //                 fontWeight = FontWeight.Bold,
+   //                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+   //             )
+  //          }
+  //      }
 
 
-        items(
-            items = viewState.suggestions,
-            key = { it },
-        ) { query ->
-            SuggestionItem(
-                query = query,
-                online = true,
-                onClick = {
-                    onSearch(query)
-                    onDismiss()
-                },
-                onFillTextField = {
-                    onQueryChange(
-                        TextFieldValue(
-                            text = query,
-                            selection = TextRange(query.length),
-                        ),
-                    )
-                },
-                modifier = Modifier.animateItem(fadeInSpec = null, fadeOutSpec = null),
-            )
-        }
+   //     items(
+   //         items = viewState.suggestions,
+  //          key = { it },
+ //       ) { query ->
+   //         SuggestionItem(
+  //              query = query,
+//                online = true,
+     //           onClick = {
+  //                  onSearch(query)
+        //            onDismiss()
+  //              },
+//                onFillTextField = {
+    //                onQueryChange(
+                        //TextFieldValue(
+     //                       text = query,
+                //            selection = TextRange(query.length),
+          //              ),
+    //                )
+      //          },
+  //              modifier = Modifier.animateItem(fadeInSpec = null, fadeOutSpec = null),
+       //     )
+//        }
 
         if (viewState.items.isNotEmpty()) {
             item {
