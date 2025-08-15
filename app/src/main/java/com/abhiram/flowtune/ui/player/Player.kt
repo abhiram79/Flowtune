@@ -833,7 +833,7 @@ fun BottomSheetPlayer(
             Spacer(Modifier.height(6.dp))
 
             when (sliderStyle) {
-                SliderStyle.DEFAULT -> {
+                SliderStyle.SLIM -> {
                     Slider(
                         value = (sliderPosition ?: position).toFloat(),
                         valueRange = 0f..(if (duration == C.TIME_UNSET) 0f else duration.toFloat()),
@@ -888,7 +888,7 @@ fun BottomSheetPlayer(
                     )
                 }
 
-                SliderStyle.SLIM -> {
+                SliderStyle.DEFAULT -> {
                     Slider(
                         value = (sliderPosition ?: position).toFloat(),
                         valueRange = 0f..(if (duration == C.TIME_UNSET) 0f else duration.toFloat()),
