@@ -770,8 +770,11 @@ class MainActivity : ComponentActivity() {
                                                     Spacer(modifier = Modifier.width(8.dp))
                                                     Text(
                                                         text = stringResource(R.string.app_name),
-                                                        style = MaterialTheme.typography.titleLarge,
+                   
+                                     style = MaterialTheme.typography.titleLarge,
                                                         fontWeight = FontWeight.Bold,
+                       
+                   // topbar_ui    
                                                         maxLines = 1,
                                                         overflow = TextOverflow.Ellipsis
                                                     )
@@ -1488,7 +1491,7 @@ private fun openNotificationSettings(context: Context) {
 }
 suspend fun checkForUpdates(): String? = withContext(Dispatchers.IO) {
     try {
-        val url = URL("https://api.github.com/repos/Arturo254/OpenTune/releases/latest")
+        val url = URL("https://api.github.com/repos/abhiram79/flowtune/releases/latest")
         val connection = url.openConnection()
         connection.connect()
         val json = connection.getInputStream().bufferedReader().use { it.readText() }
@@ -1569,7 +1572,7 @@ fun ProfileIconWithUpdateBadge(
                 )
             } ?: run {
                 Icon(
-                    painter = painterResource(R.drawable.person),
+                    painter = painterResource(R.drawable.settings),
                     contentDescription = "Avatar predeterminado",
                     modifier = modifier
                 )
