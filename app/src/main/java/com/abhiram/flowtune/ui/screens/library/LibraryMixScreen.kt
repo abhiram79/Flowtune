@@ -93,7 +93,7 @@ fun LibraryMixScreen(
         MixSortType.CREATE_DATE
     )
     val (sortDescending, onSortDescendingChange) = rememberPreference(MixSortDescendingKey, true)
-    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)
+    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.SMALL)
 
     val topSize by viewModel.topValue.collectAsState(initial = 50)
     val likedPlaylist =
