@@ -130,7 +130,7 @@ fun AppearanceSettings(
 
     val (darkMode, onDarkModeChange) = rememberEnumPreference(
         DarkModeKey,
-        defaultValue = DarkMode.AUTO
+        defaultValue = DarkMode.OFF
     )
 
     val (playerButtonsStyle, onPlayerButtonsStyleChange) = rememberEnumPreference(
