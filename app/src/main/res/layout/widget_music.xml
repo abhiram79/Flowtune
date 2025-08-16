@@ -100,7 +100,14 @@
                 android:src="@drawable/skip_next"
                 android:tint="@color/Lights" />
 
-            
+            <ImageButton
+                android:id="@+id/widget_like"
+                android:layout_width="@dimen/widget_control_small"
+                android:layout_height="@dimen/widget_control_small"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/unknown"
+                android:padding="@dimen/widget_control_padding"
+                android:src="@drawable/favorite_border" />
 
         </LinearLayout>
 
