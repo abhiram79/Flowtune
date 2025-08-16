@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/widget_margin"
-    android:background="@drawable/glass_background"
+    android:background="@android:color/white"
     android:elevation="10dp"
     android:padding="@dimen/widget_padding">
 
@@ -17,7 +17,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/widget_small_margin"
         android:layout_marginEnd="@dimen/widget_small_margin"
-        android:contentDescription="OpenTune"
+        android:contentDescription="Flowtune"
         android:src="@drawable/opentune"
         android:alpha="0.8" />
 
@@ -100,14 +100,7 @@
                 android:src="@drawable/skip_next"
                 android:tint="@color/Lights" />
 
-            <ImageButton
-                android:id="@+id/widget_like"
-                android:layout_width="@dimen/widget_control_small"
-                android:layout_height="@dimen/widget_control_small"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/unknown"
-                android:padding="@dimen/widget_control_padding"
-                android:src="@drawable/favorite_border" />
+            
 
         </LinearLayout>
 
