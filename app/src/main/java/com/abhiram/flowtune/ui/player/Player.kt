@@ -671,28 +671,9 @@ fun BottomSheetPlayer(
                         .fillMaxWidth()
                         .padding(horizontal = PlayerHorizontalPadding),
             ) {
-                Box(
-                    modifier =
-                        Modifier
-                            .size(42.dp)
-                            .clip(RoundedCornerShape(24.dp))
-                            .background(textButtonColor)
-                            .clickable {
-                                playerConnection.service.startRadioSeamlessly()
-                            },
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.radio),
-                        contentDescription = null,
-                        colorFilter = ColorFilter.tint(iconButtonColor),
-                        modifier =
-                            Modifier
-                                .align(Alignment.Center)
-                                .size(24.dp),
-                    )
-                }
+                
 
-                Spacer(modifier = Modifier.size(12.dp))
+                Spacer(modifier = Modifier.size(2.dp))
 
                 Box(
                     modifier =
