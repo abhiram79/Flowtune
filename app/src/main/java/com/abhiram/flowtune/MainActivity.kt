@@ -1491,7 +1491,7 @@ private fun openNotificationSettings(context: Context) {
 }
 suspend fun checkForUpdates(): String? = withContext(Dispatchers.IO) {
     try {
-        val url = URL("https://api.github.com/repos/abhiram79/flowtune/releases/latest")
+        val url = URL("https://api.github.com/repos/abhiram79/Flowtune/releases/latest")
         val connection = url.openConnection()
         connection.connect()
         val json = connection.getInputStream().bufferedReader().use { it.readText() }
