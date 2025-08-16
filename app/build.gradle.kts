@@ -16,10 +16,10 @@ android {
     compileSdk = 35
     defaultConfig {
         applicationId = "com.abhiram.flowtune"
-        minSdk = 24
+        minSdk = 22
         targetSdk = 35
         versionCode = 115
-        versionName = "2.0.1"
+        versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
