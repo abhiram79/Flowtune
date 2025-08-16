@@ -95,14 +95,14 @@ class MusicWidget : AppWidgetProvider() {
     }
 
     companion object {
-        const val ACTION_PLAY_PAUSE = "com.Arturo254.opentune.ACTION_PLAY_PAUSE"
-        const val ACTION_PREV = "com.Arturo254.opentune.ACTION_PREV"
-        const val ACTION_NEXT = "com.Arturo254.opentune.ACTION_NEXT"
-        const val ACTION_SHUFFLE = "com.Arturo254.opentune.ACTION_SHUFFLE"
-        const val ACTION_LIKE = "com.Arturo254.opentune.ACTION_LIKE"
-        const val ACTION_REPLAY = "com.Arturo254.opentune.ACTION_REPLAY"
-        const val ACTION_STATE_CHANGED = "com.Arturo254.opentune.ACTION_STATE_CHANGED"
-        const val ACTION_UPDATE_PROGRESS = "com.Arturo254.opentune.ACTION_UPDATE_PROGRESS"
+        const val ACTION_PLAY_PAUSE = "com.abhiram.flowtune.ACTION_PLAY_PAUSE"
+        const val ACTION_PREV = "com.abhiram.flowtune.ACTION_PREV"
+        const val ACTION_NEXT = "com.abhiram.flowtune.ACTION_NEXT"
+        const val ACTION_SHUFFLE = "com.abhiram.flowtune.ACTION_SHUFFLE"
+        const val ACTION_LIKE = "com.abhiram.flowtune.ACTION_LIKE"
+        const val ACTION_REPLAY = "com.abhiram.flowtune.ACTION_REPLAY"
+        const val ACTION_STATE_CHANGED = "com.abhiram.flowtune.ACTION_STATE_CHANGED"
+        const val ACTION_UPDATE_PROGRESS = "com.abhiram.flowtune.ACTION_UPDATE_PROGRESS"
 
         fun updateAllWidgets(context: Context) {
             val appWidgetManager = AppWidgetManager.getInstance(context)
