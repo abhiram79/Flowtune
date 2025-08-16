@@ -361,8 +361,8 @@ fun HomeScreen(
                         chips = listOfNotNull(
                             Pair("history", stringResource(R.string.history)),
                             Pair("stats", stringResource(R.string.stats)),
-                            Pair("liked", stringResource(R.string.liked)),
-                            Pair("downloads", stringResource(R.string.offline)),
+                            Pair//("liked", stringResource(R.string.liked)),
+                            Pair//("downloads", stringResource(R.string.offline)),
                             if (isLoggedIn) Pair(
                                 "account",
                                 stringResource(R.string.account)
