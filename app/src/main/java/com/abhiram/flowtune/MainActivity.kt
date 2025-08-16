@@ -765,7 +765,7 @@ class MainActivity : ComponentActivity() {
                                                     Image(
                                                         painter = painterResource(R.drawable.opentune),
                                                         contentDescription = null,
-                                                        modifier = Modifier.size(27.dp)
+                                                        modifier = Modifier.size(39.dp)
                                                     )
                                                     Spacer(modifier = Modifier.width(8.dp))
                                                     Text(

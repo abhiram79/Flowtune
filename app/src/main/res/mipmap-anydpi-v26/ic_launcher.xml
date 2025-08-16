@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-    <background android:drawable="@mipmap/ic_launcher_background" />
-    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
-    <monochrome android:drawable="@mipmap/ic_launcher_monochrome" />
-</adaptive-icon>
+<!--Credits: https://github.com/JPGuillemin-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="512" android:viewportHeight="512">
+    <path android:fillColor="#e40f24" android:pathData="M255.99 173.55v100.69c-11.07-6.35-24.73-8.83-39.22-3.76-15.78 5.65-27.91 19.67-30.73 36.15-5.42 32.27 21.9 59.83 54.05 54.77 23.09-3.65 39.46-24.85 39.46-48.29v-116h23.55c12.95 0 23.55-10.6 23.55-23.56 0-12.95-10.6-23.55-23.55-23.55h-23.55C266.6 150 256 160.6 256 173.55z" />
+</vector>
