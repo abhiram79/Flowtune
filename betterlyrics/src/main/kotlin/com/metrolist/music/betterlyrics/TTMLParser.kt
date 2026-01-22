@@ -1,4 +1,4 @@
-package com.metrolist.music.betterlyrics
+package com.abhiram.flowtune.betterlyrics
 
 import org.w3c.dom.Element
 import org.w3c.dom.Node

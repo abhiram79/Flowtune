@@ -232,7 +232,7 @@
         <!-- Google Cast Options Provider -->
         <meta-data
             android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-            android:value="com.metrolist.music.cast.CastOptionsProvider" />
+            android:value="com.abhiram.flowtune.cast.CastOptionsProvider" />
     </application>
 
 </manifest>

@@ -16,11 +16,11 @@ plugins {
 }
 
 android {
-    namespace = "com.metrolist.music"
+    namespace = "com.abhiram.flowtune"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.metrolist.music"
+        applicationId = "com.abhiram.flowtune"
         minSdk = 26
         targetSdk = 36
         versionCode = 136
