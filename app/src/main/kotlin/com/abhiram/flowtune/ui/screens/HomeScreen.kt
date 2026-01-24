@@ -150,6 +150,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.math.min
 import kotlin.random.Random
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.alpha
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.foundation.background
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -202,6 +207,22 @@ fun HomeScreen(
 
     val scope = rememberCoroutineScope()
     val lazylistState = rememberLazyListState()
+    
+    // Gradient alpha
+    val gradientAlpha = 1f
+     
+    // Disabled gradient scroll behaviour Temporary 
+//    val gradientAlpha by remember {
+//     derivedStateOf {
+//        val offset = lazylistState.firstVisibleItemScrollOffset
+//        val index = lazylistState.firstVisibleItemIndex
+//
+//       when {
+//          index > 0 -> 0f
+//           else -> 1f - (offset / 600f).coerceIn(0f, 1f)
+//     }
+//    }
+//}
     val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)
     val currentGridHeight = if (gridItemSize == GridItemSize.BIG) GridThumbnailHeight else SmallGridThumbnailHeight
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -404,6 +425,36 @@ fun HomeScreen(
             ),
         contentAlignment = Alignment.TopStart
     ) {
+      
+      Box(
+    modifier = Modifier
+        .fillMaxWidth()
+        .height(320.dp)
+) {
+    Box(
+        modifier = Modifier
+            .matchParentSize()
+            .alpha(gradientAlpha)
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        Color(0xFF2E235A),
+                        Color(0xFF1B1833),
+                        Color.Transparent
+                    )
+                )
+            )
+            .blur(80.dp) 
+    )
+    
+    Box(
+        modifier = Modifier
+            .matchParentSize()
+            .alpha(gradientAlpha)
+            .background(Color.Black.copy(alpha = 0.25f))
+    )
+}
+    
         val horizontalLazyGridItemWidthFactor = if (maxWidth * 0.475f >= 320.dp) 0.475f else 0.9f
         val horizontalLazyGridItemWidth = maxWidth * horizontalLazyGridItemWidthFactor
         val quickPicksSnapLayoutInfoProvider = remember(quickPicksLazyGridState) {

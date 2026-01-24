@@ -192,6 +192,7 @@ import java.net.URLEncoder
 import java.util.Locale
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.days
+import androidx.compose.ui.graphics.Brush
 
 @Suppress("DEPRECATION", "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
 @AndroidEntryPoint
@@ -695,28 +696,32 @@ class MainActivity : ComponentActivity() {
                                 enter = fadeIn(animationSpec = tween(durationMillis = 300)),
                                 exit = fadeOut(animationSpec = tween(durationMillis = 200))
                             ) {
-                                Row {
-                                    TopAppBar(
-                                        title = {
-                                            Text(
-                                                text = currentTitleRes?.let { stringResource(it) } ?: "",
-                                                style = MaterialTheme.typography.titleLarge,
-                                            )
-                                        },
-                                        actions = {
-                                            IconButton(onClick = { navController.navigate("history") }) {
-                                                Icon(
-                                                    painter = painterResource(R.drawable.history),
-                                                    contentDescription = stringResource(R.string.history)
-                                                )
-                                            }
-                                            IconButton(onClick = { navController.navigate("stats") }) {
-                                                Icon(
-                                                    painter = painterResource(R.drawable.stats),
-                                                    contentDescription = stringResource(R.string.stats)
-                                                )
-                                            }
-                                            IconButton(onClick = { showAccountDialog = true }) {
+                                Box {
+  
+    Box(
+        modifier = Modifier
+            .matchParentSize()
+            .background(
+                Brush.verticalGradient(
+                    colors = listOf(
+                        Color(0xFF2E235A),
+                        Color(0xFF1B1833),
+                        Color.Transparent
+                    )
+                )
+            )
+    )
+
+
+    TopAppBar(
+        title = {
+            Text(
+                text = currentTitleRes?.let { stringResource(it) } ?: "",
+                style = MaterialTheme.typography.titleLarge,
+            )
+        },
+        actions = { 
+                   IconButton(onClick = { showAccountDialog = true }) {
                                                 BadgedBox(badge = {
                                                     if (latestVersionName != BuildConfig.VERSION_NAME) {
                                                         Badge()
@@ -740,24 +745,27 @@ class MainActivity : ComponentActivity() {
                                                 }
                                             }
                                         },
-                                        scrollBehavior = topAppBarScrollBehavior,
-                                        colors = TopAppBarDefaults.topAppBarColors(
-                                            containerColor = if (pureBlack) Color.Black else MaterialTheme.colorScheme.surfaceContainer,
-                                            scrolledContainerColor = if (pureBlack) Color.Black else MaterialTheme.colorScheme.surfaceContainer,
-                                            titleContentColor = MaterialTheme.colorScheme.onSurface,
-                                            actionIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                                            navigationIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant
-                                        ),
-                                        modifier = Modifier.windowInsetsPadding(
-                                            if (showRail) {
-                                                WindowInsets(left = NavigationBarHeight)
-                                                    .add(cutoutInsets.only(WindowInsetsSides.Start))
-                                            } else {
-                                                cutoutInsets.only(WindowInsetsSides.Start + WindowInsetsSides.End)
-                                            }
-                                        )
-                                    )
-                                }
+        scrollBehavior = topAppBarScrollBehavior,
+
+   
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color.Transparent,
+            scrolledContainerColor = Color.Transparent,
+            titleContentColor = MaterialTheme.colorScheme.onSurface,
+            actionIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant,
+            navigationIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant
+        ),
+
+        modifier = Modifier.windowInsetsPadding(
+            if (showRail) {
+                WindowInsets(left = NavigationBarHeight)
+                    .add(cutoutInsets.only(WindowInsetsSides.Start))
+            } else {
+                cutoutInsets.only(WindowInsetsSides.Start + WindowInsetsSides.End)
+            }
+        )
+    )
+}                            
                             }
                         },
                         bottomBar = {
