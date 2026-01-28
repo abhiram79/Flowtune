@@ -35,11 +35,11 @@ jobs:
           java-version: "21"
           distribution: "temurin"
 
-      - name: Set Up Gradle
+      - name: Set Up Gradle (No Caching)
         uses: gradle/actions/setup-gradle@v5
         with:
-          cache-encryption-key: ${{ secrets.GRADLE_CACHE_KEY }}
-          cache-cleanup: on-success
+          # Removed cache-related options
+          cache-cleanup: none
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
@@ -97,11 +97,11 @@ jobs:
           java-version: "21"
           distribution: "temurin"
 
-      - name: Set Up Gradle
+      - name: Set Up Gradle (No Caching)
         uses: gradle/actions/setup-gradle@v5
         with:
-          cache-encryption-key: ${{ secrets.GRADLE_CACHE_KEY }}
-          cache-cleanup: on-success
+          # Removed cache-related options
+          cache-cleanup: none
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
