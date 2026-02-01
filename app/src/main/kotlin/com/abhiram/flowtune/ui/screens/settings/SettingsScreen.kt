@@ -162,8 +162,6 @@ fun SettingsScreen(
                     )
                 }
                 add(
-                )
-                add(
                     Material3SettingsItem(
                         icon = painterResource(R.drawable.info),
                         title = { Text(stringResource(R.string.about)) },
