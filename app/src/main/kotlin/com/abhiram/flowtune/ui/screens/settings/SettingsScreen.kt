@@ -87,26 +87,8 @@ fun SettingsScreen(
                     icon = painterResource(R.drawable.play),
                     title = { Text(stringResource(R.string.player_and_audio)) },
                     onClick = { navController.navigate("settings/player") }
-                ),
-                Material3SettingsItem(
-                    icon = painterResource(R.drawable.language),
-                    title = { Text(stringResource(R.string.content)) },
-                    onClick = { navController.navigate("settings/content") }
-                )
-            )
-        )
-        
-        Spacer(modifier = Modifier.height(16.dp))
-        
-        // Privacy & Security Section
-        Material3SettingsGroup(
-            title = stringResource(R.string.settings_section_privacy),
-            items = listOf(
-                Material3SettingsItem(
-                    icon = painterResource(R.drawable.security),
-                    title = { Text(stringResource(R.string.privacy)) },
-                    onClick = { navController.navigate("settings/privacy") }
-                )
+                ) 
+              // ,
             )
         )
         
@@ -180,11 +162,6 @@ fun SettingsScreen(
                     )
                 }
                 add(
-                    Material3SettingsItem(
-                        icon = painterResource(R.drawable.update),
-                        title = { Text(stringResource(R.string.updater)) },
-                        onClick = { navController.navigate("settings/updater") }
-                    )
                 )
                 add(
                     Material3SettingsItem(
@@ -193,35 +170,8 @@ fun SettingsScreen(
                         onClick = { navController.navigate("settings/about") }
                     )
                 )
-                if (latestVersionName != BuildConfig.VERSION_NAME) {
-                    add(
-                        Material3SettingsItem(
-                            icon = painterResource(R.drawable.update),
-                            title = { 
-                                Text(
-                                    text = stringResource(R.string.new_version_available),
-                                )
-                            },
-                            description = {
-                                Text(
-                                    text = latestVersionName,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                            },
-                            showBadge = true,
-                            onClick = { uriHandler.openUri(Updater.getLatestDownloadUrl()) }
-                        )
-                    )
-                }
             }
         )
-        
-        if (latestVersionName != BuildConfig.VERSION_NAME) {
-            Spacer(modifier = Modifier.height(16.dp))
-            ReleaseNotesCard()
-        }
-        
         Spacer(modifier = Modifier.height(16.dp))
     }
 

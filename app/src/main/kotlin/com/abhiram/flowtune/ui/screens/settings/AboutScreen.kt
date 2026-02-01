@@ -93,7 +93,7 @@ fun AboutScreen(
             verticalAlignment = Alignment.Top,
         ) {
             Text(
-                text = "METROLIST",
+                text = "FLOWTUNE",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
@@ -161,7 +161,7 @@ fun AboutScreen(
         Spacer(Modifier.height(8.dp))
 
         Text(
-            text = "MO AGAMY",
+            text = "abhiram79",
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.secondary,
         )
@@ -171,7 +171,7 @@ fun AboutScreen(
         Row {
             IconButton(
                 onClick = {
-                    uriHandler.openUri("https://github.com/mostafaalagamy")
+                    uriHandler.openUri("https://github.com/abhiram79")
                 },
             ) {
                 Icon(
@@ -179,21 +179,10 @@ fun AboutScreen(
                     contentDescription = null
                 )
             }
-
+            
             IconButton(
                 onClick = {
-                    uriHandler.openUri("https://buymeacoffee.com/mostafaalagamy")
-                }
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.buymeacoffee),
-                    contentDescription = null
-                )
-            }
-
-            IconButton(
-                onClick = {
-                    uriHandler.openUri("https://mostafaalagamy.github.io")
+                    uriHandler.openUri("https://abhiram79.github.io")
                 }
             ) {
                 Icon(
@@ -202,59 +191,9 @@ fun AboutScreen(
                 )
             }
         }
-
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = "COLLABORATORS",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier
-                .border(
-                    width = 1.dp,
-                    color = MaterialTheme.colorScheme.secondary,
-                    shape = CircleShape,
-                )
-                .padding(
-                    horizontal = 6.dp,
-                    vertical = 2.dp,
-                ),
-        )
-
-        Spacer(Modifier.height(4.dp))
-
-        Text(
-            text = "Damian Sobczak",
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.clickable {
-                uriHandler.openUri("https://github.com/FullerBread2032")
-            }
-        )
-
-        Spacer(Modifier.height(8.dp))
-
-        Text(
-            text = "Adriel O'Connel",
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.clickable {
-                uriHandler.openUri("https://github.com/adrielGGmotion")
-            }
-        )
-
-        Spacer(Modifier.height(8.dp))
-
-        Text(
-            text = "Nyx",
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.clickable {
-                uriHandler.openUri("https://github.com/nyxiereal")
-            }
-        )
-
+        
         Spacer(Modifier.height(32.dp))
+        
     }
 
     TopAppBar(
