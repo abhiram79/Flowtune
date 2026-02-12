@@ -26,6 +26,8 @@ include(":packages:lastfm")
 include(":packages:betterlyrics")
 include(":packages:simpmusic")
 
+// project path mappings
+
 project(":packages:betterlyrics").projectDir = file("packages/betterlyrics")
 project(":packages:kizzy").projectDir = file("packages/kizzy")
 project(":packages:kugou").projectDir = file("packages/kugou")
