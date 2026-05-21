@@ -5,15 +5,17 @@
 
 package com.abhiram.flowtune.ui.theme
 
-import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.palette.graphics.Palette
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-val LocalHomeGradientColors = staticCompositionLocalOf {
-    listOf(Color(0xFF2E235A), Color(0xFF1B1833), Color.Transparent)
+val LocalHomeGradientColors = compositionLocalOf {
+    mutableStateOf(listOf(Color(0xFF2E235A), Color(0xFF1B1833), Color.Transparent))
 }
 
 /**
