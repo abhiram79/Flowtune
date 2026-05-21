@@ -38,7 +38,7 @@ constructor(
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     val query = URLDecoder.decode(savedStateHandle.get<String>("query")!!, "UTF-8")
-    val filter = MutableStateFlow<YouTube.SearchFilter?>(null)
+    val filter = MutableStateFlow<YouTube.SearchFilter?>(YouTube.SearchFilter.Companion.FILTER_SONG)
     var summaryPage by mutableStateOf<SearchSummaryPage?>(null)
     val viewStateMap = mutableStateMapOf<String, ItemsPage?>()
 

@@ -325,13 +325,9 @@ fun Thumbnail(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = if (isLandscape) Arrangement.Center else Arrangement.Top
             ) {
-                // Now Playing header - hide in landscape mode
+                // Spacer replacing "Now Playing" header
                 if (!isLandscape) {
-                    ThumbnailHeader(
-                        queueTitle = queueTitle,
-                        albumTitle = mediaMetadata?.album?.title,
-                        textColor = textBackgroundColor
-                    )
+                    Spacer(modifier = Modifier.height(40.dp))
                 }
                 
                 // Thumbnail content
