@@ -704,7 +704,7 @@ class MainActivity : ComponentActivity() {
                                 exit = fadeOut(animationSpec = tween(durationMillis = 200))
                             ) {
                                 Box {
-  val topBarGradientColors = LocalHomeGradientColors.current
+  val topBarGradientColors = LocalHomeGradientColors.current.value
     Box(
         modifier = Modifier
             .matchParentSize()
