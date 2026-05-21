@@ -60,15 +60,9 @@ import com.abhiram.flowtune.constants.GridItemsSizeKey
 import com.abhiram.flowtune.constants.GridThumbnailHeight
 import com.abhiram.flowtune.constants.InnerTubeCookieKey
 import com.abhiram.flowtune.constants.LibraryViewType
-import com.abhiram.flowtune.constants.PlaylistSortDescendingKey
-import com.abhiram.flowtune.constants.PlaylistSortType
-import com.abhiram.flowtune.constants.PlaylistSortTypeKey
-import com.abhiram.flowtune.constants.PlaylistViewTypeKey
 import com.abhiram.flowtune.constants.ShowLikedPlaylistKey
 import com.abhiram.flowtune.constants.ShowDownloadedPlaylistKey
-import com.abhiram.flowtune.constants.ShowTopPlaylistKey
 import com.abhiram.flowtune.constants.ShowCachedPlaylistKey
-import com.abhiram.flowtune.constants.ShowUploadedPlaylistKey
 import com.abhiram.flowtune.constants.YtmSyncKey
 import com.abhiram.flowtune.db.entities.Playlist
 import com.abhiram.flowtune.db.entities.PlaylistEntity
@@ -79,7 +73,6 @@ import com.abhiram.flowtune.ui.component.LibraryPlaylistListItem
 import com.abhiram.flowtune.ui.component.LocalMenuState
 import com.abhiram.flowtune.ui.component.PlaylistGridItem
 import com.abhiram.flowtune.ui.component.PlaylistListItem
-import com.abhiram.flowtune.ui.component.SortHeader
 import com.abhiram.flowtune.utils.rememberEnumPreference
 import com.abhiram.flowtune.utils.rememberPreference
 import com.abhiram.flowtune.viewmodels.LibraryPlaylistsViewModel
@@ -101,20 +94,10 @@ fun LibraryPlaylistsScreen(
 
     val coroutineScope = rememberCoroutineScope()
 
-    var viewType by rememberEnumPreference(PlaylistViewTypeKey, LibraryViewType.GRID)
-    val (sortType, onSortTypeChange) = rememberEnumPreference(
-        PlaylistSortTypeKey,
-        PlaylistSortType.CREATE_DATE
-    )
-    val (sortDescending, onSortDescendingChange) = rememberPreference(
-        PlaylistSortDescendingKey,
-        true
-    )
-    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)
+    val viewType = LibraryViewType.GRID
+    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.SMALL)
 
     val playlists by viewModel.allPlaylists.collectAsState()
-
-    val topSize by viewModel.topValue.collectAsState(initial = 50)
 
     val likedPlaylist =
         Playlist(
@@ -136,16 +119,6 @@ fun LibraryPlaylistsScreen(
             songThumbnails = emptyList(),
         )
 
-    val topPlaylist =
-        Playlist(
-            playlist = PlaylistEntity(
-                id = UUID.randomUUID().toString(),
-                name = stringResource(R.string.my_top) + " $topSize"
-            ),
-            songCount = 0,
-            songThumbnails = emptyList(),
-        )
-
     val cachePlaylist =
         Playlist(
             playlist = PlaylistEntity(
@@ -155,22 +128,10 @@ fun LibraryPlaylistsScreen(
             songCount = 0,
             songThumbnails = emptyList(),
         )
-        
-    val uploadedPlaylist =
-        Playlist(
-            playlist = PlaylistEntity(
-                id = UUID.randomUUID().toString(),
-                name = stringResource(R.string.uploaded_playlist)
-            ),
-            songCount = 0,
-            songThumbnails = emptyList(),
-        )
 
     val (showLiked) = rememberPreference(ShowLikedPlaylistKey, true)
     val (showDownloaded) = rememberPreference(ShowDownloadedPlaylistKey, true)
-    val (showTop) = rememberPreference(ShowTopPlaylistKey, true)
     val (showCached) = rememberPreference(ShowCachedPlaylistKey, true)
-    val (showUploaded) = rememberPreference(ShowUploadedPlaylistKey, true)
 
     val lazyListState = rememberLazyListState()
     val lazyGridState = rememberLazyGridState()
@@ -214,58 +175,6 @@ fun LibraryPlaylistsScreen(
         )
     }
 
-    val headerContent = @Composable {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(start = 16.dp),
-        ) {
-            SortHeader(
-                sortType = sortType,
-                sortDescending = sortDescending,
-                onSortTypeChange = onSortTypeChange,
-                onSortDescendingChange = onSortDescendingChange,
-                sortTypeText = { sortType ->
-                    when (sortType) {
-                        PlaylistSortType.CREATE_DATE -> R.string.sort_by_create_date
-                        PlaylistSortType.NAME -> R.string.sort_by_name
-                        PlaylistSortType.SONG_COUNT -> R.string.sort_by_song_count
-                        PlaylistSortType.LAST_UPDATED -> R.string.sort_by_last_updated
-                    }
-                },
-            )
-
-            Spacer(Modifier.weight(1f))
-
-            Text(
-                text = pluralStringResource(
-                    R.plurals.n_playlist,
-                    playlists.size,
-                    playlists.size
-                ),
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.secondary,
-            )
-
-            IconButton(
-                onClick = {
-                    viewType = viewType.toggle()
-                },
-                modifier = Modifier.padding(start = 6.dp, end = 6.dp),
-            ) {
-                Icon(
-                    painter =
-                    painterResource(
-                        when (viewType) {
-                            LibraryViewType.LIST -> R.drawable.list
-                            LibraryViewType.GRID -> R.drawable.grid_view
-                        },
-                    ),
-                    contentDescription = null,
-                )
-            }
-        }
-    }
-
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -280,13 +189,6 @@ fun LibraryPlaylistsScreen(
                         contentType = CONTENT_TYPE_HEADER,
                     ) {
                         filterContent()
-                    }
-
-                    item(
-                        key = "header",
-                        contentType = CONTENT_TYPE_HEADER,
-                    ) {
-                        headerContent()
                     }
 
                     if (showLiked) {
@@ -327,25 +229,6 @@ fun LibraryPlaylistsScreen(
                         }
                     }
 
-                    if (showTop) {
-                        item(
-                            key = "TopPlaylist",
-                            contentType = { CONTENT_TYPE_PLAYLIST },
-                        ) {
-                            PlaylistListItem(
-                                playlist = topPlaylist,
-                                autoPlaylist = true,
-                                modifier =
-                                Modifier
-                                    .fillMaxWidth()
-                                    .clickable {
-                                        navController.navigate("top_playlist/$topSize")
-                                    }
-                                    .animateItem(),
-                            )
-                        }
-                    }
-
                     if (showCached) {
                         item(
                             key = "cachePlaylist",
@@ -361,25 +244,6 @@ fun LibraryPlaylistsScreen(
                                         navController.navigate("cache_playlist/cached")
                                     }
                                     .animateItem(),
-                            )
-                        }
-                    }
-                    
-                    if (showUploaded) {
-                        item(
-                            key = "uploadedPlaylist",
-                            contentType = { CONTENT_TYPE_PLAYLIST },
-                        ) {
-                            PlaylistListItem(
-                                playlist = uploadedPlaylist,
-                                autoPlaylist = true,
-                                modifier =
-                                    Modifier
-                                        .fillMaxWidth()
-                                        .clickable {
-                                            navController.navigate("auto_playlist/uploaded")
-                                        }
-                                        .animateItem(),
                             )
                         }
                     }
@@ -432,14 +296,6 @@ fun LibraryPlaylistsScreen(
                         filterContent()
                     }
 
-                    item(
-                        key = "header",
-                        span = { GridItemSpan(maxLineSpan) },
-                        contentType = CONTENT_TYPE_HEADER,
-                    ) {
-                        headerContent()
-                    }
-
                     if (showLiked) {
                         item(
                             key = "likedPlaylist",
@@ -484,28 +340,6 @@ fun LibraryPlaylistsScreen(
                         }
                     }
 
-                    if (showTop) {
-                        item(
-                            key = "TopPlaylist",
-                            contentType = { CONTENT_TYPE_PLAYLIST },
-                        ) {
-                            PlaylistGridItem(
-                                playlist = topPlaylist,
-                                fillMaxWidth = true,
-                                autoPlaylist = true,
-                                modifier =
-                                Modifier
-                                    .fillMaxWidth()
-                                    .combinedClickable(
-                                        onClick = {
-                                            navController.navigate("top_playlist/$topSize")
-                                        },
-                                    )
-                                    .animateItem(),
-                            )
-                        }
-                    }
-
                     if (showCached) {
                         item(
                             key = "cachePlaylist",
@@ -524,26 +358,6 @@ fun LibraryPlaylistsScreen(
                                         },
                                     )
                                     .animateItem(),
-                            )
-                        }
-                    }
-
-                    if (showUploaded) {
-                        item(
-                            key = "uploadedPlaylist",
-                            contentType = { CONTENT_TYPE_PLAYLIST },
-                        ) {
-                            PlaylistGridItem(
-                                playlist = uploadedPlaylist,
-                                fillMaxWidth = true,
-                                autoPlaylist = true,
-                                modifier =
-                                    Modifier
-                                        .fillMaxWidth()
-                                        .clickable {
-                                            navController.navigate("auto_playlist/uploaded")
-                                        }
-                                        .animateItem(),
                             )
                         }
                     }

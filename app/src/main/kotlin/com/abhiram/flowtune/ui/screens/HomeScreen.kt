@@ -163,6 +163,7 @@ import coil3.imageLoader
 import coil3.request.SuccessResult
 import coil3.request.allowHardware
 import coil3.toBitmap
+import com.abhiram.flowtune.ui.theme.LocalHomeGradientColors
 import com.abhiram.flowtune.ui.theme.PlayerColorExtractor
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
@@ -188,6 +189,7 @@ fun HomeScreen(
         Color(0xFF1B1833),
         Color.Transparent
     )
+    val homeGradientColorsState = LocalHomeGradientColors.current
     var gradientColors by remember { mutableStateOf(fallbackGradientColors) }
     val gradientColorsCache = remember { mutableMapOf<String, List<Color>>() }
 
@@ -198,6 +200,7 @@ fun HomeScreen(
             val cached = gradientColorsCache[songId]
             if (cached != null) {
                 gradientColors = cached
+                homeGradientColorsState.value = cached
                 return@LaunchedEffect
             }
             withContext(Dispatchers.IO) {
@@ -236,11 +239,15 @@ fun HomeScreen(
                         Color.Transparent
                     )
                     gradientColorsCache[songId] = homeGradient
-                    withContext(Dispatchers.Main) { gradientColors = homeGradient }
+                    withContext(Dispatchers.Main) {
+                        gradientColors = homeGradient
+                        homeGradientColorsState.value = homeGradient
+                    }
                 }
             }
         } else {
             gradientColors = fallbackGradientColors
+            homeGradientColorsState.value = fallbackGradientColors
         }
     }
 

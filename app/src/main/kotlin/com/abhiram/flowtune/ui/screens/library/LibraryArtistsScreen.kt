@@ -49,10 +49,6 @@ import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
 import com.abhiram.flowtune.R
 import com.abhiram.flowtune.constants.ArtistFilter
 import com.abhiram.flowtune.constants.ArtistFilterKey
-import com.abhiram.flowtune.constants.ArtistSortDescendingKey
-import com.abhiram.flowtune.constants.ArtistSortType
-import com.abhiram.flowtune.constants.ArtistSortTypeKey
-import com.abhiram.flowtune.constants.ArtistViewTypeKey
 import com.abhiram.flowtune.constants.CONTENT_TYPE_ARTIST
 import com.abhiram.flowtune.constants.CONTENT_TYPE_HEADER
 import com.abhiram.flowtune.constants.GridItemSize
@@ -65,7 +61,6 @@ import com.abhiram.flowtune.ui.component.EmptyPlaceholder
 import com.abhiram.flowtune.ui.component.LibraryArtistGridItem
 import com.abhiram.flowtune.ui.component.LibraryArtistListItem
 import com.abhiram.flowtune.ui.component.LocalMenuState
-import com.abhiram.flowtune.ui.component.SortHeader
 import com.abhiram.flowtune.utils.rememberEnumPreference
 import com.abhiram.flowtune.utils.rememberPreference
 import com.abhiram.flowtune.viewmodels.LibraryArtistsViewModel
@@ -82,15 +77,10 @@ fun LibraryArtistsScreen(
     val menuState = LocalMenuState.current
     val haptic = LocalHapticFeedback.current
     val coroutineScope = rememberCoroutineScope()
-    var viewType by rememberEnumPreference(ArtistViewTypeKey, LibraryViewType.GRID)
+    val viewType = LibraryViewType.GRID
 
     var filter by rememberEnumPreference(ArtistFilterKey, ArtistFilter.LIKED)
-    val (sortType, onSortTypeChange) = rememberEnumPreference(
-        ArtistSortTypeKey,
-        ArtistSortType.CREATE_DATE
-    )
-    val (sortDescending, onSortDescendingChange) = rememberPreference(ArtistSortDescendingKey, true)
-    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)
+    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.SMALL)
     val (ytmSync) = rememberPreference(YtmSyncKey, true)
 
     val filterContent = @Composable {
@@ -147,58 +137,6 @@ fun LibraryArtistsScreen(
         }
     }
 
-    val headerContent = @Composable {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(start = 16.dp),
-        ) {
-            SortHeader(
-                sortType = sortType,
-                sortDescending = sortDescending,
-                onSortTypeChange = onSortTypeChange,
-                onSortDescendingChange = onSortDescendingChange,
-                sortTypeText = { sortType ->
-                    when (sortType) {
-                        ArtistSortType.CREATE_DATE -> R.string.sort_by_create_date
-                        ArtistSortType.NAME -> R.string.sort_by_name
-                        ArtistSortType.SONG_COUNT -> R.string.sort_by_song_count
-                        ArtistSortType.PLAY_TIME -> R.string.sort_by_play_time
-                    }
-                },
-            )
-
-            Spacer(Modifier.weight(1f))
-
-            Text(
-                text = pluralStringResource(
-                    R.plurals.n_artist,
-                    artists.size,
-                    artists.size
-                ),
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.secondary,
-            )
-
-            IconButton(
-                onClick = {
-                    viewType = viewType.toggle()
-                },
-                modifier = Modifier.padding(start = 6.dp, end = 6.dp),
-            ) {
-                Icon(
-                    painter =
-                    painterResource(
-                        when (viewType) {
-                            LibraryViewType.LIST -> R.drawable.list
-                            LibraryViewType.GRID -> R.drawable.grid_view
-                        },
-                    ),
-                    contentDescription = null,
-                )
-            }
-        }
-    }
-
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -213,13 +151,6 @@ fun LibraryArtistsScreen(
                         contentType = CONTENT_TYPE_HEADER,
                     ) {
                         filterContent()
-                    }
-
-                    item(
-                        key = "header",
-                        contentType = CONTENT_TYPE_HEADER,
-                    ) {
-                        headerContent()
                     }
 
                     artists.let { artists ->
@@ -264,14 +195,6 @@ fun LibraryArtistsScreen(
                         contentType = CONTENT_TYPE_HEADER,
                     ) {
                         filterContent()
-                    }
-
-                    item(
-                        key = "header",
-                        span = { GridItemSpan(maxLineSpan) },
-                        contentType = CONTENT_TYPE_HEADER,
-                    ) {
-                        headerContent()
                     }
 
                     artists.let { artists ->
