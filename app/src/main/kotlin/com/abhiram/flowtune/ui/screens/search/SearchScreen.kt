@@ -227,7 +227,4 @@ fun SearchScreen(
         }
     }
 
-    LaunchedEffect(Unit) {
-        focusRequester.requestFocus()
-    }
 }
