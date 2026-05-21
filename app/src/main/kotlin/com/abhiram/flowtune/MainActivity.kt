@@ -167,6 +167,7 @@ import com.abhiram.flowtune.ui.screens.settings.DarkMode
 import com.abhiram.flowtune.ui.screens.settings.NavigationTab
 import com.abhiram.flowtune.ui.theme.ColorSaver
 import com.abhiram.flowtune.ui.theme.DefaultThemeColor
+import com.abhiram.flowtune.ui.theme.LocalHomeGradientColors
 import com.abhiram.flowtune.ui.theme.MetrolistTheme
 import com.abhiram.flowtune.ui.theme.extractThemeColor
 import com.abhiram.flowtune.ui.utils.appBarScrollBehavior
@@ -680,6 +681,10 @@ class MainActivity : ComponentActivity() {
 
                 val baseBg = if (pureBlack) Color.Black else MaterialTheme.colorScheme.surfaceContainer
 
+                val homeGradientColors = remember {
+                    mutableStateOf(listOf(Color(0xFF2E235A), Color(0xFF1B1833), Color.Transparent))
+                }
+
                 CompositionLocalProvider(
                     LocalDatabase provides database,
                     LocalContentColor provides if (pureBlack) Color.White else contentColorFor(MaterialTheme.colorScheme.surface),
@@ -688,6 +693,7 @@ class MainActivity : ComponentActivity() {
                     LocalDownloadUtil provides downloadUtil,
                     LocalShimmerTheme provides ShimmerTheme,
                     LocalSyncUtils provides syncUtils,
+                    LocalHomeGradientColors provides homeGradientColors,
                 ) {
                     Scaffold(
                         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -698,17 +704,13 @@ class MainActivity : ComponentActivity() {
                                 exit = fadeOut(animationSpec = tween(durationMillis = 200))
                             ) {
                                 Box {
-  
+  val topBarGradientColors = LocalHomeGradientColors.current
     Box(
         modifier = Modifier
             .matchParentSize()
             .background(
                 Brush.verticalGradient(
-                    colors = listOf(
-                        Color(0xFF2E235A),
-                        Color(0xFF1B1833),
-                        Color.Transparent
-                    )
+                    colors = topBarGradientColors
                 )
             )
     )

@@ -49,9 +49,6 @@ import com.abhiram.flowtune.constants.CONTENT_TYPE_SONG
 import com.abhiram.flowtune.constants.HideExplicitKey
 import com.abhiram.flowtune.constants.SongFilter
 import com.abhiram.flowtune.constants.SongFilterKey
-import com.abhiram.flowtune.constants.SongSortDescendingKey
-import com.abhiram.flowtune.constants.SongSortType
-import com.abhiram.flowtune.constants.SongSortTypeKey
 import com.abhiram.flowtune.constants.YtmSyncKey
 import com.abhiram.flowtune.extensions.toMediaItem
 import com.abhiram.flowtune.playback.queues.ListQueue
@@ -59,7 +56,6 @@ import com.abhiram.flowtune.ui.component.ChipsRow
 import com.abhiram.flowtune.ui.component.HideOnScrollFAB
 import com.abhiram.flowtune.ui.component.LocalMenuState
 import com.abhiram.flowtune.ui.component.SongListItem
-import com.abhiram.flowtune.ui.component.SortHeader
 import com.abhiram.flowtune.ui.menu.SongMenu
 import com.abhiram.flowtune.utils.rememberEnumPreference
 import com.abhiram.flowtune.utils.rememberPreference
@@ -77,12 +73,6 @@ fun LibrarySongsScreen(
     val playerConnection = LocalPlayerConnection.current ?: return
     val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
     val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
-
-    val (sortType, onSortTypeChange) = rememberEnumPreference(
-        SongSortTypeKey,
-        SongSortType.CREATE_DATE
-    )
-    val (sortDescending, onSortDescendingChange) = rememberPreference(SongSortDescendingKey, true)
 
     val (ytmSync) = rememberPreference(YtmSyncKey, true)
     val hideExplicit by rememberPreference(key = HideExplicitKey, defaultValue = false)
@@ -160,43 +150,6 @@ fun LibrarySongsScreen(
                             filter = it
                         },
                         modifier = Modifier.weight(1f),
-                    )
-                }
-            }
-
-            item(
-                key = "header",
-                contentType = CONTENT_TYPE_HEADER,
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                ) {
-                    SortHeader(
-                        sortType = sortType,
-                        sortDescending = sortDescending,
-                        onSortTypeChange = onSortTypeChange,
-                        onSortDescendingChange = onSortDescendingChange,
-                        sortTypeText = { sortType ->
-                            when (sortType) {
-                                SongSortType.CREATE_DATE -> R.string.sort_by_create_date
-                                SongSortType.NAME -> R.string.sort_by_name
-                                SongSortType.ARTIST -> R.string.sort_by_artist
-                                SongSortType.PLAY_TIME -> R.string.sort_by_play_time
-                            }
-                        },
-                    )
-
-                    Spacer(Modifier.weight(1f))
-
-                    Text(
-                        text = pluralStringResource(
-                            R.plurals.n_song,
-                            filteredSongs.size,
-                            filteredSongs.size
-                        ),
-                        style = MaterialTheme.typography.titleSmall,
-                        color = MaterialTheme.colorScheme.secondary,
                     )
                 }
             }

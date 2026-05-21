@@ -48,27 +48,20 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
 import com.abhiram.flowtune.LocalPlayerConnection
 import com.abhiram.flowtune.R
-import com.abhiram.flowtune.constants.AlbumViewTypeKey
 import com.abhiram.flowtune.constants.CONTENT_TYPE_HEADER
 import com.abhiram.flowtune.constants.CONTENT_TYPE_PLAYLIST
 import com.abhiram.flowtune.constants.GridItemSize
 import com.abhiram.flowtune.constants.GridItemsSizeKey
 import com.abhiram.flowtune.constants.GridThumbnailHeight
 import com.abhiram.flowtune.constants.LibraryViewType
-import com.abhiram.flowtune.constants.MixSortDescendingKey
-import com.abhiram.flowtune.constants.MixSortType
-import com.abhiram.flowtune.constants.MixSortTypeKey
 import com.abhiram.flowtune.constants.ShowLikedPlaylistKey
 import com.abhiram.flowtune.constants.ShowDownloadedPlaylistKey
-import com.abhiram.flowtune.constants.ShowTopPlaylistKey
 import com.abhiram.flowtune.constants.ShowCachedPlaylistKey
-import com.abhiram.flowtune.constants.ShowUploadedPlaylistKey
 import com.abhiram.flowtune.constants.YtmSyncKey
 import com.abhiram.flowtune.db.entities.Album
 import com.abhiram.flowtune.db.entities.Artist
 import com.abhiram.flowtune.db.entities.Playlist
 import com.abhiram.flowtune.db.entities.PlaylistEntity
-import com.abhiram.flowtune.extensions.reversed
 import com.abhiram.flowtune.ui.component.AlbumGridItem
 import com.abhiram.flowtune.ui.component.AlbumListItem
 import com.abhiram.flowtune.ui.component.ArtistGridItem
@@ -76,7 +69,6 @@ import com.abhiram.flowtune.ui.component.ArtistListItem
 import com.abhiram.flowtune.ui.component.LocalMenuState
 import com.abhiram.flowtune.ui.component.PlaylistGridItem
 import com.abhiram.flowtune.ui.component.PlaylistListItem
-import com.abhiram.flowtune.ui.component.SortHeader
 import com.abhiram.flowtune.ui.menu.AlbumMenu
 import com.abhiram.flowtune.ui.menu.ArtistMenu
 import com.abhiram.flowtune.ui.menu.PlaylistMenu
@@ -103,17 +95,11 @@ fun LibraryMixScreen(
     val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
     val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
 
-    var viewType by rememberEnumPreference(AlbumViewTypeKey, LibraryViewType.GRID)
-    val (sortType, onSortTypeChange) = rememberEnumPreference(
-        MixSortTypeKey,
-        MixSortType.CREATE_DATE
-    )
-    val (sortDescending, onSortDescendingChange) = rememberPreference(MixSortDescendingKey, true)
-    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)
+    val viewType = LibraryViewType.GRID
+    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.SMALL)
 
     val (ytmSync) = rememberPreference(YtmSyncKey, true)
 
-    val topSize by viewModel.topValue.collectAsState(initial = 50)
     val likedPlaylist =
         Playlist(
             playlist = PlaylistEntity(
@@ -134,16 +120,6 @@ fun LibraryMixScreen(
             songThumbnails = emptyList(),
         )
 
-    val topPlaylist =
-        Playlist(
-            playlist = PlaylistEntity(
-                id = UUID.randomUUID().toString(),
-                name = stringResource(R.string.my_top) + " $topSize"
-            ),
-            songCount = 0,
-            songThumbnails = emptyList(),
-        )
-
     val cachePlaylist =
         Playlist(
             playlist = PlaylistEntity(
@@ -154,63 +130,23 @@ fun LibraryMixScreen(
             songThumbnails = emptyList(),
         )
 
-    val uploadedPlaylist =
-        Playlist(
-            playlist = PlaylistEntity(
-                id = UUID.randomUUID().toString(),
-                name = stringResource(R.string.uploaded_playlist)
-            ),
-            songCount = 0,
-            songThumbnails = emptyList(),
-        )
-
     val (showLiked) = rememberPreference(ShowLikedPlaylistKey, true)
     val (showDownloaded) = rememberPreference(ShowDownloadedPlaylistKey, true)
-    val (showTop) = rememberPreference(ShowTopPlaylistKey, true)
     val (showCached) = rememberPreference(ShowCachedPlaylistKey, true)
-    val (showUploaded) = rememberPreference(ShowUploadedPlaylistKey, true)
 
     val albums = viewModel.albums.collectAsState()
     val artist = viewModel.artists.collectAsState()
     val playlist = viewModel.playlists.collectAsState()
 
     var allItems = albums.value + artist.value + playlist.value
-    val collator = Collator.getInstance(Locale.getDefault())
-    collator.strength = Collator.PRIMARY
-    allItems =
-        when (sortType) {
-            MixSortType.CREATE_DATE ->
-                allItems.sortedBy { item ->
-                    when (item) {
-                        is Album -> item.album.bookmarkedAt
-                        is Artist -> item.artist.bookmarkedAt
-                        is Playlist -> item.playlist.createdAt
-                        else -> LocalDateTime.now()
-                    }
-                }
-
-            MixSortType.NAME ->
-                allItems.sortedWith(
-                    compareBy(collator) { item ->
-                        when (item) {
-                            is Album -> item.album.title
-                            is Artist -> item.artist.name
-                            is Playlist -> item.playlist.name
-                            else -> ""
-                        }
-                    },
-                )
-
-            MixSortType.LAST_UPDATED ->
-                allItems.sortedBy { item ->
-                    when (item) {
-                        is Album -> item.album.lastUpdateTime
-                        is Artist -> item.artist.lastUpdateTime
-                        is Playlist -> item.playlist.lastUpdateTime
-                        else -> LocalDateTime.now()
-                    }
-                }
-        }.reversed(sortDescending)
+    allItems = allItems.sortedBy { item ->
+        when (item) {
+            is Album -> item.album.bookmarkedAt
+            is Artist -> item.artist.bookmarkedAt
+            is Playlist -> item.playlist.createdAt
+            else -> LocalDateTime.now()
+        }
+    }
 
     val coroutineScope = rememberCoroutineScope()
 
@@ -238,47 +174,6 @@ fun LibraryMixScreen(
          }
     }
 
-    val headerContent = @Composable {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(start = 16.dp),
-        ) {
-            SortHeader(
-                sortType = sortType,
-                sortDescending = sortDescending,
-                onSortTypeChange = onSortTypeChange,
-                onSortDescendingChange = onSortDescendingChange,
-                sortTypeText = { sortType ->
-                    when (sortType) {
-                        MixSortType.CREATE_DATE -> R.string.sort_by_create_date
-                        MixSortType.LAST_UPDATED -> R.string.sort_by_last_updated
-                        MixSortType.NAME -> R.string.sort_by_name
-                    }
-                },
-            )
-
-            Spacer(Modifier.weight(1f))
-
-            IconButton(
-                onClick = {
-                    viewType = viewType.toggle()
-                },
-                modifier = Modifier.padding(start = 6.dp, end = 6.dp),
-            ) {
-                Icon(
-                    painter =
-                    painterResource(
-                        when (viewType) {
-                            LibraryViewType.LIST -> R.drawable.list
-                            LibraryViewType.GRID -> R.drawable.grid_view
-                        },
-                    ),
-                    contentDescription = null,
-                )
-            }
-        }
-    }
-
     val isRefreshing by viewModel.isRefreshing.collectAsState()
     val pullRefreshState = rememberPullToRefreshState()
 
@@ -302,13 +197,6 @@ fun LibraryMixScreen(
                         contentType = CONTENT_TYPE_HEADER,
                     ) {
                         filterContent()
-                    }
-
-                    item(
-                        key = "header",
-                        contentType = CONTENT_TYPE_HEADER,
-                    ) {
-                        headerContent()
                     }
 
                     if (showLiked) {
@@ -349,25 +237,6 @@ fun LibraryMixScreen(
                         }
                     }
 
-                    if (showTop) {
-                        item(
-                            key = "TopPlaylist",
-                            contentType = { CONTENT_TYPE_PLAYLIST },
-                        ) {
-                            PlaylistListItem(
-                                playlist = topPlaylist,
-                                autoPlaylist = true,
-                                modifier =
-                                Modifier
-                                    .fillMaxWidth()
-                                    .clickable {
-                                        navController.navigate("top_playlist/$topSize")
-                                    }
-                                    .animateItem(),
-                            )
-                        }
-                    }
-
                     if (showCached) {
                         item(
                             key = "cachePlaylist",
@@ -383,25 +252,6 @@ fun LibraryMixScreen(
                                         navController.navigate("cache_playlist/cached")
                                     }
                                     .animateItem(),
-                            )
-                        }
-                    }
-
-                    if (showUploaded) {
-                        item(
-                            key = "uploadedPlaylist",
-                            contentType = { CONTENT_TYPE_PLAYLIST },
-                        ) {
-                            PlaylistListItem(
-                                playlist = uploadedPlaylist,
-                                autoPlaylist = true,
-                                modifier =
-                                    Modifier
-                                        .fillMaxWidth()
-                                        .clickable {
-                                            navController.navigate("auto_playlist/uploaded")
-                                        }
-                                        .animateItem(),
                             )
                         }
                     }
@@ -565,14 +415,6 @@ fun LibraryMixScreen(
                         filterContent()
                     }
 
-                    item(
-                        key = "header",
-                        span = { GridItemSpan(maxLineSpan) },
-                        contentType = CONTENT_TYPE_HEADER,
-                    ) {
-                        headerContent()
-                    }
-
                     if (showLiked) {
                         item(
                             key = "likedPlaylist",
@@ -617,28 +459,6 @@ fun LibraryMixScreen(
                         }
                     }
 
-                    if (showTop) {
-                        item(
-                            key = "TopPlaylist",
-                            contentType = { CONTENT_TYPE_PLAYLIST },
-                        ) {
-                            PlaylistGridItem(
-                                playlist = topPlaylist,
-                                fillMaxWidth = true,
-                                autoPlaylist = true,
-                                modifier =
-                                Modifier
-                                    .fillMaxWidth()
-                                    .combinedClickable(
-                                        onClick = {
-                                            navController.navigate("top_playlist/$topSize")
-                                        },
-                                    )
-                                    .animateItem(),
-                            )
-                        }
-                    }
-
                     if (showCached) {
                         item(
                             key = "cachePlaylist",
@@ -657,26 +477,6 @@ fun LibraryMixScreen(
                                         },
                                     )
                                     .animateItem(),
-                            )
-                        }
-                    }
-
-                    if (showUploaded) {
-                        item(
-                            key = "uploadedPlaylist",
-                            contentType = { CONTENT_TYPE_PLAYLIST },
-                        ) {
-                            PlaylistGridItem(
-                                playlist = uploadedPlaylist,
-                                fillMaxWidth = true,
-                                autoPlaylist = true,
-                                modifier =
-                                    Modifier
-                                        .fillMaxWidth()
-                                        .clickable {
-                                            navController.navigate("auto_playlist/uploaded")
-                                        }
-                                        .animateItem(),
                             )
                         }
                     }

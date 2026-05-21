@@ -803,35 +803,7 @@ fun Queue(
                     exit = fadeOut() + slideOutVertically { it },
                 ) {
                     Row {
-                        IconButton(
-                            onClick = { locked = !locked },
-                            modifier = Modifier.padding(horizontal = 6.dp),
-                        ) {
-                            Icon(
-                                painter = painterResource(if (locked) R.drawable.lock else R.drawable.lock_open),
-                                contentDescription = null,
-                            )
-                        }
                     }
-                }
-
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(4.dp),
-                    horizontalAlignment = Alignment.End,
-                ) {
-                    Text(
-                        text = pluralStringResource(
-                            R.plurals.n_song,
-                            queueWindows.size,
-                            queueWindows.size
-                        ),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-
-                    Text(
-                        text = makeTimeString(queueLength * 1000L),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
                 }
             }
 
@@ -933,50 +905,11 @@ fun Queue(
                 )
                 .padding(12.dp),
         ) {
-            IconButton(
-                modifier = Modifier.align(Alignment.CenterStart),
-                onClick = {
-                    coroutineScope
-                        .launch {
-                            lazyListState.animateScrollToItem(
-                                if (playerConnection.player.shuffleModeEnabled) playerConnection.player.currentMediaItemIndex else 0,
-                            )
-                        }.invokeOnCompletion {
-                            playerConnection.player.shuffleModeEnabled =
-                                !playerConnection.player.shuffleModeEnabled
-                        }
-                },
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.shuffle),
-                    contentDescription = null,
-                    modifier = Modifier.alpha(if (shuffleModeEnabled) 1f else 0.5f),
-                )
-            }
-
             Icon(
                 painter = painterResource(R.drawable.expand_more),
                 contentDescription = null,
                 modifier = Modifier.align(Alignment.Center),
             )
-
-            IconButton(
-                modifier = Modifier.align(Alignment.CenterEnd),
-                onClick = playerConnection.player::toggleRepeatMode,
-            ) {
-                Icon(
-                    painter =
-                    painterResource(
-                        when (repeatMode) {
-                            Player.REPEAT_MODE_OFF, Player.REPEAT_MODE_ALL -> R.drawable.repeat
-                            Player.REPEAT_MODE_ONE -> R.drawable.repeat_one
-                            else -> throw IllegalStateException()
-                        },
-                    ),
-                    contentDescription = null,
-                    modifier = Modifier.alpha(if (repeatMode == Player.REPEAT_MODE_OFF) 0.5f else 1f),
-                )
-            }
         }
 
         SnackbarHost(

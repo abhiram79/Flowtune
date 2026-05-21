@@ -883,150 +883,34 @@ fun BottomSheetPlayer(
                         horizontalArrangement = Arrangement.spacedBy(6.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        // Share button removed - only show fullscreen toggle when lyrics are visible
-                        if (showInlineLyrics) {
-                            FilledIconButton(
-                                onClick = { isFullScreen = !isFullScreen },
-                                shape = shareShape,
-                                colors = IconButtonDefaults.filledIconButtonColors(
-                                    containerColor = textButtonColor,
-                                    contentColor = iconButtonColor,
+                        FilledIconButton(
+                            onClick = playerConnection::toggleLike,
+                            shape = favShape,
+                            colors = IconButtonDefaults.filledIconButtonColors(
+                                containerColor = textButtonColor,
+                                contentColor = iconButtonColor,
+                            ),
+                            modifier = Modifier.size(42.dp),
+                        ) {
+                            Icon(
+                                painter = painterResource(
+                                    if (currentSong?.song?.liked == true)
+                                        R.drawable.favorite
+                                    else R.drawable.favorite_border
                                 ),
-                                modifier = Modifier.size(42.dp),
-                            ) {
-                                Icon(
-                                    painter = painterResource(R.drawable.fullscreen),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(24.dp)
-                                )
-                            }
-                        }
-
-                        AnimatedContent(targetState = showInlineLyrics, label = "LikeButton") { showLyrics ->
-                            if (showLyrics) {
-                                val currentLyrics by playerConnection.currentLyrics.collectAsState(initial = null)
-                                FilledIconButton(
-                                    onClick = {
-                                        menuState.show {
-                                            com.abhiram.flowtune.ui.menu.LyricsMenu(
-                                                lyricsProvider = { currentLyrics },
-                                                songProvider = { currentSong?.song },
-                                                mediaMetadataProvider = { mediaMetadata },
-                                                onDismiss = menuState::dismiss,
-                                                onShowOffsetDialog = {
-                                                    bottomSheetPageState.show {
-                                                        ShowOffsetDialog(
-                                                            songProvider = { currentSong?.song }
-                                                        )
-                                                    }
-                                                }
-                                            )
-                                        }
-                                    },
-                                    shape = favShape,
-                                    colors = IconButtonDefaults.filledIconButtonColors(
-                                        containerColor = textButtonColor,
-                                        contentColor = iconButtonColor,
-                                    ),
-                                    modifier = Modifier.size(42.dp),
-                                ) {
-                                    Icon(
-                                        painter = painterResource(R.drawable.more_horiz),
-                                        contentDescription = null,
-                                        modifier = Modifier.size(24.dp)
-                                    )
-                                }
-                            } else {
-                                FilledIconButton(
-                                    onClick = playerConnection::toggleLike,
-                                    shape = favShape,
-                                    colors = IconButtonDefaults.filledIconButtonColors(
-                                        containerColor = textButtonColor,
-                                        contentColor = iconButtonColor,
-                                    ),
-                                    modifier = Modifier.size(42.dp),
-                                ) {
-                                    Icon(
-                                        painter = painterResource(
-                                            if (currentSong?.song?.liked == true)
-                                                R.drawable.favorite
-                                            else R.drawable.favorite_border
-                                        ),
-                                        contentDescription = null,
-                                        modifier = Modifier.size(24.dp)
-                                    )
-                                }
-                            }
+                                contentDescription = null,
+                                modifier = Modifier.size(24.dp)
+                            )
                         }
                     }
                 } else {
-                    // Share button removed - only show fullscreen toggle when lyrics are visible
-                    if (showInlineLyrics) {
-                        Box(
-                            modifier = Modifier
-                                .size(40.dp)
-                                .clip(RoundedCornerShape(24.dp))
-                                .background(textButtonColor)
-                                .clickable { isFullScreen = !isFullScreen },
-                        ) {
-                            Icon(
-                                painter = painterResource(R.drawable.fullscreen),
-                                contentDescription = null,
-                                tint = iconButtonColor,
-                                modifier = Modifier
-                                    .align(Alignment.Center)
-                                    .size(24.dp),
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.size(12.dp))
-
-                    AnimatedContent(targetState = showInlineLyrics, label = "LikeButton") { showLyrics ->
-                        if (showLyrics) {
-                            val currentLyrics by playerConnection.currentLyrics.collectAsState(initial = null)
-                            Box(
-                                modifier = Modifier
-                                    .size(40.dp)
-                                    .clip(RoundedCornerShape(24.dp))
-                                    .background(textButtonColor)
-                                    .clickable {
-                                        menuState.show {
-                                            com.abhiram.flowtune.ui.menu.LyricsMenu(
-                                                lyricsProvider = { currentLyrics },
-                                                songProvider = { currentSong?.song },
-                                                mediaMetadataProvider = { mediaMetadata },
-                                                onDismiss = menuState::dismiss,
-                                                onShowOffsetDialog = {
-                                                    bottomSheetPageState.show {
-                                                        ShowOffsetDialog(
-                                                            songProvider = { currentSong?.song }
-                                                        )
-                                                    }
-                                                }
-                                            )
-                                        }
-                                    },
-                            ) {
-                                Icon(
-                                    painter = painterResource(R.drawable.more_horiz),
-                                    contentDescription = null,
-                                    tint = iconButtonColor,
-                                    modifier = Modifier
-                                        .align(Alignment.Center)
-                                        .size(24.dp),
-                                )
-                            }
-                        } else {
-                            PlayerMoreMenuButton(
-                                mediaMetadata = mediaMetadata,
-                                navController = navController,
-                                state = state,
-                                textButtonColor = textButtonColor,
-                                iconButtonColor = iconButtonColor,
-                            )
-                        }
-                    }
+                    PlayerMoreMenuButton(
+                        mediaMetadata = mediaMetadata,
+                        navController = navController,
+                        state = state,
+                        textButtonColor = textButtonColor,
+                        iconButtonColor = iconButtonColor,
+                    )
                 }
             }
 

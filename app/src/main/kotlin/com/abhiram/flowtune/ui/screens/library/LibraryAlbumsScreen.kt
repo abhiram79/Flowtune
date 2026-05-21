@@ -51,10 +51,6 @@ import com.abhiram.flowtune.LocalPlayerConnection
 import com.abhiram.flowtune.R
 import com.abhiram.flowtune.constants.AlbumFilter
 import com.abhiram.flowtune.constants.AlbumFilterKey
-import com.abhiram.flowtune.constants.AlbumSortDescendingKey
-import com.abhiram.flowtune.constants.AlbumSortType
-import com.abhiram.flowtune.constants.AlbumSortTypeKey
-import com.abhiram.flowtune.constants.AlbumViewTypeKey
 import com.abhiram.flowtune.constants.CONTENT_TYPE_ALBUM
 import com.abhiram.flowtune.constants.CONTENT_TYPE_HEADER
 import com.abhiram.flowtune.constants.GridItemSize
@@ -68,7 +64,6 @@ import com.abhiram.flowtune.ui.component.EmptyPlaceholder
 import com.abhiram.flowtune.ui.component.LibraryAlbumGridItem
 import com.abhiram.flowtune.ui.component.LibraryAlbumListItem
 import com.abhiram.flowtune.ui.component.LocalMenuState
-import com.abhiram.flowtune.ui.component.SortHeader
 import com.abhiram.flowtune.utils.rememberEnumPreference
 import com.abhiram.flowtune.utils.rememberPreference
 import com.abhiram.flowtune.viewmodels.LibraryAlbumsViewModel
@@ -89,14 +84,9 @@ fun LibraryAlbumsScreen(
     val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
     val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
 
-    var viewType by rememberEnumPreference(AlbumViewTypeKey, LibraryViewType.GRID)
+    val viewType = LibraryViewType.GRID
     var filter by rememberEnumPreference(AlbumFilterKey, AlbumFilter.LIKED)
-    val (sortType, onSortTypeChange) = rememberEnumPreference(
-        AlbumSortTypeKey,
-        AlbumSortType.CREATE_DATE
-    )
-    val (sortDescending, onSortDescendingChange) = rememberPreference(AlbumSortDescendingKey, true)
-    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.BIG)
+    val gridItemSize by rememberEnumPreference(GridItemsSizeKey, GridItemSize.SMALL)
 
     val (ytmSync) = rememberPreference(YtmSyncKey, true)
     val hideExplicit by rememberPreference(key = HideExplicitKey, defaultValue = false)
@@ -156,57 +146,6 @@ fun LibraryAlbumsScreen(
         }
     }
 
-    val headerContent = @Composable {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(start = 16.dp),
-        ) {
-            SortHeader(
-                sortType = sortType,
-                sortDescending = sortDescending,
-                onSortTypeChange = onSortTypeChange,
-                onSortDescendingChange = onSortDescendingChange,
-                sortTypeText = { sortType ->
-                    when (sortType) {
-                        AlbumSortType.CREATE_DATE -> R.string.sort_by_create_date
-                        AlbumSortType.NAME -> R.string.sort_by_name
-                        AlbumSortType.ARTIST -> R.string.sort_by_artist
-                        AlbumSortType.YEAR -> R.string.sort_by_year
-                        AlbumSortType.SONG_COUNT -> R.string.sort_by_song_count
-                        AlbumSortType.LENGTH -> R.string.sort_by_length
-                        AlbumSortType.PLAY_TIME -> R.string.sort_by_play_time
-                    }
-                },
-            )
-
-            Spacer(Modifier.weight(1f))
-
-            Text(
-                text = pluralStringResource(R.plurals.n_album, albums.size, albums.size),
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.secondary,
-            )
-
-            IconButton(
-                onClick = {
-                    viewType = viewType.toggle()
-                },
-                modifier = Modifier.padding(start = 6.dp, end = 6.dp),
-            ) {
-                Icon(
-                    painter =
-                    painterResource(
-                        when (viewType) {
-                            LibraryViewType.LIST -> R.drawable.list
-                            LibraryViewType.GRID -> R.drawable.grid_view
-                        },
-                    ),
-                    contentDescription = null,
-                )
-            }
-        }
-    }
-
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -221,13 +160,6 @@ fun LibraryAlbumsScreen(
                         contentType = CONTENT_TYPE_HEADER,
                     ) {
                         filterContent()
-                    }
-
-                    item(
-                        key = "header",
-                        contentType = CONTENT_TYPE_HEADER,
-                    ) {
-                        headerContent()
                     }
 
                     albums.let { albums ->
@@ -279,14 +211,6 @@ fun LibraryAlbumsScreen(
                         contentType = CONTENT_TYPE_HEADER,
                     ) {
                         filterContent()
-                    }
-
-                    item(
-                        key = "header",
-                        span = { GridItemSpan(maxLineSpan) },
-                        contentType = CONTENT_TYPE_HEADER,
-                    ) {
-                        headerContent()
                     }
 
                     albums.let { albums ->
