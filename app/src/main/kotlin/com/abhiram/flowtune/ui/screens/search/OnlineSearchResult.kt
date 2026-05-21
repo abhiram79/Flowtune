@@ -353,13 +353,10 @@ fun OnlineSearchResult(
         ) {
             ChipsRow(
                 chips = listOf(
-                    null to stringResource(R.string.filter_all),
                     FILTER_SONG to stringResource(R.string.filter_songs),
-                    FILTER_VIDEO to stringResource(R.string.filter_videos),
+                    FILTER_VIDEO to "More",
                     FILTER_ALBUM to stringResource(R.string.filter_albums),
                     FILTER_ARTIST to stringResource(R.string.filter_artists),
-                    FILTER_COMMUNITY_PLAYLIST to stringResource(R.string.filter_community_playlists),
-                    FILTER_FEATURED_PLAYLIST to stringResource(R.string.filter_featured_playlists),
                 ),
                 currentValue = searchFilter,
                 onValueUpdate = {

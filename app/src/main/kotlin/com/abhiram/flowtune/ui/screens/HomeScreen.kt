@@ -154,7 +154,21 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.alpha
 import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.foundation.background
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import androidx.palette.graphics.Palette
+import coil.imageLoader
+import coil.request.ImageRequest
+import coil.request.SuccessResult
+import coil.toBitmap
+import com.abhiram.flowtune.ui.theme.PlayerColorExtractor
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -171,6 +185,69 @@ fun HomeScreen(
 
     val isPlaying by playerConnection.isEffectivelyPlaying.collectAsState()
     val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+
+    // Dynamic gradient colors from album art
+    val context = LocalContext.current
+    val fallbackGradientColors = listOf(
+        Color(0xFF2E235A),
+        Color(0xFF1B1833),
+        Color.Transparent
+    )
+    var gradientColors by remember { mutableStateOf(fallbackGradientColors) }
+    val gradientColorsCache = remember { mutableMapOf<String, List<Color>>() }
+
+    LaunchedEffect(mediaMetadata?.id) {
+        val thumbnailUrl = mediaMetadata?.thumbnailUrl
+        val songId = mediaMetadata?.id
+        if (thumbnailUrl != null && songId != null) {
+            val cached = gradientColorsCache[songId]
+            if (cached != null) {
+                gradientColors = cached
+                return@LaunchedEffect
+            }
+            withContext(Dispatchers.IO) {
+                val request = ImageRequest.Builder(context)
+                    .data(thumbnailUrl)
+                    .size(100, 100)
+                    .allowHardware(false)
+                    .memoryCacheKey("home_gradient_$songId")
+                    .build()
+                val result = runCatching { context.imageLoader.execute(request) }.getOrNull()
+                if (result is SuccessResult) {
+                    val bitmap = result.image.toBitmap()
+                    val palette = withContext(Dispatchers.Default) {
+                        Palette.from(bitmap)
+                            .maximumColorCount(8)
+                            .resizeBitmapArea(100 * 100)
+                            .generate()
+                    }
+                    val extracted = PlayerColorExtractor.extractGradientColors(
+                        palette = palette,
+                        fallbackColor = Color(0xFF2E235A).toArgb()
+                    )
+                    // Make colors brighter for home screen: increase brightness, add alpha for transparency
+                    val brightened = extracted.map { color ->
+                        val argb = color.toArgb()
+                        val hsv = FloatArray(3)
+                        android.graphics.Color.colorToHSV(argb, hsv)
+                        hsv[2] = (hsv[2] * 1.3f).coerceAtMost(1.0f)
+                        hsv[1] = (hsv[1] * 1.1f).coerceAtMost(1.0f)
+                        Color(android.graphics.Color.HSVToColor(hsv))
+                    }
+                    // Create gradient: primary -> darker -> transparent
+                    val homeGradient = listOf(
+                        brightened[0].copy(alpha = 0.85f),
+                        brightened.getOrElse(1) { brightened[0] }.copy(alpha = 0.5f),
+                        Color.Transparent
+                    )
+                    gradientColorsCache[songId] = homeGradient
+                    withContext(Dispatchers.Main) { gradientColors = homeGradient }
+                }
+            }
+        } else {
+            gradientColors = fallbackGradientColors
+        }
+    }
 
     val quickPicks by viewModel.quickPicks.collectAsState()
     val forgottenFavorites by viewModel.forgottenFavorites.collectAsState()
@@ -426,32 +503,30 @@ fun HomeScreen(
         contentAlignment = Alignment.TopStart
     ) {
       
-      Box(
+      BoxWithConstraints(
     modifier = Modifier
         .fillMaxWidth()
-        .height(320.dp)
 ) {
+    val gradientHeight = maxHeight * 0.35f
     Box(
         modifier = Modifier
-            .matchParentSize()
+            .fillMaxWidth()
+            .height(gradientHeight)
             .alpha(gradientAlpha)
             .background(
                 brush = Brush.verticalGradient(
-                    colors = listOf(
-                        Color(0xFF2E235A),
-                        Color(0xFF1B1833),
-                        Color.Transparent
-                    )
+                    colors = gradientColors
                 )
             )
-            .blur(80.dp) 
+            .blur(80.dp)
     )
-    
+
     Box(
         modifier = Modifier
-            .matchParentSize()
+            .fillMaxWidth()
+            .height(gradientHeight)
             .alpha(gradientAlpha)
-            .background(Color.Black.copy(alpha = 0.25f))
+            .background(Color.Black.copy(alpha = 0.15f))
     )
 }
     
@@ -479,13 +554,7 @@ fun HomeScreen(
             contentPadding = LocalPlayerAwareWindowInsets.current.asPaddingValues()
         ) {
             item {
-                ChipsRow(
-                    chips = homePage?.chips?.map { it to it.title } ?: emptyList(),
-                    currentValue = selectedChip,
-                    onValueUpdate = {
-                        viewModel.toggleChip(it)
-                    }
-                )
+                Spacer(modifier = Modifier.height(5.dp))
             }
 
             if (selectedChip == null) {

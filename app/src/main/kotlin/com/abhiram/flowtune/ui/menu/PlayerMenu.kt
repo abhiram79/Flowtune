@@ -60,7 +60,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
 import androidx.core.net.toUri
-import android.widget.Toast
+
 import androidx.media3.common.PlaybackParameters
 import androidx.media3.exoplayer.offline.Download
 import androidx.media3.exoplayer.offline.DownloadRequest
@@ -81,10 +81,10 @@ import com.abhiram.flowtune.ui.component.BottomSheetState
 import com.abhiram.flowtune.ui.component.ListDialog
 import com.abhiram.flowtune.ui.component.Material3MenuItemData
 import com.abhiram.flowtune.ui.component.Material3MenuGroup
-import com.abhiram.flowtune.ui.component.NewAction
+
 import com.abhiram.flowtune.ui.component.Material3SettingsGroup
 import com.abhiram.flowtune.ui.component.Material3SettingsItem
-import com.abhiram.flowtune.ui.component.NewActionGrid
+
 import com.abhiram.flowtune.ui.component.VolumeSlider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -253,58 +253,30 @@ fun PlayerMenu(
         ),
     ) {
         item {
-            val startingRadioText = stringResource(R.string.starting_radio)
-            NewActionGrid(
-                actions = listOf(
-                    NewAction(
-                        icon = {
-                            Icon(
-                                painter = painterResource(R.drawable.radio),
-                                contentDescription = null,
-                                modifier = Modifier.size(28.dp),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        },
-                        text = stringResource(R.string.start_radio),
-                        onClick = {
-                            Toast.makeText(context, stringResource(R.string.starting_radio), Toast.LENGTH_SHORT).show()
-                            playerConnection.startRadioSeamlessly()
-                            onDismiss()
-                        }
-                    ),
-                    NewAction(
-                        icon = {
-                            Icon(
-                                painter = painterResource(R.drawable.playlist_add),
-                                contentDescription = null,
-                                modifier = Modifier.size(28.dp),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        },
-                        text = stringResource(R.string.add_to_playlist),
-                        onClick = { showChoosePlaylistDialog = true }
-                    ),
-                    NewAction(
-                        icon = {
-                            Icon(
-                                painter = painterResource(R.drawable.link),
-                                contentDescription = null,
-                                modifier = Modifier.size(28.dp),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        },
-                        text = stringResource(R.string.copy_link),
-                        onClick = {
-                            val clipboard = context.getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-                            val clip = android.content.ClipData.newPlainText("Song Link", "https://music.youtube.com/watch?v=${mediaMetadata.id}")
-                            clipboard.setPrimaryClip(clip)
-                            android.widget.Toast.makeText(context, R.string.link_copied, android.widget.Toast.LENGTH_SHORT).show()
-                            onDismiss()
-                        }
-                    )
-                ),
-                modifier = Modifier.padding(horizontal = 4.dp, vertical = 16.dp)
-            )
+            // Add to Playlist button - fills remaining space
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 4.dp, vertical = 16.dp)
+                    .clip(RoundedCornerShape(28.dp))
+                    .background(MaterialTheme.colorScheme.surfaceVariant)
+                    .clickable { showChoosePlaylistDialog = true }
+                    .padding(horizontal = 20.dp, vertical = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.playlist_add),
+                    contentDescription = null,
+                    modifier = Modifier.size(28.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Text(
+                    text = stringResource(R.string.add_to_playlist),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
         }
 
         item {
@@ -477,42 +449,6 @@ fun PlayerMenu(
                             }
                         )
                     )
-
-                    if (isQueueTrigger != true) {
-                        add(
-                            Material3MenuItemData(
-                                title = { Text(text = stringResource(R.string.equalizer)) },
-                                description = { Text(text = stringResource(R.string.equalizer_desc)) },
-                                icon = {
-                                    Icon(
-                                        painter = painterResource(R.drawable.equalizer),
-                                        contentDescription = null,
-                                        modifier = Modifier.size(24.dp)
-                                    )
-                                },
-                                onClick = {
-                                    navController.navigate("equalizer")
-                                    onDismiss()
-                                }
-                            )
-                        )
-                        add(
-                            Material3MenuItemData(
-                                title = { Text(text = stringResource(R.string.advanced)) },
-                                description = { Text(text = stringResource(R.string.advanced_desc)) },
-                                icon = {
-                                    Icon(
-                                        painter = painterResource(R.drawable.tune),
-                                        contentDescription = null,
-                                        modifier = Modifier.size(24.dp)
-                                    )
-                                },
-                                onClick = {
-                                    showPitchTempoDialog = true
-                                }
-                            )
-                        )
-                    }
                 }
             )
         }

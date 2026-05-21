@@ -724,28 +724,18 @@ class MainActivity : ComponentActivity() {
                 ),
             )
         },
-        actions = { 
-                   IconButton(onClick = { showAccountDialog = true }) {
+        actions = {
+                   IconButton(onClick = { navController.navigate("settings") }) {
                                                 BadgedBox(badge = {
                                                     if (latestVersionName != BuildConfig.VERSION_NAME) {
                                                         Badge()
                                                     }
                                                 }) {
-                                                    if (accountImageUrl != null) {
-                                                        AsyncImage(
-                                                            model = accountImageUrl,
-                                                            contentDescription = stringResource(R.string.account),
-                                                            modifier = Modifier
-                                                                .size(24.dp)
-                                                                .clip(CircleShape)
-                                                        )
-                                                    } else {
-                                                        Icon(
-                                                            painter = painterResource(R.drawable.account),
-                                                            contentDescription = stringResource(R.string.account),
-                                                            modifier = Modifier.size(24.dp)
-                                                        )
-                                                    }
+                                                    Icon(
+                                                        painter = painterResource(R.drawable.settings),
+                                                        contentDescription = stringResource(R.string.settings),
+                                                        modifier = Modifier.size(24.dp)
+                                                    )
                                                 }
                                             }
                                         },
@@ -779,7 +769,16 @@ class MainActivity : ComponentActivity() {
                                         playerBottomSheetState.collapseSoft()
                                     }
 
-                                    if (isSelected) {
+                                    if (screen == Screens.Search) {
+                                        // Always open fresh search screen
+                                        navController.navigate(screen.route) {
+                                            popUpTo(navController.graph.startDestinationId) {
+                                                saveState = true
+                                            }
+                                            launchSingleTop = true
+                                            restoreState = false
+                                        }
+                                    } else if (isSelected) {
                                         navController.currentBackStackEntry?.savedStateHandle?.set("scrollToTop", true)
                                         coroutineScope.launch {
                                             topAppBarScrollBehavior.state.resetHeightOffset()
@@ -881,7 +880,16 @@ class MainActivity : ComponentActivity() {
                                         playerBottomSheetState.collapseSoft()
                                     }
 
-                                    if (isSelected) {
+                                    if (screen == Screens.Search) {
+                                        // Always open fresh search screen
+                                        navController.navigate(screen.route) {
+                                            popUpTo(navController.graph.startDestinationId) {
+                                                saveState = true
+                                            }
+                                            launchSingleTop = true
+                                            restoreState = false
+                                        }
+                                    } else if (isSelected) {
                                         navController.currentBackStackEntry?.savedStateHandle?.set("scrollToTop", true)
                                         coroutineScope.launch {
                                             topAppBarScrollBehavior.state.resetHeightOffset()
