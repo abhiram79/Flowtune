@@ -83,8 +83,6 @@ import com.abhiram.flowtune.ui.menu.YouTubeSongMenu
 
 import com.metrolist.innertube.YouTube.SearchFilter.Companion.FILTER_ALBUM
 import com.metrolist.innertube.YouTube.SearchFilter.Companion.FILTER_ARTIST
-import com.metrolist.innertube.YouTube.SearchFilter.Companion.FILTER_COMMUNITY_PLAYLIST
-import com.metrolist.innertube.YouTube.SearchFilter.Companion.FILTER_FEATURED_PLAYLIST
 import com.metrolist.innertube.YouTube.SearchFilter.Companion.FILTER_SONG
 import com.metrolist.innertube.YouTube.SearchFilter.Companion.FILTER_VIDEO
 import com.metrolist.innertube.models.AlbumItem
@@ -94,25 +92,18 @@ import com.metrolist.innertube.models.SongItem
 import com.metrolist.innertube.models.WatchEndpoint
 import com.metrolist.innertube.models.YTItem
 import com.abhiram.flowtune.LocalPlayerAwareWindowInsets
-import com.abhiram.flowtune.LocalPlayerConnection
 import com.abhiram.flowtune.constants.AppBarHeight
 import com.abhiram.flowtune.constants.SearchFilterHeight
 import com.abhiram.flowtune.constants.MiniPlayerHeight
 import com.abhiram.flowtune.constants.MiniPlayerBottomSpacing
 import com.abhiram.flowtune.constants.NavigationBarHeight
-import com.abhiram.flowtune.models.toMediaMetadata
 import com.abhiram.flowtune.playback.queues.YouTubeQueue
 import com.abhiram.flowtune.ui.component.ChipsRow
 import com.abhiram.flowtune.ui.component.EmptyPlaceholder
-import com.abhiram.flowtune.ui.component.LocalMenuState
 import com.abhiram.flowtune.ui.component.NavigationTitle
 import com.abhiram.flowtune.ui.component.YouTubeListItem
 import com.abhiram.flowtune.ui.component.shimmer.ListItemPlaceHolder
 import com.abhiram.flowtune.ui.component.shimmer.ShimmerHost
-import com.abhiram.flowtune.ui.menu.YouTubeAlbumMenu
-import com.abhiram.flowtune.ui.menu.YouTubeArtistMenu
-import com.abhiram.flowtune.ui.menu.YouTubePlaylistMenu
-import com.abhiram.flowtune.ui.menu.YouTubeSongMenu
 import com.abhiram.flowtune.viewmodels.OnlineSearchViewModel
 import kotlinx.coroutines.launch
 import java.net.URLDecoder
