@@ -147,6 +147,7 @@ import com.abhiram.flowtune.ui.component.BottomSheetState
 import com.abhiram.flowtune.ui.component.LocalBottomSheetPageState
 import com.abhiram.flowtune.ui.component.LocalMenuState
 import com.abhiram.flowtune.ui.component.Lyrics
+import com.kyant.backdrop.Backdrop
 import com.abhiram.flowtune.ui.component.PlayerSliderTrack
 import com.abhiram.flowtune.ui.component.ResizableIconButton
 import com.abhiram.flowtune.ui.component.WavySlider
@@ -178,6 +179,7 @@ fun BottomSheetPlayer(
     navController: NavController,
     modifier: Modifier = Modifier,
     pureBlack: Boolean,
+    backdrop: Backdrop,
 ) {
     val context = LocalContext.current
     val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -680,7 +682,8 @@ fun BottomSheetPlayer(
         collapsedContent = {
             MiniPlayer(
                 positionState = positionState,
-                durationState = durationState
+                durationState = durationState,
+                backdrop = backdrop
             )
         },
     ) {
