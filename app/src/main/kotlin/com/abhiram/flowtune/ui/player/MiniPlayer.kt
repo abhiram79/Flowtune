@@ -110,6 +110,7 @@ import androidx.compose.ui.graphics.Brush
 import com.kyant.backdrop.Backdrop
 import com.kyant.backdrop.drawBackdrop
 import com.kyant.backdrop.effects.blur
+import com.kyant.backdrop.effects.exposureAdjustment
 import com.kyant.backdrop.effects.lens
 import com.kyant.backdrop.effects.vibrancy
 
@@ -308,8 +309,9 @@ private fun NewMiniPlayer(
                     shape = { glassShape },
                     effects = {
                         vibrancy()
-                        blur(8f.dp.toPx())
-                        lens(24f.dp.toPx(), 24f.dp.toPx())
+                        blur(1f.dp.toPx())
+                        lens(15f.dp.toPx(), -22f.dp.toPx())
+                        exposureAdjustment(-0.05f)
                     },
                     highlight = null,
                     onDrawSurface = {
