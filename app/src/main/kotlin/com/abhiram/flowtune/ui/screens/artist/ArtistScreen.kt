@@ -338,7 +338,7 @@ fun ArtistScreen(
                                     modifier = Modifier.fillMaxWidth(),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    // Subscribe Button
+                                    // Add to Library Button
                                     OutlinedButton(
                                         onClick = {
                                             database.transaction {
@@ -370,7 +370,7 @@ fun ArtistScreen(
                                     ) {
                                         val isSubscribed = libraryArtist?.artist?.bookmarkedAt != null
                                         Text(
-                                            text = stringResource(if (isSubscribed) R.string.subscribed else R.string.subscribe),
+                                            text = stringResource(if (isSubscribed) R.string.subscribed else R.string.add_to_library),
                                             fontSize = 14.sp,
                                             color = if (!isSubscribed) MaterialTheme.colorScheme.error else LocalContentColor.current
                                         )
@@ -382,30 +382,6 @@ fun ArtistScreen(
                                         horizontalArrangement = Arrangement.spacedBy(16.dp),
                                         verticalAlignment = Alignment.CenterVertically
                                     ) {
-                                        // Radio Button
-                                        if (!showLocal) {
-                                            artistPage?.artist?.radioEndpoint?.let { radioEndpoint ->
-                                                OutlinedButton(
-                                                    onClick = {
-                                                        playerConnection.playQueue(YouTubeQueue(radioEndpoint))
-                                                    },
-                                                    shape = RoundedCornerShape(50),
-                                                    modifier = Modifier.height(40.dp)
-                                                ) {
-                                                    Icon(
-                                                        painter = painterResource(R.drawable.radio),
-                                                        contentDescription = null,
-                                                        modifier = Modifier.size(20.dp)
-                                                    )
-                                                    Spacer(modifier = Modifier.width(8.dp))
-                                                    Text(
-                                                        text = stringResource(R.string.radio),
-                                                        fontSize = 14.sp
-                                                    )
-                                                }
-                                            }
-                                        }
-
                                         // Shuffle Button
                                         if (!showLocal) {
                                             artistPage?.artist?.shuffleEndpoint?.let { shuffleEndpoint ->
@@ -839,21 +815,6 @@ fun ArtistScreen(
             }
         },
         actions = {
-            IconButton(
-                onClick = {
-                    viewModel.artistPage?.artist?.shareLink?.let { link ->
-                        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                        val clip = ClipData.newPlainText("Artist Link", link)
-                        clipboard.setPrimaryClip(clip)
-                        Toast.makeText(context, R.string.link_copied, Toast.LENGTH_SHORT).show()
-                    }
-                },
-            ) {
-                Icon(
-                    painterResource(R.drawable.link),
-                    contentDescription = null,
-                )
-            }
         },
         colors = if (transparentAppBar) {
             TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)

@@ -104,72 +104,7 @@ fun LocalPlaylistMenu(
             )
         )
 
-        // Show sync button only for YouTube playlists
-        if (isYouTubePlaylist) {
-            add(
-                Material3MenuItemData(
-                    title = { Text(stringResource(R.string.action_sync)) },
-                    description = { Text(stringResource(R.string.sync_playlist_desc)) },
-                    icon = {
-                        Icon(
-                            painter = painterResource(R.drawable.sync),
-                            contentDescription = null
-                        )
-                    },
-                    onClick = {
-                        onSync()
-                        onDismiss()
-                    }
-                )
-            )
-        }
-
-        add(
-            Material3MenuItemData(
-                title = { Text(stringResource(R.string.add_to_queue)) },
-                description = { Text(stringResource(R.string.add_to_queue_desc)) },
-                icon = {
-                    Icon(
-                        painter = painterResource(R.drawable.queue_music),
-                        contentDescription = null
-                    )
-                },
-                onClick = {
-                    onQueue()
-                    onDismiss()
-                }
-            )
-        )
-
         add(downloadMenuItem)
-
-        add(
-            Material3MenuItemData(
-                title = { Text(stringResource(R.string.share)) },
-                description = { Text(stringResource(R.string.share_playlist_desc)) },
-                icon = {
-                    Icon(
-                        painter = painterResource(R.drawable.share),
-                        contentDescription = null
-                    )
-                },
-                onClick = {
-                    val shareText = if (isYouTubePlaylist) {
-                        "https://music.youtube.com/playlist?list=${playlist.playlist.browseId}"
-                    } else {
-                        songs.joinToString("\n") { it.song.song.title }
-                    }
-                    val sendIntent: Intent = Intent().apply {
-                        action = Intent.ACTION_SEND
-                        putExtra(Intent.EXTRA_TEXT, shareText)
-                        type = "text/plain"
-                    }
-                    val shareIntent = Intent.createChooser(sendIntent, null)
-                    context.startActivity(shareIntent)
-                    onDismiss()
-                }
-            )
-        )
 
         add(
             Material3MenuItemData(

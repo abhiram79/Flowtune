@@ -26,7 +26,7 @@
     <string name="liked">Liked</string>
     <string name="offline">Downloaded</string>
     <string name="my_top">My top</string>
-    <string name="cached_playlist">Cached</string>
+    <string name="cached_playlist">Offline</string>
     <string name="uploaded_playlist">Uploaded</string>
     <string name="filter_uploaded">Uploaded</string>
     <string name="sync_playlist">Sync playlist</string>
@@ -137,7 +137,7 @@
     <string name="show_liked_playlist">Show \"Liked\" playlist</string>
     <string name="show_downloaded_playlist">Show \"Downloaded\" playlist</string>
     <string name="show_top_playlist">Show \"Top\" playlist</string>
-    <string name="show_cached_playlist">Show \"Cached\" playlist</string>
+    <string name="show_cached_playlist">Show \"Offline\" playlist</string>
     <string name="show_uploaded_playlist">Show \"Uploaded\" playlist</string>
     <string name="shuffle_playlist_first">Shuffle playlist/album first</string>
     <string name="shuffle_playlist_first_desc">When shuffling, play all songs from the original playlist/album first, then similar content</string>
