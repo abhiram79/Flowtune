@@ -7,8 +7,11 @@
 <!-- Translators: Do not modify this file for translations, use InnerTune's Weblate instead. -->
 
 <resources>
+    <!-- App Title -->
+    <string name="flowtune">Flowtune</string>
+  
     <!-- Bottom navigation -->
-    <string name="home">Flowtune</string>
+    <string name="home">Home</string>
     <string name="songs">Songs</string>
     <string name="artists">Artists</string>
     <string name="albums">Albums</string>
