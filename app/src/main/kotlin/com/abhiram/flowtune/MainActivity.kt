@@ -137,6 +137,8 @@ import com.abhiram.flowtune.constants.PauseSearchHistoryKey
 import com.abhiram.flowtune.constants.PureBlackKey
 import com.abhiram.flowtune.constants.SYSTEM_DEFAULT
 import com.abhiram.flowtune.constants.SlimNavBarHeight
+import com.kyant.backdrop.backdrops.layerBackdrop
+import com.kyant.backdrop.backdrops.rememberLayerBackdrop
 import com.abhiram.flowtune.constants.SlimNavBarKey
 import com.abhiram.flowtune.constants.StopMusicOnTaskClearKey
 import com.abhiram.flowtune.constants.UpdateNotificationsEnabledKey
@@ -685,6 +687,8 @@ class MainActivity : ComponentActivity() {
                     mutableStateOf(listOf(Color(0xFF2E235A), Color(0xFF1B1833), Color.Transparent))
                 }
 
+                val backdrop = rememberLayerBackdrop()
+
                 CompositionLocalProvider(
                     LocalDatabase provides database,
                     LocalContentColor provides if (pureBlack) Color.White else contentColorFor(MaterialTheme.colorScheme.surface),
@@ -805,7 +809,8 @@ class MainActivity : ComponentActivity() {
                                     BottomSheetPlayer(
                                         state = playerBottomSheetState,
                                         navController = navController,
-                                        pureBlack = pureBlack
+                                        pureBlack = pureBlack,
+                                        backdrop = backdrop
                                     )
 
                                     AppNavigationBar(
@@ -853,7 +858,8 @@ class MainActivity : ComponentActivity() {
                                     BottomSheetPlayer(
                                         state = playerBottomSheetState,
                                         navController = navController,
-                                        pureBlack = pureBlack
+                                        pureBlack = pureBlack,
+                                        backdrop = backdrop
                                     )
                                 }
 
@@ -916,7 +922,7 @@ class MainActivity : ComponentActivity() {
                                     pureBlack = pureBlack
                                 )
                             }
-                            Box(Modifier.weight(1f)) {
+                            Box(Modifier.weight(1f).layerBackdrop(backdrop)) {
                                 // NavHost with animations (Material 3 Expressive style)
                                 NavHost(
                                     navController = navController,

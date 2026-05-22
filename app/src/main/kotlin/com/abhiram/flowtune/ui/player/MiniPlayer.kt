@@ -102,11 +102,16 @@ import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
-import android.os.Build                                    
-import androidx.compose.ui.draw.blur                   
+import android.os.Build
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.graphics.Brush
+import com.kyant.backdrop.Backdrop
+import com.kyant.backdrop.drawBackdrop
+import com.kyant.backdrop.effects.blur
+import com.kyant.backdrop.effects.lens
+import com.kyant.backdrop.effects.vibrancy
 
 
 /**
@@ -125,29 +130,12 @@ class ProgressState(
         }
 }
 
-fun Modifier.glassEffect(
-    blurRadius: Dp = 24.dp,
-    alpha: Float = 0.75f
-  ): Modifier = this.then(
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-        Modifier
-            .graphicsLayer {
-                this.alpha = alpha
-                clip = true
-            }
-            .blur(blurRadius)
-    } else {
-        Modifier.graphicsLayer {
-            this.alpha = alpha
-        }
-    }
-)
-
 @Composable
 fun MiniPlayer(
     positionState: MutableLongState,
     durationState: MutableLongState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    backdrop: Backdrop,
 ) {
     val useNewMiniPlayerDesign by rememberPreference(UseNewMiniPlayerDesignKey, true)
     
@@ -162,7 +150,8 @@ fun MiniPlayer(
     if (useNewMiniPlayerDesign) {
         NewMiniPlayer(
             progressState = progressState,
-            modifier = modifier
+            modifier = modifier,
+            backdrop = backdrop
         )
     } else {
         Box(modifier = modifier.fillMaxWidth()) {
@@ -181,7 +170,8 @@ fun MiniPlayer(
 @Composable
 private fun NewMiniPlayer(
     progressState: ProgressState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    backdrop: Backdrop,
 ) {
     val playerConnection = LocalPlayerConnection.current ?: return
     
@@ -307,49 +297,34 @@ private fun NewMiniPlayer(
                        } else {
                          MaterialTheme.colorScheme.surface.copy(alpha = 0.55f)
                       }
+        val glassShape = RoundedCornerShape(32.dp)
         Box(
             modifier = Modifier
                 .then(if (isTabletLandscape) Modifier.width(500.dp).align(Alignment.Center) else Modifier.fillMaxWidth())
                 .height(64.dp)
                 .offset { IntOffset(offsetXAnimatable.value.roundToInt(), 0) }
-                .clip(RoundedCornerShape(32.dp))
-                 .background(Color.Transparent)
-                 .border(
-                         width = 1.dp,
-                         color = Color.White.copy(alpha = if (useDarkTheme) 0.12f else 0.25f),
-                         shape = RoundedCornerShape(32.dp)
-                       )
-        ) {
-           Box(
-            modifier = Modifier
-            .matchParentSize()
-            .clip(RoundedCornerShape(32.dp))
-            .glassEffect(
-                       blurRadius = 42.dp,
-                       alpha = 1f
-             )
-           )
-           Box(
-               modifier = Modifier
-               .matchParentSize()
-               .background(
-               glassColor.copy(alpha = 0.65f),
-               shape = RoundedCornerShape(32.dp)
-               )
-             )
-           Box(
-               modifier = Modifier
-                .matchParentSize()
-                .background(
-                    brush = Brush.verticalGradient(
-                    colors = listOf(
-                    Color.White.copy(alpha = 0.08f),
-                    Color.Transparent
+                .drawBackdrop(
+                    backdrop = backdrop,
+                    shape = { glassShape },
+                    effects = {
+                        vibrancy()
+                        blur(8f.dp.toPx())
+                        lens(24f.dp.toPx(), 24f.dp.toPx())
+                    },
+                    highlight = null,
+                    onDrawSurface = {
+                        drawRect(
+                            color = glassColor.copy(alpha = 0.65f),
+                            size = size
+                        )
+                    }
                 )
-            ),
-             shape = RoundedCornerShape(32.dp)
-             ) 
-            )
+                .border(
+                    width = 1.dp,
+                    color = Color.White.copy(alpha = if (useDarkTheme) 0.12f else 0.25f),
+                    shape = glassShape
+                )
+        ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxSize().padding(horizontal = 8.dp, vertical = 8.dp),
