@@ -723,7 +723,7 @@ class MainActivity : ComponentActivity() {
     TopAppBar(
         title = {
             Text(
-                text = currentTitleRes?.let { stringResource(it) } ?: "",
+                text = stringResource(R.string.flowtune),
                 style = MaterialTheme.typography.headlineMedium.copy(
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
