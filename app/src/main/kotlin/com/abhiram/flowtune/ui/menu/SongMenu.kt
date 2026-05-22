@@ -346,18 +346,6 @@ fun SongMenu(
                     NewAction(
                         icon = {
                             Icon(
-                                painter = painterResource(R.drawable.edit),
-                                contentDescription = null,
-                                modifier = Modifier.size(28.dp),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        },
-                        text = stringResource(R.string.edit),
-                        onClick = { showEditDialog = true }
-                    ),
-                    NewAction(
-                        icon = {
-                            Icon(
                                 painter = painterResource(R.drawable.playlist_add),
                                 contentDescription = null,
                                 modifier = Modifier.size(28.dp),
@@ -370,23 +358,18 @@ fun SongMenu(
                     NewAction(
                         icon = {
                             Icon(
-                                painter = painterResource(R.drawable.share),
+                                painter = painterResource(R.drawable.playlist_play),
                                 contentDescription = null,
                                 modifier = Modifier.size(28.dp),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         },
-                        text = stringResource(R.string.share),
+                        text = stringResource(R.string.play_next),
                         onClick = {
                             onDismiss()
-                            val intent = Intent().apply {
-                                action = Intent.ACTION_SEND
-                                type = "text/plain"
-                                putExtra(Intent.EXTRA_TEXT, "https://music.youtube.com/watch?v=${song.id}")
-                            }
-                            context.startActivity(Intent.createChooser(intent, null))
+                            playerConnection.playNext(song.toMediaItem())
                         }
-                    )
+                    ),
                 ),
                 modifier = Modifier.padding(horizontal = 4.dp, vertical = 16.dp)
             )
@@ -394,20 +377,6 @@ fun SongMenu(
         item {
             Material3MenuGroup(
                 items = listOf(
-                    Material3MenuItemData(
-                        title = { Text(text = stringResource(R.string.start_radio)) },
-                        description = { Text(text = stringResource(R.string.start_radio_desc)) },
-                        icon = {
-                            Icon(
-                                painter = painterResource(R.drawable.radio),
-                                contentDescription = null,
-                            )
-                        },
-                        onClick = {
-                            onDismiss()
-                            playerConnection.playQueue(YouTubeQueue.radio(song.toMediaMetadata()))
-                        }
-                    ),
                     Material3MenuItemData(
                         title = { Text(text = stringResource(R.string.play_next)) },
                         description = { Text(text = stringResource(R.string.play_next_desc)) },
@@ -684,50 +653,6 @@ fun SongMenu(
                             )
                         )
                     }
-                    add(
-                        Material3MenuItemData(
-                            title = { Text(text = stringResource(R.string.refetch)) },
-                            description = { Text(text = stringResource(R.string.refetch_desc)) },
-                            icon = {
-                                Icon(
-                                    painter = painterResource(R.drawable.sync),
-                                    contentDescription = null,
-                                    modifier = Modifier.graphicsLayer(rotationZ = rotationAnimation),
-                                )
-                            },
-                            onClick = {
-                                refetchIconDegree -= 360
-                                scope.launch(Dispatchers.IO) {
-                                    YouTube.queue(listOf(song.id)).onSuccess {
-                                        val newSong = it.firstOrNull()
-                                        if (newSong != null) {
-                                            database.transaction {
-                                                update(song, newSong.toMediaMetadata())
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        )
-                    )
-                    add(
-                        Material3MenuItemData(
-                            title = { Text(text = stringResource(R.string.details)) },
-                            description = { Text(text = stringResource(R.string.details_desc)) },
-                            icon = {
-                                Icon(
-                                    painter = painterResource(R.drawable.info),
-                                    contentDescription = null,
-                                )
-                            },
-                            onClick = {
-                                onDismiss()
-                                bottomSheetPageState.show {
-                                    ShowMediaInfo(song.id)
-                                }
-                            }
-                        )
-                    )
                 }
             )
         }

@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
@@ -24,7 +25,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -74,7 +74,7 @@ fun AboutScreen(
             )
         )
 
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(48.dp))
 
         Image(
             painter = painterResource(R.drawable.small_icon),
@@ -84,21 +84,20 @@ fun AboutScreen(
                 BlendMode.SrcIn
             ),
             modifier = Modifier
+                .size(64.dp)
                 .clip(CircleShape)
-                .background(MaterialTheme.colorScheme.surfaceContainer)
-                .clickable { },
+                .background(MaterialTheme.colorScheme.surfaceContainer),
         )
 
-        Row(
-            verticalAlignment = Alignment.Top,
-        ) {
-            Text(
-                text = "METROLIST",
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
-            )
-        }
+        Spacer(Modifier.height(12.dp))
+
+        Text(
+            text = "Flowtune",
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+        )
+
+        Spacer(Modifier.height(12.dp))
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
@@ -117,140 +116,33 @@ fun AboutScreen(
                     ),
             )
 
-            Spacer(Modifier.width(4.dp))
+            Spacer(Modifier.width(8.dp))
 
-            if (BuildConfig.DEBUG) {
-                Spacer(Modifier.width(4.dp))
-
-                Text(
-                    text = "DEBUG",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.secondary,
-                    modifier = Modifier
-                        .border(
-                            width = 1.dp,
-                            color = MaterialTheme.colorScheme.secondary,
-                            shape = CircleShape,
-                        )
-                        .padding(
-                            horizontal = 6.dp,
-                            vertical = 2.dp,
-                        ),
-                )
-            } else {
-                Spacer(Modifier.width(4.dp))
-
-                Text(
-                    text = BuildConfig.ARCHITECTURE.uppercase(),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.secondary,
-                    modifier = Modifier
-                        .border(
-                            width = 1.dp,
-                            color = MaterialTheme.colorScheme.secondary,
-                            shape = CircleShape,
-                        )
-                        .padding(
-                            horizontal = 6.dp,
-                            vertical = 2.dp,
-                        ),
-                )
-            }
-        }
-
-        Spacer(Modifier.height(8.dp))
-
-        Text(
-            text = "MO AGAMY",
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-
-        Spacer(Modifier.height(8.dp))
-
-        Row {
-            IconButton(
-                onClick = {
-                    uriHandler.openUri("https://github.com/mostafaalagamy")
-                },
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.github),
-                    contentDescription = null
-                )
-            }
-
-            IconButton(
-                onClick = {
-                    uriHandler.openUri("https://buymeacoffee.com/mostafaalagamy")
-                }
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.buymeacoffee),
-                    contentDescription = null
-                )
-            }
-
-            IconButton(
-                onClick = {
-                    uriHandler.openUri("https://mostafaalagamy.github.io")
-                }
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.language),
-                    contentDescription = null
-                )
-            }
+            Text(
+                text = "GPL 3.0 License",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.secondary,
+                modifier = Modifier
+                    .border(
+                        width = 1.dp,
+                        color = MaterialTheme.colorScheme.secondary,
+                        shape = CircleShape,
+                    )
+                    .padding(
+                        horizontal = 6.dp,
+                        vertical = 2.dp,
+                    ),
+            )
         }
 
         Spacer(Modifier.height(16.dp))
 
         Text(
-            text = "COLLABORATORS",
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier
-                .border(
-                    width = 1.dp,
-                    color = MaterialTheme.colorScheme.secondary,
-                    shape = CircleShape,
-                )
-                .padding(
-                    horizontal = 6.dp,
-                    vertical = 2.dp,
-                ),
-        )
-
-        Spacer(Modifier.height(4.dp))
-
-        Text(
-            text = "Damian Sobczak",
+            text = "by abhiram79",
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.secondary,
             modifier = Modifier.clickable {
-                uriHandler.openUri("https://github.com/FullerBread2032")
-            }
-        )
-
-        Spacer(Modifier.height(8.dp))
-
-        Text(
-            text = "Adriel O'Connel",
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.clickable {
-                uriHandler.openUri("https://github.com/adrielGGmotion")
-            }
-        )
-
-        Spacer(Modifier.height(8.dp))
-
-        Text(
-            text = "Nyx",
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.clickable {
-                uriHandler.openUri("https://github.com/nyxiereal")
+                uriHandler.openUri("https://github.com/abhiram79/")
             }
         )
 

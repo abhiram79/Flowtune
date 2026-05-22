@@ -290,26 +290,6 @@ fun YouTubeSongMenu(
                             showChoosePlaylistDialog = true
                         }
                     ),
-                    NewAction(
-                        icon = {
-                            Icon(
-                                painter = painterResource(R.drawable.share),
-                                contentDescription = null,
-                                modifier = Modifier.size(28.dp),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        },
-                        text = stringResource(R.string.share),
-                        onClick = {
-                            val intent = Intent().apply {
-                                action = Intent.ACTION_SEND
-                                type = "text/plain"
-                                putExtra(Intent.EXTRA_TEXT, song.shareLink)
-                            }
-                            context.startActivity(Intent.createChooser(intent, null))
-                            onDismiss()
-                        }
-                    )
                 ),
                 modifier = Modifier.padding(horizontal = 4.dp, vertical = 16.dp)
             )
@@ -318,20 +298,6 @@ fun YouTubeSongMenu(
         item {
             Material3MenuGroup(
                 items = listOf(
-                    Material3MenuItemData(
-                        title = { Text(text = stringResource(R.string.start_radio)) },
-                        description = { Text(text = stringResource(R.string.start_radio_desc)) },
-                        icon = {
-                            Icon(
-                                painter = painterResource(R.drawable.radio),
-                                contentDescription = null,
-                            )
-                        },
-                        onClick = {
-                            playerConnection.playQueue(YouTubeQueue.radio(song.toMediaMetadata()))
-                            onDismiss()
-                        }
-                    ),
                     Material3MenuItemData(
                         title = { Text(text = stringResource(R.string.add_to_queue)) },
                         description = { Text(text = stringResource(R.string.add_to_queue_desc)) },
@@ -547,24 +513,6 @@ fun YouTubeSongMenu(
                             )
                         )
                     }
-                    add(
-                        Material3MenuItemData(
-                            title = { Text(text = stringResource(R.string.details)) },
-                            description = { Text(text = stringResource(R.string.details_desc)) },
-                            icon = {
-                                Icon(
-                                    painter = painterResource(R.drawable.info),
-                                    contentDescription = null,
-                                )
-                            },
-                            onClick = {
-                                onDismiss()
-                                bottomSheetPageState.show {
-                                    ShowMediaInfo(song.id)
-                                }
-                            }
-                        )
-                    )
                 }
             )
         }
